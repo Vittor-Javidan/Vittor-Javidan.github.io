@@ -84,7 +84,7 @@ body {
 
 .section1 {
 	height: 100vh;
-	background-image: url('https://images.wallpapersden.com/image/download/dota-2-art-wisp_Zmhla22UmZqaraWkpJRnamtlrWZpaWU.jpg');
+	background-image: url('../images/background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
