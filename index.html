@@ -3,10 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vittor's Portifólio</title>
+		<title>Menu</title>
 		
 		<!-- STYLESHEETS -->
-		<link rel="stylesheet" href="stylesheets/styles.css" />
+		<link rel="stylesheet" href="stylesheets/generalStyles.css" />
+		<link rel="stylesheet" href="stylesheets/aviso.css" />
+		<link rel="stylesheet" href="stylesheets/sidebar.css" />
+		<link rel="stylesheet" href="stylesheets/section1.css" />
 
 		<!-- ICONS -->
 		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,12 +22,38 @@
 			<h1>Este site ainda não se encontra pronto!!</h1>
 			<h1>This website still not ready!!</h1>
 		</div>
+
 		<div class="sidebar">
-			<dic class="logo">
-				<img src="images/Lone_Wisp_Logo_1024.png" alt="logo image" />
-				<h3>Vittor's Portifolio</h3>
+
+			<!-- Sidebar made using the tutorial: https://youtu.be/hAnv1NEE7j8 credits: "CODE WITH HOSSEIN" channel -->
+
+			<div class="toggle">
+				<i class="bx bx-chevron-right"></i>
 			</div>
+			
+			<div class="menu-label">
+				<img src="images/Lone_Wisp_Logo_1024.png" alt="logo image" />
+				<h3>Menu</h3>
+			</div>
+
+			<nav>
+				<ul>
+					<!-- Site to get more icons => https://boxicons.com/ -->
+					<li class="nav-item active">
+						<i class='bx bxs-contact'></i>
+						<span>About Me</span>
+					</li>
+					<li class="nav-item">
+						<i class='bx bxs-package'></i>
+						<span>My Projects</span>
+					</li>
+				</ul>
+			</nav>
 		</div>
+
 		<section class="section1"></section>
+
+		<!-- SCRIPTS -->
+		<script src="scripts/sidebar.js"></script>
 	</body>
 </html>
