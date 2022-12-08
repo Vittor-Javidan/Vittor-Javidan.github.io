@@ -19,3 +19,42 @@
 	border: 2px solid rgba(255, 255, 255, 0.09);
 	border-radius: 15px;
 }
+
+.page > .content-box > .colored-top-dots {
+	display: flex;
+	width: calc(30px*3 + 15px);
+	padding: 8px 0;
+}
+
+.page > .content-box > .colored-top-dots > .red-dot {
+	width: 15px;
+	height: 15px;
+	margin-left: 13px;
+	border-radius: 50%;
+	background-color: rgb(255, 0, 0);
+	border: 1px solid rgba(10, 10, 10, 0.65);
+	box-shadow: 0 8px 32px rgb(2, 4, 24);
+}
+
+.page > .content-box > .colored-top-dots > .yellow-dot {
+	width: 15px;
+	height: 15px;
+	margin-left: 13px;
+	border-radius: 50%;
+	background: rgb(255, 255, 0);
+	border: 1px solid rgba(10, 10, 10, 0.65);
+}
+
+.page > .content-box > .colored-top-dots > .green-dot {
+	width: 15px;
+	height: 15px;
+	margin-left: 13px;
+	border-radius: 50%;
+	background: rgb(0, 255, 0);
+	border: 1px solid rgba(10, 10, 10, 0.65);
+}
+
+.page > .content-box > .horizontal-line {
+	margin: 0 5px;
+	border-top: 2px solid rgba(255, 255, 255, 0.09);
+}
