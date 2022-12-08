@@ -5,6 +5,7 @@
 	height: 100vh;
 	position: fixed;
 	background: rgba(10, 10, 10, 0.65);
+	backdrop-filter: blur(6px);
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
 	border-right: 2px solid rgba(255, 255, 255, 0.09);
 	transition: 0.3s linear;
@@ -94,14 +95,8 @@
 
 .sidebar > nav > ul > .nav-item {
 	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-items: flex-start;
 	border-radius: 4px;
-	width: 100%;
-	height: 56px;
-	padding: 0px 16px;
-	color: #fff;
+	width: 100%;	
 }
 
 .sidebar > nav > ul > .nav-item:hover {
@@ -114,18 +109,28 @@
 	transition: 0.05s;
 }
 
-.sidebar > nav > ul > .nav-item > i {
+.sidebar > nav > ul > .nav-item > a {
+	height: 56px;
+	padding: 0px 16px;
+	display: flex;
+	align-items: center;
+	justify-items: flex-start;
+	text-decoration: none;
+	color: #fff;
+}
+
+.sidebar > nav > ul > .nav-item > a > i {
 	font-size: 2.6rem;
 }
 
-.sidebar > nav > ul > .nav-item > span {
+.sidebar > nav > ul > .nav-item > a > span {
 	font-size: 1.8rem;
 	margin-left: 8px;
 	pointer-events: none;
 	opacity: 0;
 }
 
-.sidebar.open > nav > ul > .nav-item > span {
+.sidebar.open > nav > ul > .nav-item > a > span {
 	opacity: 1;
 	pointer-events: visible;
 	transition: 0.4s linear;
