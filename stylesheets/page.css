@@ -1,4 +1,4 @@
-/* ABOUT ME */
+/* WINDOW GENERAL CSS */
 
 .page {
 	height: 100vh;
@@ -66,14 +66,6 @@
 	overflow-y: scroll;
 }
 
-/* ABOUT ME CONTENT ================================================= */
-
-#about-me > .window > .content {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
 .page > .window > .content::-webkit-scrollbar {
 	width: 5px;
 	height: 95%;
@@ -82,6 +74,24 @@
 .page > .window > .content::-webkit-scrollbar-thumb {
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ABOUT ME CONTENT ================================================= */
+
+#about-me > .window > .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #about-me > .window > .content > #introduction > #profile-pic {
@@ -127,6 +137,10 @@
 	cursor: pointer;
 }
 
+#about-me > .window > .content > ul > li > a > i {
+	font-size: 6rem;
+}
+
 #about-me > .window > .content > ul > li > a > i:hover {
 	
 	transform: translateY(-15px);
@@ -139,18 +153,20 @@
 	transition: 0.05s linear;
 }
 
-#about-me > .window > .content > ul > li > a > i {
-	font-size: 6rem;
-}
+
+
+
+
+
+
+
+
+
 
 /* MY SELF-TAUGHT CURRICULUM ============================================ */
 
 #my-curriculum > .window > .content {
 	color: rgb(240, 240, 240);
-}
-
-#my-curriculum > .window > .content li > ul li {
-	color: rgb(150, 150, 150);
 }
 
 #my-curriculum > .window > .content a {
@@ -162,28 +178,16 @@
 	text-decoration: underline;
 }
 
-#my-curriculum > .window > .content li > ul li:hover {
-	transition: 0.1s linear;
-	transform: translateX(10px);
-}
-
 #my-curriculum > .window > .content a:active {
 	color: rgba(255, 50, 142, 0.8);
 }
 
-#my-curriculum > .window > .content > h1 {
+#my-curriculum > .window > .content h1 {
 	font-size: 5rem;
 	margin-bottom: 10px;
 }
 
-#my-curriculum > .window > .content > p {
-	font-size: 1.6rem;
-	margin-bottom: 40px;
-	margin-right: 10px;
-	text-align: justify;
-}
-
-#my-curriculum > .window > .content > h2 {
+#my-curriculum > .window > .content h2 {
 	font-size: 2.5rem;
 	margin-bottom: 10px;
 }
@@ -196,41 +200,89 @@
 	content: "==/";
 }
 
-#my-curriculum > .window > .content > ul:last-of-type {
-	color: rgb(150, 150, 150);
-}
-
-#my-curriculum > .window > .content > ul:last-of-type > li:hover {
-	text-decoration: underline;
-	transition: 0.1s linear;
-	transform: translateX(10px);
-}
-
-#my-curriculum > .window > .content > ul > li  {
-	font-size: 1.6rem;
-	padding-left: 40px;
-	margin-bottom: 5px;
-}
-
-#my-curriculum > .window > .content > ul > li > h3 {
+#my-curriculum > .window > .content h3 {
 	padding-left: 20px;
 	margin-bottom: 10px;
 	font-size: 2rem;
 }
 
-#my-curriculum > .window > .content > ul > li:last-of-type {
-	margin-bottom: 50px;
-}
-
-#my-curriculum > .window > .content > ul > li > ul > li {
-	font-size: 1.6rem;
-	padding-left: 40px;
-	margin-bottom: 5px;
-}
-
-#my-curriculum > .window > .content > ul > li > ul:last-of-type {
+#my-curriculum > .window > .content h4 {
 	margin-bottom: 10px;
 }
+
+#my-curriculum > .window > .content p {
+	font-size: 1.6rem;
+	margin-bottom: 60px;
+	margin-right: 10px;
+	text-align: justify;
+}
+
+.topic-list {
+	margin-bottom: 60px;
+}
+
+.topic-list:last-of-type {
+	color: rgb(150, 150, 150);
+}
+
+.topic-list > li  {
+	font-size: 1.6rem;
+	padding-left: 40px;
+	margin-bottom: 10px;
+}
+
+.topic-list:last-of-type > li {
+	margin-bottom: 0px;
+}
+
+.topic-list:last-of-type > li:hover {
+	text-decoration: underline;
+	transition: 0.1s linear;
+	transform: translateX(10px);
+}
+
+.subtopic-list > li {
+	color: rgb(150, 150, 150);
+	font-size: 1.6rem;
+	padding-left: 40px;
+}
+
+.subtopic-list > li:hover {
+	transition: 0.1s linear;
+	transform: translateX(10px);
+}
+
+.subtopic-list > .li-readings:hover {
+	transform: translateX(0px);
+}
+
+.subtopic-list:last-of-type {
+	margin-bottom: 20px;
+}
+
+.li-readings {
+	margin-top: 10px;
+}
+
+.li-readings > ul {
+	margin-left: 20px;
+}
+
+.li-readings > ul > li:hover {
+	transition: 0.1s linear;
+	transform: translateX(10px);
+}
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES =========================================================== */
 
 @media (max-width: 1100px) {
 	.page > .window {
