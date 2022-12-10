@@ -9,10 +9,8 @@
 }
 
 .page > .window {
-	width: 150vh;
+	width: 1000px;
 	height: 70vh;
-	max-width: 1000px;
-	max-height: 650px;
 	background: rgba(10, 10, 10, 0.65);
 	backdrop-filter: blur(6px);
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
@@ -63,6 +61,8 @@
 	margin: 10px 10px;
 	width: auto;
 	height: calc(100% - 52px);
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
 /* ABOUT ME CONTENT ================================================= */
@@ -71,6 +71,17 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding: 5px;
+}
+
+.page > .window > .content::-webkit-scrollbar {
+	width: 5px;
+	height: 95%;
+}
+
+.page > .window > .content::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
 }
 
 #about-me > .window > .content > #introduction > #profile-pic {
@@ -79,7 +90,6 @@
 	background-image: url('../images/profilePic.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	//border: 2px solid rgba(255, 255, 255, 0.09);
 	border: 2px solid rgb(100, 100, 100);
 	border-radius: 50%;
 	float: left;
@@ -131,4 +141,52 @@
 
 #about-me > .window > .content > ul > li > a > i {
 	font-size: 6rem;
+}
+
+@media (max-width: 1100px) {
+	.page > .window {
+		width: 90%;
+		height: 90%;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.page {
+		margin-left: 70px;
+		padding-top: 10%;
+	}
+
+	.page > .window {
+		width: 95%;
+		height: 95%;
+	}
+
+	#about-me > .window > .content > #introduction {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#about-me > .window > .content > #introduction > #profile-pic {
+		width: 150px;
+		height: 150px;
+		margin-right: 0px;
+		margin-bottom: 10px;
+	}
+
+	#about-me > .window > .content > #introduction > h1 {
+		font-size: 2.5rem;
+	}
+
+	#about-me > .window > .content > #introduction > p {
+		font-size: 1.2rem;
+	}
+
+	#about-me > .window > .content > ul > li > a > i:hover {
+
+		transform: translateY(0px);
+		scale: 1;
+	}
+
 }

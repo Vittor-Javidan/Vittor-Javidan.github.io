@@ -12,6 +12,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	z-index: 999;
 }
 
 .sidebar.open {
@@ -170,4 +171,47 @@
 	pointer-events: visible;
 	transition: 0.4s linear;
 	transition-delay: 0.8s;
+}
+
+@media (max-width: 600px) {
+
+	.sidebar {
+		width: 70px;
+	}
+
+	.sidebar > .toggle {
+		top: 8px;
+	}
+
+	.sidebar.open > .toggle {
+		transform: translateX(10px);
+		scale: 1;
+	}
+
+	.sidebar > .menu-label {
+		margin-top: 70px;
+	}
+
+	.sidebar.open > .menu-label {
+		margin-top: 25px;
+	}
+	
+	.sidebar > nav > ul {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+	
+	.sidebar > nav > ul > .nav-item > a {
+		height: 40px;
+		padding: 0 9px;
+	}
+
+	.sidebar > nav > ul > .nav-item > a > i {
+		font-size: 2rem;
+	}
+
+	.sidebar > nav > ul > .nav-item > a > span {
+		font-size: 1.5rem;
+	}
 }
