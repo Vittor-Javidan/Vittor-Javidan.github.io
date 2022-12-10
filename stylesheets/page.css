@@ -59,6 +59,7 @@
 
 .page > .window > .content {
 	margin: 10px 10px;
+	padding: 5px;
 	width: auto;
 	height: calc(100% - 52px);
 	overflow: hidden;
@@ -71,7 +72,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 5px;
 }
 
 .page > .window > .content::-webkit-scrollbar {
@@ -141,6 +141,95 @@
 
 #about-me > .window > .content > ul > li > a > i {
 	font-size: 6rem;
+}
+
+/* MY SELF-TAUGHT CURRICULUM ============================================ */
+
+#my-curriculum > .window > .content {
+	color: rgb(240, 240, 240);
+}
+
+#my-curriculum > .window > .content li > ul li {
+	color: rgb(150, 150, 150);
+}
+
+#my-curriculum > .window > .content a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#my-curriculum > .window > .content a:hover {
+	text-decoration: underline;
+}
+
+#my-curriculum > .window > .content li > ul li:hover {
+	transition: 0.1s linear;
+	transform: translateX(10px);
+}
+
+#my-curriculum > .window > .content a:active {
+	color: rgba(255, 50, 142, 0.8);
+}
+
+#my-curriculum > .window > .content > h1 {
+	font-size: 5rem;
+	margin-bottom: 10px;
+}
+
+#my-curriculum > .window > .content > p {
+	font-size: 1.6rem;
+	margin-bottom: 40px;
+	margin-right: 10px;
+	text-align: justify;
+}
+
+#my-curriculum > .window > .content > h2 {
+	font-size: 2.5rem;
+	margin-bottom: 10px;
+}
+
+#my-curriculum > .window > .content > h2::before {
+	content: "\\==";
+}
+
+#my-curriculum > .window > .content > h2::after {
+	content: "==/";
+}
+
+#my-curriculum > .window > .content > ul:last-of-type {
+	color: rgb(150, 150, 150);
+}
+
+#my-curriculum > .window > .content > ul:last-of-type > li:hover {
+	text-decoration: underline;
+	transition: 0.1s linear;
+	transform: translateX(10px);
+}
+
+#my-curriculum > .window > .content > ul > li  {
+	font-size: 1.6rem;
+	padding-left: 40px;
+	margin-bottom: 5px;
+}
+
+#my-curriculum > .window > .content > ul > li > h3 {
+	padding-left: 20px;
+	margin-bottom: 10px;
+	font-size: 2rem;
+}
+
+#my-curriculum > .window > .content > ul > li:last-of-type {
+	margin-bottom: 50px;
+}
+
+#my-curriculum > .window > .content > ul > li > ul > li {
+	font-size: 1.6rem;
+	padding-left: 40px;
+	margin-bottom: 5px;
+}
+
+#my-curriculum > .window > .content > ul > li > ul:last-of-type {
+	margin-bottom: 10px;
 }
 
 @media (max-width: 1100px) {

@@ -87,7 +87,7 @@
 	transition: 0.4s linear;
 }
 
-.sidebar > .menu-label > h3{
+.sidebar > .menu-label > h1{
 	margin-top: 12px;
 	color: #fff;
 	font-size: 3.6rem;
@@ -97,7 +97,7 @@
 	opacity: 0;
 }
 
-.sidebar.open > .menu-label > h3 {
+.sidebar.open > .menu-label > h1 {
 	margin-top: 35px;
 	scale: 1;
 	opacity: 1;
@@ -194,6 +194,14 @@
 
 	.sidebar.open > .menu-label {
 		margin-top: 25px;
+	}
+
+	.sidebar > .menu-label > img {
+		opacity: 0;
+	}
+
+	.sidebar.open > .menu-label > img {
+		opacity: 1;
 	}
 	
 	.sidebar > nav > ul {
