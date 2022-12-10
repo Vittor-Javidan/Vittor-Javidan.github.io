@@ -113,9 +113,9 @@
 }
 
 .sidebar.open > nav {
-	transform: translateY(-395%);
 	transition: 0.4s linear;
 	transition-delay: 0.4s;
+	transform: translateY(calc(-100vh + 555px));
 }
 
 .sidebar > nav > ul > .nav-item {

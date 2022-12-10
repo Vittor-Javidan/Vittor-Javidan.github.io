@@ -8,7 +8,7 @@
 	justify-content: center;
 }
 
-.page > .content-box {
+.page > .window {
 	width: 150vh;
 	height: 70vh;
 	max-width: 1000px;
@@ -20,13 +20,13 @@
 	border-radius: 15px;
 }
 
-.page > .content-box > .colored-top-dots {
+.page > .window > .colored-top-dots {
 	display: flex;
 	width: calc(30px*3 + 15px);
 	padding: 8px 0;
 }
 
-.page > .content-box > .colored-top-dots > .red-dot {
+.page > .window > .colored-top-dots > .red-dot {
 	width: 15px;
 	height: 15px;
 	margin-left: 13px;
@@ -36,7 +36,7 @@
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
 }
 
-.page > .content-box > .colored-top-dots > .yellow-dot {
+.page > .window > .colored-top-dots > .yellow-dot {
 	width: 15px;
 	height: 15px;
 	margin-left: 13px;
@@ -45,7 +45,7 @@
 	border: 1px solid rgba(10, 10, 10, 0.65);
 }
 
-.page > .content-box > .colored-top-dots > .green-dot {
+.page > .window > .colored-top-dots > .green-dot {
 	width: 15px;
 	height: 15px;
 	margin-left: 13px;
@@ -54,7 +54,76 @@
 	border: 1px solid rgba(10, 10, 10, 0.65);
 }
 
-.page > .content-box > .horizontal-line {
+.page > .window > .horizontal-line {
 	margin: 0 5px;
-	border-top: 2px solid rgba(255, 255, 255, 0.09);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.09);
+}
+
+.page > .window > .content {
+	margin: 10px 10px;
+	width: auto;
+	height: calc(100% - 52px);
+}
+
+/* ABOUT ME CONTENT ================================================= */
+
+#about-me > .window > .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#about-me > .window > .content > #introduction > img {
+	width: 300px;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.09);
+	float: left;
+	shape-outside: circle(50%);
+	margin-right: 15px;
+}
+
+#about-me > .window > .content > #introduction > h1 {
+	color: #fff;
+	font-size: 5rem;
+	font-variant: small-caps;
+	text-decoration: underline;
+	margin-bottom: 10px;
+}
+
+#about-me > .window > .content > #introduction > p {
+	color: #fff;
+	font-size: 1.6rem;
+	margin-bottom: 5px;
+	text-align: justify;
+}
+
+#about-me > .window > .content > #introduction > p:first-letter {
+	font-size: 2.5rem;
+}
+
+#about-me > .window > .content > ul {
+	display: flex;
+	justify-content: end;
+	gap: 10px;
+}
+
+#about-me > .window > .content > ul > li > a {
+	color: #fff;
+	cursor: pointer;
+}
+
+#about-me > .window > .content > ul > li > a > i:hover {
+	
+	transform: translateY(-15px);
+	transition: 0.2s linear;
+	scale: 1.4;
+}
+
+#about-me > .window > .content > ul > li > a > i:active {
+	color: rgba(255, 50, 142, 0.8);
+	transition: 0.05s linear;
+}
+
+#about-me > .window > .content > ul > li > a > i {
+	font-size: 6rem;
 }
