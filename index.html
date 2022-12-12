@@ -19,10 +19,10 @@
 	</head>
 	<body>
 
-		<!-- BACKGROUND -->
+		<!-- BACKGROUND -------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<div class="background"></div>
 
-		<!-- SIDEBAR -->
+		<!-- SIDEBAR ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<div class="sidebar">
 
 			<!-- tutorial: https://youtu.be/hAnv1NEE7j8 credits: "CODE WITH HOSSEIN" channel -->
@@ -38,25 +38,25 @@
 
 			<nav>
 				<ul>
-					<li class="nav-item active">
+					<li class="nav-item active" id="about-me-li">
 						<a href="#about-me">
 							<i class='bx bxs-contact'></i>
 							<span>About Me</span>
 						</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" id="my-projects-li">
 						<a href="#my-projects">
 							<i class='bx bxs-package'></i>
 							<span>My Projects</span>
 						</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" id="my-certificates-li">
 						<a href="#my-certificates">
 							<i class='bx bx-certification'></i>
 							<span>My Certifications</span>
 						</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" id="my-curriculum-li">
 						<a href="#my-curriculum">
 							<i class='bx bx-book-open'></i>
 							<span>My Self-Taught Curriculum</span>
@@ -75,13 +75,16 @@
 
 
 
-		<!-- ABOUT ME WINDOW -->
+		<!-- ABOUT ME WINDOW --------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<div class="page" id="about-me">
-			<div class="window">
-				<div class="colored-top-dots">
-					<div class="red-dot"></div>
-					<div class="yellow-dot"></div>
-					<div class="green-dot"></div>
+			<div class="window" id="about-me-window" >
+				<div class="taskbar">
+					<div class="colored-top-dots">
+						<div class="red-dot"><p>x</p></div>
+						<div class="yellow-dot"><p>-</p></div>
+						<div class="green-dot"><i class='bx bx-expand-alt'></i></div>
+					</div>
+					<div class="draggable drag-on" id="about-me-draggable">About Me</div>
 				</div>
 				<div class="horizontal-line"></div>
 				<div class="content">
@@ -131,13 +134,16 @@
 
 
 
-		<!-- MY PROJECTS WINDOW -->
-		<div class="page" id="my-projects">
-			<div class="window">
-				<div class="colored-top-dots">
-					<div class="red-dot"></div>
-					<div class="yellow-dot"></div>
-					<div class="green-dot"></div>
+		<!-- MY PROJECTS WINDOW ------------------------------------------------------------------------------------------------------------------------------------------------------>
+		<div class="page hide-page" id="my-projects">
+			<div class="window" id="my-projects-window">
+				<div class="taskbar">
+					<div class="colored-top-dots">
+						<div class="red-dot"><p>x</p></div>
+						<div class="yellow-dot"><p>-</p></div>
+						<div class="green-dot"><i class='bx bx-expand-alt'></i></div>
+					</div>
+					<div class="draggable" id="my-projects-draggable">My Projects</div>
 				</div>
 				<div class="horizontal-line"></div>
 				<div class="content">
@@ -165,13 +171,16 @@
 
 
 
-		<!-- MY-CERTIFICATES -->
-		<div class="page" id="my-certificates">
+		<!-- MY-CERTIFICATES --------------------------------------------------------------------------------------------------------------------------------------------------------->
+		<div class="page hide-page" id="my-certificates">
 			<div class="window">
-				<div class="colored-top-dots">
-					<div class="red-dot"></div>
-					<div class="yellow-dot"></div>
-					<div class="green-dot"></div>
+				<div class="taskbar">
+					<div class="colored-top-dots">
+						<div class="red-dot"><p>x</p></div>
+						<div class="yellow-dot"><p>-</p></div>
+						<div class="green-dot"><i class='bx bx-expand-alt'></i></div>
+					</div>
+					<div class="draggable" id="my-certificates-draggable">My Certificates</div>
 				</div>
 				<div class="horizontal-line"></div>
 				<div class="content">
@@ -190,19 +199,21 @@
 
 	
 
-		<!-- MY SELF-TAUGHT CURRICULUM WINDOW -->
-		<div class="page" id="my-curriculum">
+		<!-- MY SELF-TAUGHT CURRICULUM WINDOW ---------------------------------------------------------------------------------------------------------------------------------------->
+		<div class="page hide-page" id="my-curriculum">
 			<div class="window">
-				<div class="colored-top-dots">
-					<div class="red-dot"></div>
-					<div class="yellow-dot"></div>
-					<div class="green-dot"></div>
+				<div class="taskbar">
+					<div class="colored-top-dots">
+						<div class="red-dot"><p>x</p></div>
+						<div class="yellow-dot"><p>-</p></div>
+						<div class="green-dot"><i class='bx bx-expand-alt'></i></div>
+					</div>
+					<div class="draggable" id="my-curriculum-draggable">My Curriculum</div>
 				</div>
 				<div class="horizontal-line"></div>
 				<div class="content">
 					<h1>My Self-Taught Curriculum</h1>
 					<p>This is a place where i save filtered quality content that i had study for later usage. A secondary purpose is to help people figure out what they can study in case they felt lost. Please, let me know if any of these links are broken!</p>
-
 					<h2>FUNDAMENTALS</h2>
 					<ul class="topic-list">
 						<li>
@@ -924,7 +935,17 @@
 			</div>
 		</div>
 
-		<!-- SCRIPTS -->
+		<!-- SCRIPTS ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+		<!-- declarations -->
+		<script src="scripts/elements.js"></script>
+		
+		<!-- sidebar related scipts-->
 		<script src="scripts/sidebar.js"></script>
+
+		<!-- page related scripts-->
+		<script src="scripts/draggable/draggable.js"></script>
+		<script src="scripts/draggable/pagesDragHandler.js"></script>
+		<script src="scripts/pageZIndexHandler.js"></script>
 	</body>
 </html>

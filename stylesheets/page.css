@@ -1,15 +1,6 @@
 /* WINDOW GENERAL CSS */
 
-.page {
-	height: 100vh;
-	margin-left: 90px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 1;
-}
-
-.page > .window {
+.window {
 	width: 1000px;
 	height: 70vh;
 	background: rgba(10, 10, 10, 0.65);
@@ -19,46 +10,104 @@
 	border-radius: 10px;
 }
 
-.page > .window > .colored-top-dots {
+.taskbar {
 	display: flex;
-	width: calc(30px*3 + 15px);
+}
+
+.colored-top-dots {
+	display: flex;
+	width: fit-content;
 	margin: 0px 16px;
 	margin-top: 13px;
 	margin-bottom: 11px;
 	gap: 7px;
 }
 
-.page > .window > .colored-top-dots > .red-dot,
-.page > .window > .colored-top-dots > .yellow-dot,
-.page > .window > .colored-top-dots > .green-dot {
+.red-dot,
+.yellow-dot,
+.green-dot {
 	width: 14px;
 	height: 14px;
-	border: 1px solid rgba(10, 10, 10, 0.65);
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
 }
 
-.page > .window > .colored-top-dots > .red-dot {
+.red-dot:hover,
+.yellow-dot:hover,
+.green-dot:hover {
+	color: black;
+}
+
+.red-dot {
 	border-radius: 50%;
 	background-color: rgb(255, 96, 92);
+	color: rgb(255, 96, 92);
+	font-size: 1.5rem;
 }
 
-.page > .window > .colored-top-dots > .yellow-dot {
+.red-dot:active {
+	background-color: rgb(160, 60, 59);
+	border: 1px solid rgb(160, 60, 59);;
+}
+
+.red-dot > p {
+	position: absolute;
+	top: 10px;
+}
+
+.yellow-dot {
 	border-radius: 50%;
 	background: rgb(255, 189, 68);
+	color: rgb(255, 189, 68);
+	font-size: 2.2rem;
 }
 
-.page > .window > .colored-top-dots > .green-dot {
+.yellow-dot:active {
+	background: rgb(173, 129, 47);
+}
+
+.yellow-dot > p {
+	position: absolute;
+	top: 5px;
+}
+
+.green-dot {
 
 	border-radius: 50%;
 	background: rgb(0, 202, 78);
+	color: rgb(0, 202, 78);
+	transform: rotate(270deg);
 }
 
-.page > .window > .horizontal-line {
+.green-dot:active {
+	background-color: rgb(1, 128, 50);
+}
+
+.green-dot > i {
+	position: absolute;
+	font-weight: bold;
+	font-size: 1rem;
+	left: 2px;
+	top: 2px;
+}
+
+.draggable {
+	padding-left: 20px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 1.8rem;
+	color: #fff;
+}
+
+.horizontal-line {
 	margin: 0 5px;
 	border-bottom: 2px solid rgba(255, 255, 255, 0.09);
 }
 
-.page > .window > .content {
+.content {
 	margin: 10px 10px;
 	padding: 25px;
 	width: auto;
@@ -67,12 +116,12 @@
 	overflow-y: scroll;
 }
 
-.page > .window > .content::-webkit-scrollbar {
+.content::-webkit-scrollbar {
 	width: 5px;
 	height: 95%;
 }
 
-.page > .window > .content::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb {
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
 }
@@ -87,7 +136,7 @@
 
 
 
-/* ABOUT ME CONTENT ================================================= */
+/* ABOUT ME CONTENT ============ .taskbar >===================================== */
 
 #about-me > .window > .content {
 	display: flex;
@@ -202,9 +251,8 @@
 }
 
 #my-curriculum > .window > .content h3 {
-	padding-left: 20px;
 	margin-bottom: 10px;
-	font-size: 2rem;
+	font-size: 2.3rem;
 }
 
 #my-curriculum > .window > .content h4 {
@@ -229,11 +277,12 @@
 .topic-list > li  {
 	font-size: 1.6rem;
 	padding-left: 40px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 }
 
 .topic-list:last-of-type > li {
 	margin-bottom: 0px;
+	padding-left: 40px;
 }
 
 .topic-list:last-of-type > li:hover {
@@ -245,7 +294,6 @@
 .subtopic-list > li {
 	color: rgb(150, 150, 150);
 	font-size: 1.6rem;
-	padding-left: 40px;
 }
 
 .subtopic-list > li:hover {
@@ -266,7 +314,7 @@
 }
 
 .li-readings > ul {
-	margin-left: 20px;
+	padding-left: 40px;
 }
 
 .li-readings > ul > li:hover {
@@ -285,7 +333,93 @@
 
 /* MEDIA QUERIES =========================================================== */
 
+@media (min-width: 1101px) {
+
+	.page {
+		position: absolute;
+		width: fit-content;
+		height: fit-content;
+		top: calc(50% - 35vh);
+		left: calc(90px + (100vw - 90px)/2 - 500px);
+		z-index: 1;
+		opacity: 1;
+		scale: 1;
+	}
+
+	.zIndex2 {
+		z-index: 2;
+	}
+
+	.hide-page {
+		opacity: 0;
+		scale: 0;
+		transition: 0.7s linear;
+	}
+
+	.close-page {
+		opacity: 0;
+		scale: 0;
+		transition: 0s linear;
+	}
+
+	.fullscreen {
+		position: static;
+		margin-left: 90px;
+	}
+
+	.fullscreen > .window {
+		width: calc(100vw - 90px);
+		height: 100vh;	
+		border-radius: 0px;
+	}
+
+	.fullscreen > .window > .taskbar {
+		background-color: #111;
+	}
+
+	.fullscreen > .window > .horizontal-line {
+		margin: 0px;
+	}
+
+	.page > .window > .taskbar > .draggable {
+		width: 100%;
+		height: auto;
+		cursor: pointer;
+	}
+
+	#my-projects {
+		top: 20px;
+		left: 100px;
+	}
+
+	#my-certificates {
+		top: 60px;
+		left: 100px;
+	}
+
+	#my-curriculum {
+		top: 100px;
+		left: 100px;
+	}
+
+}
+
 @media (max-width: 1100px) {
+
+	.page {
+		height: 100vh;
+		width: calc(100vw - 90px);
+		margin-left: 90px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: static;
+	}
+
+	.draggable {
+		cursor: default;
+	}
+
 	.page > .window {
 		width: 90%;
 		height: 90%;
@@ -295,8 +429,18 @@
 @media (max-width: 600px) {
 
 	.page {
+		height: 100vh;
+		width: calc(100vw - 70px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: static;
 		margin-left: 70px;
 		padding-top: 10%;
+	}
+
+	.draggable {
+		cursor: default;
 	}
 
 	.page > .window {
@@ -331,4 +475,19 @@
 		scale: 1;
 	}
 
+	.topic-list > li {
+		padding-left: 0px;
+	}
+
+	.topic-list:last-of-type > li {
+		padding-left: 15px;
+	}
+
+	.subtopic-list > li {
+		padding-left: 15px;
+	}
+
+	.li-readings > ul {
+		padding-left: 15px;
+	}
 }
