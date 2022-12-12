@@ -16,41 +16,41 @@
 	backdrop-filter: blur(6px);
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
 	border: 2px solid rgba(255, 255, 255, 0.09);
-	border-radius: 15px;
+	border-radius: 10px;
 }
 
 .page > .window > .colored-top-dots {
 	display: flex;
 	width: calc(30px*3 + 15px);
-	padding: 8px 0;
+	margin: 0px 16px;
+	margin-top: 13px;
+	margin-bottom: 11px;
+	gap: 7px;
 }
 
-.page > .window > .colored-top-dots > .red-dot {
-	width: 15px;
-	height: 15px;
-	margin-left: 13px;
-	border-radius: 50%;
-	background-color: rgb(255, 0, 0);
+.page > .window > .colored-top-dots > .red-dot,
+.page > .window > .colored-top-dots > .yellow-dot,
+.page > .window > .colored-top-dots > .green-dot {
+	width: 14px;
+	height: 14px;
 	border: 1px solid rgba(10, 10, 10, 0.65);
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
 }
 
-.page > .window > .colored-top-dots > .yellow-dot {
-	width: 15px;
-	height: 15px;
-	margin-left: 13px;
+.page > .window > .colored-top-dots > .red-dot {
 	border-radius: 50%;
-	background: rgb(255, 255, 0);
-	border: 1px solid rgba(10, 10, 10, 0.65);
+	background-color: rgb(255, 96, 92);
+}
+
+.page > .window > .colored-top-dots > .yellow-dot {
+	border-radius: 50%;
+	background: rgb(255, 189, 68);
 }
 
 .page > .window > .colored-top-dots > .green-dot {
-	width: 15px;
-	height: 15px;
-	margin-left: 13px;
+
 	border-radius: 50%;
-	background: rgb(0, 255, 0);
-	border: 1px solid rgba(10, 10, 10, 0.65);
+	background: rgb(0, 202, 78);
 }
 
 .page > .window > .horizontal-line {
@@ -60,7 +60,7 @@
 
 .page > .window > .content {
 	margin: 10px 10px;
-	padding: 5px;
+	padding: 25px;
 	width: auto;
 	height: calc(100% - 52px);
 	overflow: hidden;
@@ -105,14 +105,13 @@
 	border-radius: 50%;
 	float: left;
 	shape-outside: circle(50%);
-	margin-right: 15px;
+	margin-right: 45px;
 }
 
 #about-me > .window > .content > #introduction > h1 {
 	color: #fff;
 	font-size: 5rem;
 	font-variant: small-caps;
-	text-decoration: underline;
 	margin-bottom: 10px;
 }
 
@@ -121,6 +120,7 @@
 	font-size: 1.6rem;
 	margin-bottom: 5px;
 	text-align: justify;
+	line-height: 1.4;
 }
 
 #about-me > .window > .content > #introduction > p:first-letter {
