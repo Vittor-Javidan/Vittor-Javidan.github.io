@@ -1,5 +1,5 @@
 menuToggle.addEventListener('click', () => {
-	sidebar.classList.toggle('open');
+	sidebar.classList.toggle('open')
 });
 
 navItems.forEach((navItem, index) => {
@@ -10,13 +10,14 @@ navItems.forEach((navItem, index) => {
 	},
 	() => {
 
-		if(pages[index].classList.contains('close-page'))
+		if (pages[index].classList.contains('close-page')) {
 			pages[index].classList.remove('close-page')
+		}
 
 		navItem.classList.toggle('active')
 		pages[index].classList.toggle('hide-page')
 	})
-});
+})
 
 redDots.forEach((redDot, index) => {
 
@@ -30,7 +31,7 @@ redDots.forEach((redDot, index) => {
 		pages[index].classList.toggle('hide-page')
 		pages[index].classList.toggle('close-page')
 	})
-});
+})
 
 yellowDots.forEach((yellowDot, index) => {
 
@@ -43,7 +44,7 @@ yellowDots.forEach((yellowDot, index) => {
 		navItems[index].classList.toggle('active')
 		pages[index].classList.toggle('hide-page')
 	})
-});
+})
 
 greenDots.forEach((greenDot, index) => {
 
@@ -56,10 +57,10 @@ greenDots.forEach((greenDot, index) => {
 		pages.forEach(element => {
 
 			if(pages[index] !== element) {
-				element.classList.remove('fullscreen');
+				element.classList.remove('fullscreen')
 			}
 		})
 
 		pages[index].classList.toggle('fullscreen')
 	})
-});
+})

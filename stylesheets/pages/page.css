@@ -1,4 +1,6 @@
-/* WINDOW GENERAL CSS */
+/* PAGES GENERAL CSS ==================================================================================================================================================================== */
+
+
 .page {
 	z-index: 1;
 }
@@ -49,19 +51,12 @@
 
 	/*Filters and effects*/
 	box-shadow: 0 8px 32px rgb(2, 4, 24);
-	cursor: pointer;
 
 	/*browser behavior*/
 	text-size-adjust: none;
 	-ms-text-size-adjust: none;
 	-moz-text-size-adjust: none;
 	-webkit-text-size-adjust: none;
-}
-
-.red-dot:hover,
-.yellow-dot:hover,
-.green-dot:hover {
-	color: black;
 }
 
 .red-dot {
@@ -213,6 +208,18 @@
 
 	.fullscreen .taskbar {
 		background-color: #111;
+	}
+
+	.red-dot,
+	.yellow-dot,
+	.green-dot {
+		cursor: pointer;
+	}
+
+	.red-dot:hover,
+	.yellow-dot:hover,
+	.green-dot:hover {
+		color: black;
 	}
 
 	.fullscreen .horizontal-line {

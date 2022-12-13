@@ -1,7 +1,7 @@
 //Sidebar related
-const sidebar = document.querySelector('.sidebar');
-const menuToggle = document.querySelector('.sidebar .toggle');
-const navItems = document.querySelectorAll('nav .nav-item')
+const sidebar = document.querySelector('.sidebar')
+const menuToggle = sidebar.querySelector('.toggle')
+const navItems = sidebar.querySelectorAll('.nav-item')
 
 //Page related
 const pages = document.querySelectorAll('.page')
