@@ -1,13 +1,18 @@
 /* WINDOW GENERAL CSS */
 
 .window {
+	/*Dimensions*/
 	width: 1000px;
 	height: 70vh;
+
+	/*Background and Shape*/
 	background: rgba(10, 10, 10, 0.65);
-	backdrop-filter: blur(6px);
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
 	border: 2px solid rgba(255, 255, 255, 0.09);
 	border-radius: 10px;
+
+	/*Filters and effects*/
+	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	backdrop-filter: blur(6px);
 }
 
 .taskbar {
@@ -15,26 +20,35 @@
 }
 
 .colored-top-dots {
-	display: flex;
-	width: fit-content;
+	/*Dimensions*/
 	margin: 0px 16px;
 	margin-top: 13px;
 	margin-bottom: 11px;
+
+	/*Disposition*/
+	display: flex;
+	width: fit-content;
 	gap: 7px;
 }
 
 .red-dot,
 .yellow-dot,
 .green-dot {
+	/*Dimensions and positions*/
 	width: 14px;
 	height: 14px;
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	position: relative;
+
+	/*Dispositions*/
 	display: grid;
 	justify-content: center;
 	text-align: center;
-	cursor: pointer;
-	position: relative;
 
+	/*Filters and effects*/
+	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	cursor: pointer;
+
+	/*browser behavior*/
 	text-size-adjust: none;
 	-ms-text-size-adjust: none;
 	-moz-text-size-adjust: none;
@@ -48,8 +62,8 @@
 }
 
 .red-dot {
-	border-radius: 50%;
 	background-color: rgb(255, 96, 92);
+	border-radius: 50%;
 	color: rgb(255, 96, 92);
 }
 
@@ -69,9 +83,8 @@
 }
 
 .green-dot {
-
-	border-radius: 50%;
 	background: rgb(0, 202, 78);
+	border-radius: 50%;
 	color: rgb(0, 202, 78);
 }
 
@@ -82,19 +95,22 @@
 .red-dot > p,
 .yellow-dot > p,
 .green-dot > i {
+	/*Dimensions and position*/
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+
+	/*Disposition*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: absolute;
-	top: 0px;
-	height: 100%;
-	width: 100%;
 }
 
 .red-dot > p {
 	top: -1px;
-	scale: 1.3;
 	font-weight: bold;
+	scale: 1.3;
 }
 
 .yellow-dot > p {
@@ -107,11 +123,16 @@
 }
 
 .draggable {
+	/*Dimensions*/
 	padding-left: 20px;
+	font-size: 1.8rem;
+
+	/*Disposition*/
 	display: flex;
 	justify-content: start;
 	align-items: center;
-	font-size: 1.8rem;
+
+	/*Effects*/
 	color: #fff;
 }
 
@@ -121,10 +142,13 @@
 }
 
 .content {
-	margin: 10px 10px;
-	padding: 25px;
+	/*Dimensions*/
 	width: auto;
 	height: calc(100% - 52px);
+	padding: 25px;
+	margin: 10px 10px;
+
+	/*Effects*/
 	overflow: hidden;
 	overflow-y: scroll;
 }
@@ -158,31 +182,46 @@
 }
 
 #about-me > .window > .content > #introduction > #profile-pic {
+	/*Dimensions*/
 	width: 300px;
 	height: 300px;
+	margin-right: 45px;
+
+	/*Disposition*/
+	float: left;
+
+	/*background and shape*/
 	background-image: url('../images/profilePic.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	border: 2px solid rgb(100, 100, 100);
 	border-radius: 50%;
-	float: left;
+
+	/*Effects*/
 	shape-outside: circle(50%);
-	margin-right: 45px;
 }
 
 #about-me > .window > .content > #introduction > h1 {
-	color: #fff;
+	/*Dimensions*/
 	font-size: 5rem;
-	font-variant: small-caps;
 	margin-bottom: 10px;
+
+	/*Effects*/
+	color: #fff;
+	font-variant: small-caps;
 }
 
 #about-me > .window > .content > #introduction > p {
-	color: #fff;
-	font-size: 1.6rem;
+	/*Dimensions*/
 	margin-bottom: 5px;
+	font-size: 1.6rem;
+	
+	/*Dispositions*/
 	text-align: justify;
 	line-height: 1.4;
+
+	/*Effects*/
+	color: #fff;
 }
 
 #about-me > .window > .content > #introduction > p:first-letter {
@@ -205,7 +244,6 @@
 }
 
 #about-me > .window > .content > ul > li > a > i:hover {
-	
 	transform: translateY(-15px);
 	transition: 0.2s linear;
 	scale: 1.4;
@@ -273,9 +311,12 @@
 }
 
 #my-curriculum > .window > .content p {
+	/*Dimensions*/
 	font-size: 1.6rem;
 	margin-bottom: 60px;
 	margin-right: 10px;
+
+	/*Disposition*/
 	text-align: justify;
 }
 
@@ -349,12 +390,15 @@
 @media (min-width: 1101px) {
 
 	.page {
-		position: absolute;
+		/*Dimensions and Position*/
 		width: fit-content;
+		position: absolute;
 		height: fit-content;
 		top: calc(50% - 35vh);
 		left: calc(90px + (100vw - 90px)/2 - 500px);
 		z-index: 1;
+
+		/*Animation*/
 		opacity: 1;
 		scale: 1;
 	}
@@ -364,20 +408,20 @@
 	}
 
 	.hide-page {
+		transition: 0.7s linear;
 		opacity: 0;
 		scale: 0;
-		transition: 0.7s linear;
 	}
 
 	.close-page {
+		transition: 0s linear;
 		opacity: 0;
 		scale: 0;
-		transition: 0s linear;
 	}
 
 	.fullscreen {
-		position: static;
 		margin-left: 90px;
+		position: static;
 	}
 
 	.fullscreen > .window {
@@ -423,10 +467,10 @@
 		height: 100vh;
 		width: calc(100vw - 90px);
 		margin-left: 90px;
+		position: static;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: static;
 	}
 
 	.draggable {
@@ -442,14 +486,17 @@
 @media (max-width: 600px) {
 
 	.page {
+		/*Dimensions and Position*/
 		height: 100vh;
 		width: calc(100vw - 70px);
+		padding-top: 10%;
+		margin-left: 70px;
+		position: static;
+
+		/*Disposition*/
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: static;
-		margin-left: 70px;
-		padding-top: 10%;
 	}
 
 	.draggable {
@@ -483,7 +530,6 @@
 	}
 
 	#about-me > .window > .content > ul > li > a > i:hover {
-
 		transform: translateY(0px);
 		scale: 1;
 	}

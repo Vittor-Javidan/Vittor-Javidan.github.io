@@ -1,6 +1,6 @@
 pages.forEach(element => {
 
-    element.addEventListener('click', () => {
+    element.addEventListener('mousedown', () => {
 
         pages.forEach(element => {
             element.classList.remove('zIndex2');

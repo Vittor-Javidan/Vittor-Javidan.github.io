@@ -8,7 +8,10 @@
 }
 
 html {
+	/*Dimensions*/
 	font-size: 10px;
+
+	/*Effects*/
 	overflow-x: hidden;
 	overflow-y: hidden;
 	scroll-behavior: smooth;

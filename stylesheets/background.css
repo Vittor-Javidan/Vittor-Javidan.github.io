@@ -1,11 +1,14 @@
 /*BACKGROUND ============================================== */
 
 .background {
-	position: fixed;
-	height: 100vh;
+	/*Dimensions and Position*/
 	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 0;
+
+	/*Background and Shape*/
 	background-image: url('../images/background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	z-index: 0;
 }
