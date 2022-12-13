@@ -37,18 +37,17 @@ greenDots.forEach((greenDot, index) => {
 
 	greenDot.addEventListener('click', () => {
 
-		
-	})
+		if(window.matchMedia("(min-width: 1101px)").matches) {
 
-	greenDot.addEventListener('click', () => {
+			pages.forEach(element => {
 
-		
-		pages.forEach(element => {
-			if(pages[index] !== element)
-            	element.classList.remove('fullscreen');
-        })
+				if(pages[index] !== element) {
+					element.classList.remove('fullscreen');
+				}
+			})
 
-		pages[index].classList.toggle('fullscreen')
+			pages[index].classList.toggle('fullscreen')
+		}
         
     });
 });

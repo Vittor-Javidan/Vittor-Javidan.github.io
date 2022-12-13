@@ -1,4 +1,7 @@
 /* WINDOW GENERAL CSS */
+.page {
+	z-index: 1;
+}
 
 .window {
 	/*Dimensions*/
@@ -396,7 +399,6 @@
 		height: fit-content;
 		top: calc(50% - 35vh);
 		left: calc(90px + (100vw - 90px)/2 - 500px);
-		z-index: 1;
 
 		/*Animation*/
 		opacity: 1;
@@ -420,8 +422,23 @@
 	}
 
 	.fullscreen {
-		margin-left: 90px;
 		position: static;
+		margin-left: 90px;
+	}
+
+	#my-projects {
+		top: 20px;
+		left: 100px;
+	}
+
+	#my-certificates {
+		top: 60px;
+		left: 100px;
+	}
+
+	#my-curriculum {
+		top: 100px;
+		left: 100px;
 	}
 
 	.fullscreen > .window {
@@ -444,30 +461,17 @@
 		cursor: pointer;
 	}
 
-	#my-projects {
-		top: 20px;
-		left: 100px;
-	}
-
-	#my-certificates {
-		top: 60px;
-		left: 100px;
-	}
-
-	#my-curriculum {
-		top: 100px;
-		left: 100px;
-	}
-
 }
 
 @media (max-width: 1100px) {
 
 	.page {
+		/*Dimensions and Position*/
 		height: 100vh;
 		width: calc(100vw - 90px);
 		margin-left: 90px;
-		position: static;
+
+		/*Disposition*/
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -491,7 +495,6 @@
 		width: calc(100vw - 70px);
 		padding-top: 10%;
 		margin-left: 70px;
-		position: static;
 
 		/*Disposition*/
 		display: flex;
