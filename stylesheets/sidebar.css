@@ -34,8 +34,6 @@
 	background-color: rgb(184, 39, 135);
 	transition: 0.8s linear;
 	scale: 1;
-	display: grid;
-	justify-content: center;
 }
 
 .sidebar > .toggle:active {
@@ -57,9 +55,22 @@
 }
 
 .sidebar > .toggle > i {
+	height: 100%;
+	width: 100%;
+	padding-bottom: 1px;
+
+	display: grid;
+	justify-content: center;
+	align-items: center;
+
 	color: rgba(30, 30, 30, 0.9);
 	transition: 0.4s linear;
-	font-size: 38px;
+	font-size: 36px;
+	
+	text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
 }
 
 .sidebar.open > .toggle > i {
