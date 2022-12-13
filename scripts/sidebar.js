@@ -1,10 +1,14 @@
-toggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', () => {
 	sidebar.classList.toggle('open');
 });
 
 navItems.forEach((navItem, index) => {
 
-	navItem.addEventListener('click', () => {
+	customEventListener({
+		element: navItem,
+		mediaQuery: "(min-width: 1101px)"
+	},
+	() => {
 
 		if(pages[index].classList.contains('close-page'))
 			pages[index].classList.remove('close-page')
@@ -16,7 +20,11 @@ navItems.forEach((navItem, index) => {
 
 redDots.forEach((redDot, index) => {
 
-	redDot.addEventListener('click', () => {
+	customEventListener({
+		element: redDot,
+		mediaQuery: "(min-width: 1101px)"
+	},
+	() => {
 
 		navItems[index].classList.toggle('active')
 		pages[index].classList.toggle('hide-page')
@@ -26,7 +34,11 @@ redDots.forEach((redDot, index) => {
 
 yellowDots.forEach((yellowDot, index) => {
 
-	yellowDot.addEventListener('click', () => {
+	customEventListener({
+		element: yellowDot,
+		mediaQuery: '(min-width: 1101px)'
+	}, 
+	() => {
 
 		navItems[index].classList.toggle('active')
 		pages[index].classList.toggle('hide-page')
@@ -35,19 +47,19 @@ yellowDots.forEach((yellowDot, index) => {
 
 greenDots.forEach((greenDot, index) => {
 
-	greenDot.addEventListener('click', () => {
+	customEventListener({
+		element: greenDot,
+		mediaQuery: '(min-width: 1101px)'
+	},
+	() => {
 
-		if(window.matchMedia("(min-width: 1101px)").matches) {
+		pages.forEach(element => {
 
-			pages.forEach(element => {
+			if(pages[index] !== element) {
+				element.classList.remove('fullscreen');
+			}
+		})
 
-				if(pages[index] !== element) {
-					element.classList.remove('fullscreen');
-				}
-			})
-
-			pages[index].classList.toggle('fullscreen')
-		}
-        
-    });
+		pages[index].classList.toggle('fullscreen')
+	})
 });
