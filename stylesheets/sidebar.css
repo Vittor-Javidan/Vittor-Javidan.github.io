@@ -1,4 +1,27 @@
 /* SIDEBAR ============================================================================================================================================================================== */
+:root {
+	/*background*/
+	--sidebar-background: rgba(15, 15, 15, 0.75);
+	--sidebar-toggle-background: rgba(184, 39, 135, 1);
+	--sidebar-toggle-ACTIVE-background: rgba(220, 220, 220, 0.9);
+	--sidebar-navItem-HOVER-background: rgba(255, 255, 255, 0.1);
+	--sidebar-navItem-ACTIVE-background: rgba(184, 39, 135, 1);
+
+	/*font*/
+	--sidebar-navItem-font: #fff;
+	--sidebar-menuLabel-font: #fff;
+	--sidebar-toggle-font: rgba(5, 5, 5, 0.75);
+
+	/*border*/
+	--sidebar-border: rgb(60, 60, 60);
+	--sidebar-toggle-border: rgba(255, 255, 255, 0.09);
+	--sidebar-navItem-ACTIVE-border: rgba(255, 255, 255, 0.09);
+
+	/*shadow*/
+	--sidebar-shadow: rgb(2, 4, 24);
+	--sidebar-toggle-shadow: rgb(2, 4, 24);
+	--sidebar-navItem-HOVER-shadow: rgb(2, 4, 24);
+}
 
 .sidebar {
 	/*Dimensions and Position*/
@@ -13,9 +36,9 @@
 	justify-content: space-between;
 
 	/*Background and Shape*/
-	background: rgba(10, 10, 10, 0.65);
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
-	border-right: 2px solid rgba(255, 255, 255, 0.09);
+	background: var(--sidebar-background);
+	box-shadow: 0 8px 32px var(--sidebar-shadow);
+	border-right: 2px solid var(--sidebar-border);
 	backdrop-filter: blur(6px);
 
 	/*Animation*/
@@ -39,14 +62,13 @@
 	right: -22px;
 
 	/*Background and Shape*/
-	background-color: rgb(184, 39, 135);
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
-	border: 2px solid rgba(255, 255, 255, 0.09);
+	background-color: var(--sidebar-toggle-background);
+	box-shadow: 0 8px 32px var(--sidebar-toggle-shadow);
+	border: 2px solid var(--borders-secondary-color);
 	border-radius: 50%;
 
 	/*Effects*/
 	cursor: pointer;
-	color: #fff;
 
 	/*Animation*/
 	transition: 0.8s linear;
@@ -54,23 +76,23 @@
 }
 
 .sidebar > .toggle:active {
-	background: rgba(220, 220, 220, 0.9);
+	background: var(--sidebar-toggle-ACTIVE-background);
 	transition: 0.05s;
 }
 
 .sidebar.open > .toggle {
 	/*Background and Shape*/
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	box-shadow: 0 8px 32px var(--sidebar-toggle-shadow);
 	border-radius: 5px 50% 50% 5px;
 
 	/*Animation*/
-	transform: translate(15px, calc(100vh/2 - 230px));
+	transform: translate(15px, calc(100vh / 2 - 230px));
 	transition: 0.4s linear;
 	scale: 1.4;
 }
 
 .sidebar.open > .toggle:active {
-	background: rgba(220, 220, 220, 0.9);
+	background: var(--sidebar-toggle-ACTIVE-background);
 	transition: 0.05s;
 }
 
@@ -88,7 +110,7 @@
 	align-items: center;
 
 	/*Effects*/
-	color: rgba(30, 30, 30, 0.9);
+	color: var(--sidebar-toggle-font);
 
 	/*Animation*/
 	transition: 0.4s linear;
@@ -110,7 +132,7 @@
 	block-size: fit-content;
 
 	/*Disposition*/
-	display:flex;
+	display: flex;
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
@@ -133,14 +155,14 @@
 	transition: 0.4s linear;
 }
 
-.sidebar > .menu-label > h1{
+.sidebar > .menu-label > h1 {
 	/*Dimensions and Position*/
 	margin-top: 12px;
 	font-size: 3.6rem;
 
 	/*Disposition*/
 	font-variant: small-caps;
-	color: #fff;
+	color: var(--sidebar-menuLabel-font);
 	pointer-events: none;
 
 	/*Animation*/
@@ -187,8 +209,8 @@
 }
 
 .sidebar > nav > ul > .nav-item:hover {
-	background: rgba(255, 255, 255, 0.1);
-	box-shadow: 7px 7px 50px rgb(2, 4, 24);
+	background: var(--sidebar-navItem-HOVER-background);
+	box-shadow: 7px 7px 50px var(--sidebar-navItem-HOVER-shadow);
 	transition: 0.4s;
 }
 
@@ -197,7 +219,7 @@
 }
 
 .sidebar > nav > ul > .nav-item:active {
-	background: rgba(255, 50, 142, 0.8);
+	background: var(--sidebar-navItem-ACTIVE-background);
 	transition: 0.05s;
 }
 
@@ -213,7 +235,7 @@
 
 	/*Effects*/
 	text-decoration: none;
-	color: #fff;
+	color: var(--sidebar-navItem-font);
 }
 
 .sidebar > nav > ul > .nav-item > a > i {
@@ -245,7 +267,6 @@
 }
 
 @media (min-width: 1101px) {
-
 	.sidebar > nav > ul {
 		display: flex;
 		flex-direction: column;
@@ -257,18 +278,17 @@
 		height: 60px;
 
 		/*Background and Shape*/
-		background-color: rgba(255, 50, 142, 0.8);
-		border: 2px solid rgba(255, 255, 255, 0.09);
+		background-color: var(--sidebar-navItem-ACTIVE-background);
+		border: 2px solid var(--sidebar-navItem-ACTIVE-border);
 	}
 
 	.sidebar > nav > ul .active:hover {
-		background-color: rgba(255, 50, 142, 0.8);
+		background-color: var(--sidebar-navItem-ACTIVE-background);
 		transform: translateX(10px);
 	}
 }
 
 @media (max-width: 600px) {
-
 	.sidebar {
 		width: 70px;
 	}
@@ -297,13 +317,13 @@
 	.sidebar.open > .menu-label > img {
 		opacity: 1;
 	}
-	
+
 	.sidebar > nav > ul {
 		display: flex;
 		flex-direction: column;
 		gap: 5px;
 	}
-	
+
 	.sidebar > nav > ul > .nav-item > a {
 		height: 40px;
 		padding: 0 9px;

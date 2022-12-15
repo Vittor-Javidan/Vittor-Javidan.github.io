@@ -1,5 +1,30 @@
 /* PAGES GENERAL CSS ==================================================================================================================================================================== */
+:root {
+	/*background*/
+	--page-window-background: rgba(15, 15, 15, 0.75);
+	--page-window-scrollbar-thumb-background: rgb(100, 100, 100);
+	--page-taskbar-background-FULLSCREEN: #111;
+	--page-taskbar-dot1-background: rgb(255, 96, 92);
+	--page-taskbar-dot1-background-ACTIVE: rgb(160, 60, 59);
+	--page-taskbar-dot2-background: rgb(255, 189, 68);
+	--page-taskbar-dot2-background-ACTIVE: rgb(173, 129, 47);
+	--page-taskbar-dot3-background: rgb(0, 202, 78);
+	--page-taskbar-dot3-background-ACTIVE: rgb(1, 128, 50);
 
+	/*border*/
+	--page-window-border: rgb(60, 60, 60);
+
+	/*font*/
+	--page-taskbar-dots-font-HOVER: #000;
+	--page-taskbar-dot1-font: rgb(255, 96, 92);
+	--page-taskbar-dot2-font: rgb(255, 189, 68);
+	--page-taskbar-dot3-font: rgb(0, 202, 78);
+	--page-taskbar-font: #fff;
+
+	/*shadow*/
+	--page-window-shadow: rgb(2, 4, 24);
+	--page-taskbar-dots-shadow: rgb(2, 4, 24);
+}
 
 .page {
 	z-index: 1;
@@ -11,12 +36,12 @@
 	height: 70vh;
 
 	/*Background and Shape*/
-	background: rgba(10, 10, 10, 0.65);
-	border: 2px solid rgba(255, 255, 255, 0.09);
+	background: var(--page-window-background);
+	border: 2px solid var(--page-window-border);
 	border-radius: 10px;
 
 	/*Filters and effects*/
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	box-shadow: 0 8px 32px var(--page-window-shadow);
 	backdrop-filter: blur(6px);
 }
 
@@ -50,7 +75,7 @@
 	text-align: center;
 
 	/*Filters and effects*/
-	box-shadow: 0 8px 32px rgb(2, 4, 24);
+	box-shadow: 0 8px 32px var(--page-taskbar-dots-shadow);
 
 	/*browser behavior*/
 	text-size-adjust: none;
@@ -60,34 +85,33 @@
 }
 
 .red-dot {
-	background-color: rgb(255, 96, 92);
+	background-color: var(--page-taskbar-dot1-background);
 	border-radius: 50%;
-	color: rgb(255, 96, 92);
+	color: var(--page-taskbar-dot1-font);
 }
 
 .red-dot:active {
-	background-color: rgb(160, 60, 59);
-	border: 1px solid rgb(160, 60, 59);;
+	background-color: var(--page-taskbar-dot1-background-ACTIVE);
 }
 
 .yellow-dot {
+	background: var(--page-taskbar-dot2-background);
 	border-radius: 50%;
-	background: rgb(255, 189, 68);
-	color: rgb(255, 189, 68);
+	color: var(--page-taskbar-dot2-font);
 }
 
 .yellow-dot:active {
-	background: rgb(173, 129, 47);
+	background: var(--page-taskbar-dot2-background-ACTIVE);
 }
 
 .green-dot {
-	background: rgb(0, 202, 78);
+	background: var(--page-taskbar-dot3-background);
 	border-radius: 50%;
-	color: rgb(0, 202, 78);
+	color: var(--page-taskbar-dot3-font);
 }
 
 .green-dot:active {
-	background-color: rgb(1, 128, 50);
+	background-color: var(--page-taskbar-dot3-background-ACTIVE);
 }
 
 .red-dot > p,
@@ -131,12 +155,12 @@
 	align-items: center;
 
 	/*Effects*/
-	color: #fff;
+	color: var(--page-taskbar-font);
 }
 
 .horizontal-line {
 	margin: 0 5px;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.09);
+	border-bottom: 2px solid var(--page-window-border);
 }
 
 .content {
@@ -157,22 +181,20 @@
 }
 
 .content::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: var(--page-window-scrollbar-thumb-background);
 	border-radius: 5px;
 }
-
 
 /* MEDIA QUERIES =========================================================== */
 
 @media (min-width: 1101px) {
-
 	.page {
 		/*Dimensions and Position*/
 		width: fit-content;
 		position: absolute;
 		height: fit-content;
 		top: calc(50% - 35vh);
-		left: calc(90px + (100vw - 90px)/2 - 500px);
+		left: calc(90px + (100vw - 90px) / 2 - 500px);
 
 		/*Animation*/
 		opacity: 1;
@@ -202,12 +224,12 @@
 
 	.fullscreen .window {
 		width: calc(100vw - 90px);
-		height: 100vh;	
+		height: 100vh;
 		border-radius: 0px;
 	}
 
 	.fullscreen .taskbar {
-		background-color: #111;
+		background-color: var(--page-taskbar-background-FULLSCREEN);
 	}
 
 	.red-dot,
@@ -219,7 +241,7 @@
 	.red-dot:hover,
 	.yellow-dot:hover,
 	.green-dot:hover {
-		color: black;
+		color: var(--page-taskbar-dots-font-HOVER);
 	}
 
 	.fullscreen .horizontal-line {
@@ -231,11 +253,9 @@
 		height: auto;
 		cursor: pointer;
 	}
-
 }
 
 @media (max-width: 1100px) {
-
 	.page {
 		/*Dimensions and Position*/
 		height: 100vh;
@@ -259,7 +279,6 @@
 }
 
 @media (max-width: 600px) {
-
 	.page {
 		/*Dimensions and Position*/
 		height: 100vh;

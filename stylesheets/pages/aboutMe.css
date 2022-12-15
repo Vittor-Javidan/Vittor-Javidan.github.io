@@ -1,12 +1,23 @@
 /* ABOUT ME CONTENT ===================================================================================================================================================================== */
 
-#about-me > .window > .content {
+:root {
+	/*font*/
+	--aboutMe-font: #fff;
+	--aboutMe-link-font: #fff;
+	--aboutMe-link-font-ACTIVE: rgba(184, 39, 135, 0.8);
+
+	/*border*/
+	--aboutMe-profilePic-border: rgb(60, 60, 60);
+}
+
+#about-me .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	color: var(--aboutMe-font);
 }
 
-#about-me > .window > .content > #introduction > #profile-pic {
+#about-me .content #profile-pic {
 	/*Dimensions*/
 	width: 300px;
 	height: 300px;
@@ -19,89 +30,85 @@
 	background-image: url('../../images/profilePic.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	border: 2px solid rgb(100, 100, 100);
+	border: 2px solid var(--aboutMe-profilePic-border);
 	border-radius: 50%;
 
 	/*Effects*/
 	shape-outside: circle(50%);
 }
 
-#about-me > .window > .content > #introduction > h1 {
+#about-me .content h1 {
 	/*Dimensions*/
 	font-size: 5rem;
 	margin-bottom: 10px;
 
 	/*Effects*/
-	color: #fff;
 	font-variant: small-caps;
 }
 
-#about-me > .window > .content > #introduction > p {
+#about-me .content p {
 	/*Dimensions*/
 	margin-bottom: 5px;
 	font-size: 1.6rem;
-	
+
 	/*Dispositions*/
 	text-align: justify;
 	line-height: 1.4;
-
-	/*Effects*/
-	color: #fff;
 }
 
-#about-me > .window > .content > #introduction > p:first-letter {
+#about-me .content p:first-letter {
 	font-size: 2.5rem;
 }
 
-#about-me > .window > .content > ul {
+#about-me .content ul {
 	display: flex;
 	justify-content: end;
 	gap: 10px;
 }
 
-#about-me > .window > .content > ul > li > a {
-	color: #fff;
+#about-me .content a {
+	color: var(--aboutMe-link-font);
 	cursor: pointer;
 }
 
-#about-me > .window > .content > ul > li > a > i {
+#about-me .content i {
 	font-size: 6rem;
 }
 
-#about-me > .window > .content > ul > li > a > i:hover {
+#about-me .content i:hover {
 	transform: translateY(-15px);
 	transition: 0.2s linear;
 	scale: 1.4;
 }
 
-#about-me > .window > .content > ul > li > a > i:active {
-	color: rgba(255, 50, 142, 0.8);
+#about-me .content i:active {
+	color: var(--aboutMe-link-font-ACTIVE);
 	transition: 0.05s linear;
 }
 
 @media (max-width: 600px) {
-    #about-me > .window > .content > #introduction {
+	#about-me .content #introduction {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	#about-me > .window > .content > #introduction > #profile-pic {
+	#about-me .content #profile-pic {
 		width: 150px;
 		height: 150px;
 		margin-right: 0px;
 		margin-bottom: 10px;
 	}
 
-	#about-me > .window > .content > #introduction > h1 {
+	#about-me .content h1 {
 		font-size: 2.5rem;
 	}
 
-	#about-me > .window > .content > #introduction > p {
+	#about-me .content p {
 		font-size: 1.2rem;
 	}
 
-	#about-me > .window > .content > ul > li > a > i:hover {
+	#about-me .content i:hover {
 		transform: translateY(0px);
 		scale: 1;
 	}

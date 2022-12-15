@@ -1,3 +1,6 @@
 pages.forEach((page, index) => {
-    makeDraggable(dragAreas[index], page)
+	makeDraggable({
+		element: dragAreas[index],
+		parent: page,
+	})
 })
