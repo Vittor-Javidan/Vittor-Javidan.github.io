@@ -300,4 +300,8 @@
 		width: 95%;
 		height: 95%;
 	}
+
+	.content {
+		padding: 10px;
+	}
 }
