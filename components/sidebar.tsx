@@ -7,61 +7,132 @@ export default function Sidebar(props: {
 	menuTitle: string
 	sidebarData: sidebarDataType[]
 }): JSX.Element {
+
+	const [isOpen, setIsOpen] = useState(false)
+
     return (<>
 		<BoxiconIcons />
 		<GoogleFonts />
         <div className={`
-			fixed z-9 
-			w-[90px] h-screen 
-			flex flex-col justify-between 
-			bg-black/75 
+		
+			fixed z-9
+			h-screen 
+			flex flex-col justify-between
+			bg-black/75
 			border-solid border-r-2  border-gray-700
 			shadow-lg backdrop-blur-sm
-		`}>
-
-			<ToggleButton />
-			<Logo menuTitle={props.menuTitle}/>
-			<NavMenu sidebarData={props.sidebarData}/>
+			duration-[400ms] ease-linear
+			
+			${
+				isOpen 
+				? `w-[300px]` 
+				: `w-[90px]`
+			}
+			`
+		}>
+			<ToggleButton 
+				onClick={() => setIsOpen(prev => !prev)} 
+				isActive={isOpen} 
+			/>
+			<MenuLabel 
+				menuTitle={props.menuTitle}
+				isActive={isOpen}
+			/>
+			<NavMenu 
+				sidebarData={props.sidebarData}
+				isActive={isOpen}
+			/>
 		</div>
     </>)
 }
 
-function ToggleButton(): JSX.Element {
-	return (
-		<div className={`
-			absolute left-[67px] top-[100px] z-10
-			w-[43px] h-[43px] pt-[3px] rounded-full
-			flex justify-center 
-			bg-fuchsia-600 
-			cursor-pointer
+function ToggleButton(props: {
+	onClick: () => void
+	isActive: boolean
+}): JSX.Element {
 
-			active:bg-white
-			active:transition-[0.05s]
-		`}>
+	return (
+		<button 
+			className={`
+			
+				absolute z-10
+				w-[43px] h-[43px] pt-[3px]
+				flex justify-center 
+				bg-fuchsia-600
+				cursor-pointer
+				transform-gpu
+				duration-[400ms] ease-linear
+				shadow-customToggle
+
+				hover:shadow-fuchsia-600
+
+				active:bg-white
+				active:duration-[100ms]
+				
+				${
+					props.isActive
+					? (`
+						left-[290px] top-[50vh]
+						rounded-toggleOpen rounded-r-full
+						scale-[1.4]
+					`)
+					: (`
+						left-[67px] top-[100px]
+						rounded-toggleClosed
+					`)
+				}
+			`}
+			type="button"
+			onClick={props.onClick}
+		>
 			<i className={`
 				bx bxs-caret-right-circle 
 				text-[36px] opacity-70
 			`}></i>
-		</div>
+		</button>
 	)
 }
 
-function Logo(props: {menuTitle: string}): JSX.Element {
+function MenuLabel(props: {
+	menuTitle: string
+	isActive: boolean
+}): JSX.Element {
+
 	return (
 		<div className={`
 			w-auto py-[15px]
 			flex flex-col items-center text-center 
 		`}>
 			<img
-				className="h-[56px]" 
+				className={`
+
+					duration-[400ms] ease-linear
+					transform-gpu
+
+					${
+						props.isActive
+						? `h-[200px]`
+						: `h-[56px]`
+					}
+				`} 
 				src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/Lone_Wisp_Logo_1024.png" 
 				alt="logo image" 
 			/>
 			<h1 className={`
 				mt-[12px]
-				text-[3.6rem] font-variant-caps
-				opacity-0
-			`}>
+				text-[3.6rem] font-Roboto font-bold
+				text-white				
+			` + (props.isActive
+				? (`
+					mt-[35px]
+					delay-[600ms]
+					scale-1 opacity-1
+					duration-[400ms] ease-linear
+				`)
+				: (`
+					opacity-0 
+				`)
+			)}>
 				{props.menuTitle}
 			</h1>
 		</div>
@@ -69,68 +140,81 @@ function Logo(props: {menuTitle: string}): JSX.Element {
 }
 
 function NavMenu(props: {
-	sidebarData: sidebarDataType[]
+	sidebarData: sidebarDataType[];
+	isActive: boolean;
 }): JSX.Element {
 
 	const listItemArray = props.sidebarData.map((data, index) => (
 		<ListItem 
-			iconClassName={data.iconClassName}
-			innerText={data.innerText} 
-			href={data.href}
+			sidebarData={ data }
+			sidebarOpen={props.isActive}
 			key={index}
 		/>
 	))
 	
 	return (
 		<nav className={`
+			relative
 			py-[15px] mt-[20px] 
 			box-content
 		`}>
-			<ul className="
+			<ul className={`
 				flex flex-col
 				mx-[15px]
-			">
+			`}>
 				{...listItemArray}
 			</ul>
 		</nav>
 	)
 }
 
-function ListItem(props: sidebarDataType): JSX.Element {
+function ListItem(props: {
+	sidebarData: sidebarDataType,
+	sidebarOpen: boolean
+}): JSX.Element {
 
 	const [selected, setSelected] = useState(false)
 
-	return <>
+	return (
 		<li 
-			className={
-				selected
-				? (`
-					w-[80px] h-[60px] rounded-[10px]
-					bg-fuchsia-600
-					border-[2px] border-solid border-gray-800 border-opacity-10
-					cursor-pointer 
-					transition-[0.15s]
-					ease-linear
-					transform-gpu
-
-					hover:translate-x-[10px]
-					hover:z-20
-					hover:shadow-custom
-				`)
-				: (`
-					w-auto 
-					rounded-[10px] 
-					cursor-pointer
-					transition-[0.15s]
-					ease-linear
-					transform-gpu
-				
-					hover:bg-gray-700
+			className={`
 			
-					active:bg-fuchsia-600
-					active:transition-[0.05s]
-				`)
-			}
+				h-[60px]
+				rounded-[10px]
+				cursor-pointer
+				transform-gpu
+				active:bg-fuchsia-600
+
+				${!selected && (`
+					hover:bg-gray-700
+				`)}
+
+				${selected && (`
+					border-[2px] border-gray-700 border-opacity-30
+					bg-fuchsia-600
+					hover:bg-fuchsia-700
+					hover:shadow-custom
+					hover:z-10
+					hover:translate-x-[10px]
+					hover:duration-[150ms]
+					active:bg-gray-700
+				`)}
+
+				${selected && !props.sidebarOpen && (`
+					w-[85px]
+					duration-[400ms] ease-linear
+					hover:shadow-custom
+					hover:z-10
+				`)}
+
+				${selected && props.sidebarOpen && (`
+					w-[300px]
+					duration-[400ms] ease-linear
+					hover:w-[400px]
+					hover:rounded-navItemSidebarOpen
+					hover:bg-fuchsia-500
+				`)}
+			`}
 			onClick={() => {
 				setSelected(prev => !prev)
 			}}
@@ -138,29 +222,44 @@ function ListItem(props: sidebarDataType): JSX.Element {
 			<Link 
 				tabIndex={0}
 				className={
+					
 					`h-[56px] py-[16px] 
-					flex justify-center 
+					flex justify-start
 					text-white
 
 					focus:rounded-[10px]
-					focus:outline-fuchsia-600 
-					`
+					focus:outline-fuchsia-600`
 				} 
-				href={`${props.href}`}
+				href={`${props.sidebarData.href}`}
 			>
-				<i className={`text-[2.6rem] ${props.iconClassName}`} ></i>
+				<i className={`
+					text-[2.6rem] ml-[14px]
+					${props.sidebarData.iconClassName}`} 
+				></i>
 				<span
 					className={`
-						w-[0px] text-[1.8rem] 
-						scale-0 opacity-0
-						pointer-events-none 
+					
+						text-[1.6rem] 
+						pointer-events-none
+						
+						${props.sidebarOpen && (`
+							w-auto pl-[14px] 
+							scale-1 opacity-1
+							duration-[400ms]
+							delay-[600ms]
+						`)}
+
+						${(!props.sidebarOpen) && (`
+							w-[0px] 
+							opacity-0
+						`)}
 					`}
 				>
-					{props.innerText}
+					{props.sidebarData.innerText}
 				</span>
 			</Link>
 		</li>	
-	</>
+	)
 }
 
 type sidebarDataType = {

@@ -13,7 +13,16 @@ module.exports = {
       'lg': '1101px'
     },
     boxShadow: {
-      'custom': '7px 7px 50px rgb(2, 4, 24)',
+      'custom': '7px 7px 30px 10px',
+      'customToggle': '0px 0px 10px 1px'
+    },
+    borderRadius: {
+      'toggleClosed': '50%',
+      'toggleOpen': '5px 50% 50% 5px',
+      'navItemSidebarOpen': '10px 40px 40px 10px'
+    },
+    fontFamily: {
+      'Roboto': "'Roboto', sans-serif"
     },
     extend: {},
   },
