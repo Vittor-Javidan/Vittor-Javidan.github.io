@@ -23,13 +23,9 @@ export default function Sidebar(props: {
 			shadow-lg backdrop-blur-sm
 			duration-[400ms] ease-linear
 			
-			${
-				isOpen 
-				? `w-[300px]` 
-				: `w-[90px]`
-			}
-			`
-		}>
+			${isOpen && `w-[300px]`}
+			${!isOpen && `w-[90px]`}
+		`}>
 			<ToggleButton 
 				onClick={() => setIsOpen(prev => !prev)} 
 				isActive={isOpen} 
@@ -63,24 +59,20 @@ function ToggleButton(props: {
 				transform-gpu
 				duration-[400ms] ease-linear
 				shadow-customToggle
-
 				hover:shadow-fuchsia-600
-
 				active:bg-white
 				active:duration-[100ms]
 				
-				${
-					props.isActive
-					? (`
-						left-[290px] top-[50vh]
-						rounded-toggleOpen rounded-r-full
-						scale-[1.4]
-					`)
-					: (`
-						left-[67px] top-[100px]
-						rounded-toggleClosed
-					`)
-				}
+				${props.isActive && `
+					left-[290px] top-[50vh]
+					rounded-toggleOpen rounded-r-full
+					scale-[1.4]
+				`}
+
+				${!props.isActive && `
+					left-[67px] top-[100px]
+					rounded-toggleClosed
+				`}
 			`}
 			type="button"
 			onClick={props.onClick}
@@ -109,30 +101,27 @@ function MenuLabel(props: {
 					duration-[400ms] ease-linear
 					transform-gpu
 
-					${
-						props.isActive
-						? `h-[200px]`
-						: `h-[56px]`
-					}
+					${props.isActive && `h-[200px]`}
+					${!props.isActive && `h-[56px]`}
 				`} 
 				src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/Lone_Wisp_Logo_1024.png" 
 				alt="logo image" 
 			/>
 			<h1 className={`
+
 				mt-[12px]
 				text-[3.6rem] font-Roboto font-bold
-				text-white				
-			` + (props.isActive
-				? (`
+				text-white	
+				
+				${props.isActive && `
 					mt-[35px]
 					delay-[600ms]
 					scale-1 opacity-1
 					duration-[400ms] ease-linear
-				`)
-				: (`
-					opacity-0 
-				`)
-			)}>
+				`}		
+				
+				${!props.isActive && `opacity-0`}	
+			`}>
 				{props.menuTitle}
 			</h1>
 		</div>
@@ -189,31 +178,29 @@ function ListItem(props: {
 					hover:bg-gray-700
 				`)}
 
-				${selected && (`
+				${selected && `
 					border-[2px] border-gray-700 border-opacity-30
 					bg-fuchsia-600
+					duration-[400ms] ease-linear
 					hover:bg-fuchsia-700
 					hover:shadow-custom
 					hover:z-10
 					hover:translate-x-[10px]
 					hover:duration-[150ms]
 					active:bg-gray-700
-				`)}
+				`}
 
-				${selected && !props.sidebarOpen && (`
+				${selected && !props.sidebarOpen && `
 					w-[85px]
-					duration-[400ms] ease-linear
 					hover:shadow-custom
-					hover:z-10
-				`)}
+				`}
 
-				${selected && props.sidebarOpen && (`
+				${selected && props.sidebarOpen && `
 					w-[300px]
-					duration-[400ms] ease-linear
 					hover:w-[400px]
 					hover:rounded-navItemSidebarOpen
 					hover:bg-fuchsia-500
-				`)}
+				`}
 			`}
 			onClick={() => {
 				setSelected(prev => !prev)
@@ -242,17 +229,17 @@ function ListItem(props: {
 						text-[1.6rem] 
 						pointer-events-none
 						
-						${props.sidebarOpen && (`
+						${props.sidebarOpen && `
 							w-auto pl-[14px] 
 							scale-1 opacity-1
 							duration-[400ms]
 							delay-[600ms]
-						`)}
+						`}
 
-						${(!props.sidebarOpen) && (`
+						${!props.sidebarOpen && `
 							w-[0px] 
 							opacity-0
-						`)}
+						`}
 					`}
 				>
 					{props.sidebarData.innerText}
