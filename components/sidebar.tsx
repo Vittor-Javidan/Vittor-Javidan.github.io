@@ -115,7 +115,7 @@ function MenuLabel(props: {
 				
 				${props.isActive && `
 					mt-[35px]
-					delay-[600ms]
+					delay-[400ms]
 					scale-1 opacity-1
 					duration-[400ms] ease-linear
 				`}		
@@ -233,7 +233,7 @@ function ListItem(props: {
 							w-auto pl-[14px] 
 							scale-1 opacity-1
 							duration-[400ms]
-							delay-[600ms]
+							delay-[400ms]
 						`}
 
 						${!props.sidebarOpen && `
