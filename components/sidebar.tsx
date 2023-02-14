@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { GoogleFonts } from "./fonts/googleFont";
-import { BoxiconIcons } from "./icons/boxiconIcon";
 
 export default function Sidebar(props: {
 	menuTitle: string
@@ -11,11 +9,9 @@ export default function Sidebar(props: {
 	const [isOpen, setIsOpen] = useState(false)
 
     return (<>
-		<BoxiconIcons />
-		<GoogleFonts />
         <div className={`
 		
-			fixed z-9
+			fixed z-10
 			h-screen 
 			flex flex-col justify-between
 			bg-black/75
@@ -238,6 +234,7 @@ function ListItem(props: {
 
 						${!props.sidebarOpen && `
 							w-[0px] 
+							scale-0
 							opacity-0
 						`}
 					`}

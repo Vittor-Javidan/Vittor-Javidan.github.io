@@ -1,0 +1,21 @@
+.SCRIPT_bringFoward {
+    z-index: 3;
+}
+
+.CSS_scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 95%;
+}
+
+.CSS_scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgb(100, 100, 100);
+    border-radius: 5px;
+}
+
+.CSS_windowContentHeight {
+    height: calc(100% - 60px);
+}
+
+a:hover > .CSS_dotHover {
+    opacity: 1;
+}
