@@ -32,7 +32,9 @@ function Taskbar(props: {
             flex
         `}>
             <TaskbarDots />
-            <TaskbarTitle taskbarTitle={props.taskbarTitle} />
+            <TaskbarTitle 
+                taskbarTitle={props.taskbarTitle} 
+            />
         </div>
         <LineBreak />
     </>)

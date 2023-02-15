@@ -3,8 +3,8 @@ const dragAreas = document.querySelectorAll('.SCRIPT_draggable')
 
 pages.forEach((page, index) => { 
 	makeDraggable({
-		element: dragAreas[index],
-		parent: page,
+		draggableArea: dragAreas[index],
+		target: page,
 	})
 })
 
@@ -18,21 +18,21 @@ pages.forEach((page) => {
 })
 
 /**
- * @param {{element: HTML_Element, parent: HTML_Element}} object
+ * @param {{draggableArea: HTML_Element, target: HTML_Element}} object
  */
-function makeDraggable({ element, parent }) {
+function makeDraggable({ draggableArea, target }) {
 
 	let currentX = 0
 	let currentY = 0
 	let isDragging = false
 
-	element.addEventListener('mousedown', onMouseDown)
+	draggableArea.addEventListener('mousedown', onMouseDown)
 	document.addEventListener('mouseup', onMouseUp)
 	document.addEventListener('mousemove', onMouseMove)
 
 	function onMouseDown(e) {
 
-		if (parent.classList.contains('fullscreen')) {
+		if (target.classList.contains('fullscreen')) {
 			return
 		}
 
@@ -43,7 +43,7 @@ function makeDraggable({ element, parent }) {
 
 	function onMouseUp(e) {
 
-		if (parent.classList.contains('fullscreen')) {
+		if (target.classList.contains('fullscreen')) {
 			return
 		}
 
@@ -52,7 +52,7 @@ function makeDraggable({ element, parent }) {
 
 	function onMouseMove(e) {
 
-		if (parent.classList.contains('fullscreen')) {
+		if (target.classList.contains('fullscreen')) {
 			return
 		}
 
@@ -63,10 +63,10 @@ function makeDraggable({ element, parent }) {
 		const offsetX = e.clientX - currentX
 		const offsetY = e.clientY - currentY
 
-		element.style.top = `${element.offsetTop + offsetY}px`
-		element.style.left = `${element.offsetLeft + offsetX}px`
-		parent.style.top = `${parent.offsetTop + offsetY}px`
-		parent.style.left = `${parent.offsetLeft + offsetX}px`
+		draggableArea.style.top = `${draggableArea.offsetTop + offsetY}px`
+		draggableArea.style.left = `${draggableArea.offsetLeft + offsetX}px`
+		target.style.top = `${target.offsetTop + offsetY}px`
+		target.style.left = `${target.offsetLeft + offsetX}px`
 
 		currentX = e.clientX
 		currentY = e.clientY
