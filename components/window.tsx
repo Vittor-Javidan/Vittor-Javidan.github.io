@@ -12,22 +12,33 @@ export default function Window(props: {
 
     const [visible, setVisible] = useState(props.startVisible)
     const [minimized, setMinimized] = useState(false)
+    const [expanded, setExpanded] = useState(false)
 
     WindowsSetters.registerSetter({
         name: props.taskbarTitle,
-        visible: setVisible,
-        minimized: setMinimized
+        setVisible: setVisible,
+        setMinimized: setMinimized,
+        setExpanded: setExpanded
     })
 
     return (
         <div className={`
+        
             SCRIPT_page
-            absolute ${props.CSS_PositionUtilityClass}
             w-[1000px] h-[70vh]
             bg-black/75
-            border-solid border-2  border-gray-700 rounded-[10px]
+            border-solid border-2  border-gray-700
             overflow-hidden
 
+            ${expanded && `
+                ml-[88px] w-full h-[100%]
+            `}
+
+            ${!expanded && `
+                absolute ${props.CSS_PositionUtilityClass}
+                rounded-[10px]
+            `}
+            
             ${minimized && `
                 duration-[600ms]
             `}
@@ -58,6 +69,16 @@ export default function Window(props: {
 
                     SidebarListItemsSetters.activeSetters[props.taskbarTitle](false)
                 }}
+                expandWindow={() => {
+
+                    setExpanded(prev => !prev)
+
+                    for(const key in WindowsSetters.expandedSetters) {
+                        if(key !== props.taskbarTitle) {
+                            WindowsSetters.expandedSetters[key](false)
+                        }
+                    }
+                }}
             />
             <ContentArea>
                 {props.children}
@@ -70,14 +91,16 @@ function Taskbar(props: {
     taskbarTitle: string
     closeWindow: () => void
     minimizeWindow: () => void
+    expandWindow: () => void
 }): JSX.Element {
     return (<>
         <div className={`
             flex
         `}>
             <TaskbarDots 
-                closeWindow={props.closeWindow} 
-                minimizeWindow={props.minimizeWindow}
+                redDotClick={props.closeWindow} 
+                yellowDotClick={props.minimizeWindow}
+                greenDotClick={props.expandWindow}
             />
             <TaskbarTitle 
                 taskbarTitle={props.taskbarTitle} 
@@ -88,8 +111,9 @@ function Taskbar(props: {
 }
 
 function TaskbarDots(props: {
-    closeWindow: () => void
-    minimizeWindow: () => void
+    redDotClick: () => void
+    yellowDotClick: () => void
+    greenDotClick: () => void
 }): JSX.Element {
     return (
         <div className={`
@@ -97,12 +121,14 @@ function TaskbarDots(props: {
             flex box-content gap-[7px]
         `}>
             <RedDot 
-                onClick={props.closeWindow}
+                onClick={props.redDotClick}
             />
             <YellowDot 
-                onClick={props.minimizeWindow} 
+                onClick={props.yellowDotClick} 
             />
-            <GreenDot />
+            <GreenDot 
+                onclick={props.greenDotClick}
+            />
         </div>
     )
 }
@@ -167,7 +193,9 @@ function YellowDot(props: {
     )
 }
 
-function GreenDot(): JSX.Element {
+function GreenDot(props: {
+    onclick: () => void
+}): JSX.Element {
     return (
         <Link
             tabIndex={0}
@@ -179,6 +207,7 @@ function GreenDot(): JSX.Element {
                 cursor-pointer
                 active:bg-green-600
             `}
+            onClick={props.onclick}
         >
             <img 
                 src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/maximize_1.png" 
