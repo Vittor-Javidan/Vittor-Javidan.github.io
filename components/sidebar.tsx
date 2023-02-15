@@ -1,3 +1,5 @@
+import SidebarListItemsSetters from "@/Controllers/sidebarNavItemsSetters";
+import WindowsSetters from "@/Controllers/windowSetters";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -129,13 +131,23 @@ function NavMenu(props: {
 	isActive: boolean;
 }): JSX.Element {
 
-	const listItemArray = props.sidebarData.map((data, index) => (
-		<ListItem 
-			sidebarData={ data }
-			sidebarOpen={props.isActive}
-			key={index}
-		/>
-	))
+	const listItemArray = props.sidebarData.map((data, index) => {
+
+		let startSelected
+
+		index === 0
+		? startSelected = true
+		: startSelected = false
+
+		return (
+			<ListItem 
+				sidebarData={ data }
+				sidebarOpen={props.isActive}
+				startSelected={startSelected}
+				key={index}
+			/>
+		)
+	})
 	
 	return (
 		<nav className={`
@@ -156,9 +168,15 @@ function NavMenu(props: {
 function ListItem(props: {
 	sidebarData: sidebarDataType,
 	sidebarOpen: boolean
+	startSelected: boolean
 }): JSX.Element {
 
-	const [selected, setSelected] = useState(false)
+	const [selected, setSelected] = useState(props.startSelected)
+
+	SidebarListItemsSetters.registerSetter({
+		name: props.sidebarData.innerText,
+		active: setSelected
+	})
 
 	return (
 		<li 
@@ -199,7 +217,24 @@ function ListItem(props: {
 				`}
 			`}
 			onClick={() => {
+
+				const name = props.sidebarData.innerText
 				setSelected(prev => !prev)
+				
+				if(selected) {
+					
+					WindowsSetters.visibleSetters[name](false)
+					WindowsSetters.minimizedSetters[name](true)
+
+				} else {
+
+					WindowsSetters.visibleSetters[name](true)
+					WindowsSetters.minimizedSetters[name](true)
+					
+					setTimeout(() => {
+						WindowsSetters.minimizedSetters[name](false)
+					}, 600)
+				}
 			}}
 		>
 			<Link 

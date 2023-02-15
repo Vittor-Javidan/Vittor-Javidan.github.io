@@ -8,7 +8,7 @@ import Script from "next/script";
 export default function Home(): JSX.Element {
     return (<div>
         <Head>
-            <title>Vitto Javidan Webpage</title>
+            <title>Vittor Javidan Webpage</title>
         </Head>
         <Background>
             <Sidebar 
@@ -17,15 +17,35 @@ export default function Home(): JSX.Element {
             />
             <Window
                 taskbarTitle="About Me"
+                startVisible={true}
+                CSS_PositionUtilityClass="CSS_AboutMe_Position"
             >
                 About Me
             </Window>
             <Window
                 taskbarTitle="My Projects"
+                startVisible={false}
+                CSS_PositionUtilityClass="CSS_MyProjects_Position"
             >
                 My Projects
             </Window>
+            <Window
+                taskbarTitle="My Certifications"
+                startVisible={false}
+                CSS_PositionUtilityClass="CSS_MyCertifications_Position"
+            >
+                My Certifications
+            </Window>
+            <Window
+                taskbarTitle="My Self-Taught Curriculum"
+                startVisible={false}
+                CSS_PositionUtilityClass="CSS_MySelfTaughtCurriculum_Position"
+            >
+                My Self-Taught Curriculum
+            </Window>
+            <Script type="text/javascript" src="/static/elements.js" />
             <Script type="text/javascript" src="/static/draggableWindows.js" />
+            <Script type="text/javascript" src="/static/windowsIndexHandler.js" />
         </Background>
     </div>)
 }

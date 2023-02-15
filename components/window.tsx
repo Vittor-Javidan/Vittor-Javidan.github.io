@@ -1,21 +1,63 @@
+import SidebarListItemsSetters from "@/Controllers/sidebarNavItemsSetters"
+import WindowsSetters from "@/Controllers/windowSetters"
 import Link from "next/link"
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 
 export default function Window(props: {
     taskbarTitle: string
     children: ReactNode
+    startVisible: boolean
+    CSS_PositionUtilityClass: string
 }): JSX.Element {
+
+    const [visible, setVisible] = useState(props.startVisible)
+    const [minimized, setMinimized] = useState(false)
+
+    WindowsSetters.registerSetter({
+        name: props.taskbarTitle,
+        visible: setVisible,
+        minimized: setMinimized
+    })
+
     return (
         <div className={`
             SCRIPT_page
-            absolute top-[50px] left-[500px]
+            absolute ${props.CSS_PositionUtilityClass}
             w-[1000px] h-[70vh]
             bg-black/75
             border-solid border-2  border-gray-700 rounded-[10px]
             overflow-hidden
+
+            ${minimized && `
+                duration-[600ms]
+            `}
+
+            ${visible && `
+                opacity-100
+                scale-100
+            `}
+
+            ${!visible && `
+                opacity-0
+                scale-0
+            `}
         `}>
             <Taskbar 
                 taskbarTitle={props.taskbarTitle} 
+                closeWindow={() => {
+
+                    setVisible(false)
+                    setMinimized(false)
+
+                    SidebarListItemsSetters.activeSetters[props.taskbarTitle](false)
+                }}
+                minimizeWindow={() => {
+                    
+                    setVisible(false)
+                    setMinimized(true)
+
+                    SidebarListItemsSetters.activeSetters[props.taskbarTitle](false)
+                }}
             />
             <ContentArea>
                 {props.children}
@@ -26,12 +68,17 @@ export default function Window(props: {
 
 function Taskbar(props: {
     taskbarTitle: string
+    closeWindow: () => void
+    minimizeWindow: () => void
 }): JSX.Element {
     return (<>
         <div className={`
             flex
         `}>
-            <TaskbarDots />
+            <TaskbarDots 
+                closeWindow={props.closeWindow} 
+                minimizeWindow={props.minimizeWindow}
+            />
             <TaskbarTitle 
                 taskbarTitle={props.taskbarTitle} 
             />
@@ -40,20 +87,29 @@ function Taskbar(props: {
     </>)
 }
 
-function TaskbarDots(): JSX.Element {
+function TaskbarDots(props: {
+    closeWindow: () => void
+    minimizeWindow: () => void
+}): JSX.Element {
     return (
         <div className={`
             mx-[16px] mt-[13px] mb-[11px]
             flex box-content gap-[7px]
         `}>
-            <RedDot />
-            <YellowDot />
+            <RedDot 
+                onClick={props.closeWindow}
+            />
+            <YellowDot 
+                onClick={props.minimizeWindow} 
+            />
             <GreenDot />
         </div>
     )
 }
 
-function RedDot(): JSX.Element {
+function RedDot(props: {
+    onClick: () => void
+}): JSX.Element {
     return (
         <Link 
             tabIndex={0}
@@ -65,6 +121,7 @@ function RedDot(): JSX.Element {
                 cursor-pointer
                 active:bg-red-600
             `}
+            onClick={props.onClick}
         >
             <img 
                 src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/x_1.png" 
@@ -80,18 +137,22 @@ function RedDot(): JSX.Element {
     )
 }
 
-function YellowDot(): JSX.Element {
+function YellowDot(props: {
+    onClick: () => void
+}): JSX.Element {
     return (
         <Link 
             tabIndex={0}
             href={""}
             className={`
-            h-[14px] w-[14px] rounded-[50%]
-            border-solid border-[1px] border-yellow-500
-            bg-yellow-500
-            cursor-pointer
-            active:bg-yellow-600
-        `}>
+                h-[14px] w-[14px] rounded-[50%]
+                border-solid border-[1px] border-yellow-500
+                bg-yellow-500
+                cursor-pointer
+                active:bg-yellow-600
+        `}
+            onClick={props.onClick}
+        >
             <img 
                 src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/minus_1.png" 
                 alt="minimize"

@@ -1,19 +1,7 @@
-const pages = document.querySelectorAll('.SCRIPT_page')
-const dragAreas = document.querySelectorAll('.SCRIPT_draggable')
-
 pages.forEach((page, index) => { 
 	makeDraggable({
 		draggableArea: dragAreas[index],
 		target: page,
-	})
-})
-
-pages.forEach((page) => {
-	page.addEventListener('mousedown', () => {
-		pages.forEach((element) => {
-			element.classList.remove('SCRIPT_bringFoward')
-		})
-		page.classList.add('SCRIPT_bringFoward')
 	})
 })
 
