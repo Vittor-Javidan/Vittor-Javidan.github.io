@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Window from "../window";
 
-export default function AboutMeWindow() {
+export default function AboutMeWindow(): JSX.Element {
     return (
         <Window
             taskbarTitle="About Me"
