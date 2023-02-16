@@ -20,6 +20,10 @@
     height: calc(100% - 60px);
 }
 
+.CSS_EnpandedWidth {
+    width: calc(100% - 88px);
+}
+
 .CSS_AboutMe_Position {
     top: calc(15vh);
     left: calc(50% - 500px);
@@ -39,6 +43,7 @@
     top: 92px;
     left: 100px;
 }
+
 
 a:hover > .CSS_dotHover {
     opacity: 1;

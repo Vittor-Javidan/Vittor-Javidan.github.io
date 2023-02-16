@@ -1,4 +1,5 @@
 import Background from "@/components/background";
+import AboutMeWindow from "@/components/customWindow/aboutMe";
 import Sidebar from "@/components/sidebar";
 import Window from "@/components/window";
 import { mainMenuSidebarData } from "@/data/sideBarData";
@@ -15,13 +16,7 @@ export default function Home(): JSX.Element {
                 menuTitle={"Main Menu"}
                 sidebarData={mainMenuSidebarData}
             />
-            <Window
-                taskbarTitle="About Me"
-                startVisible={true}
-                CSS_PositionUtilityClass="CSS_AboutMe_Position"
-            >
-                About Me
-            </Window>
+            <AboutMeWindow />
             <Window
                 taskbarTitle="My Projects"
                 startVisible={false}

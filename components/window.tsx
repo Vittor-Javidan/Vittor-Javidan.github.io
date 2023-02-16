@@ -25,13 +25,18 @@ export default function Window(props: {
         <div className={`
         
             SCRIPT_page
-            w-[1000px] h-[70vh]
+            h-[70vh]
             bg-black/75
             border-solid border-2  border-gray-700
             overflow-hidden
 
+            ${!expanded && `
+                w-[1000px]
+            `}
+
             ${expanded && `
-                ml-[88px] w-full h-[100%]
+                CSS_EnpandedWidth
+                ml-[88px] h-full
             `}
 
             ${!expanded && `
@@ -80,7 +85,9 @@ export default function Window(props: {
                     }
                 }}
             />
-            <ContentArea>
+            <ContentArea
+                windowExpanded={expanded}
+            >
                 {props.children}
             </ContentArea>
         </div>
@@ -252,14 +259,25 @@ function LineBreak(): JSX.Element {
 
 function ContentArea(props: {
     children: ReactNode
+    windowExpanded: boolean
 }): JSX.Element {
     return (
         <div className={`
             CSS_scrollbar
             CSS_windowContentHeight
-            w-auto m-[10px] p-[25px] 
+            w-auto px-[25px] pt-[25px] pb-[10px] 
             overflow-x-hidden
             overflow-y-scroll
+
+            ${!props.windowExpanded && `
+                m-[10px]
+                text-[1.6rem]
+            `}
+
+            ${props.windowExpanded && `
+                my-[10px] mx-[150px]
+                text-[2.6rem]
+            `}
         `}>
             {props.children}
         </div>
