@@ -59,7 +59,8 @@ export default function Window(props: {
             `}
         `}>
             <Taskbar 
-                taskbarTitle={props.taskbarTitle} 
+                taskbarTitle={props.taskbarTitle}
+                windowExpanded={expanded} 
                 closeWindow={() => {
 
                     setVisible(false)
@@ -96,13 +97,19 @@ export default function Window(props: {
 
 function Taskbar(props: {
     taskbarTitle: string
+    windowExpanded: boolean
     closeWindow: () => void
     minimizeWindow: () => void
     expandWindow: () => void
 }): JSX.Element {
     return (<>
         <div className={`
+        
             flex
+
+            ${props.windowExpanded && `
+                bg-black
+            `}
         `}>
             <TaskbarDots 
                 redDotClick={props.closeWindow} 
@@ -113,7 +120,9 @@ function Taskbar(props: {
                 taskbarTitle={props.taskbarTitle} 
             />
         </div>
-        <LineBreak />
+        <LineBreak
+            windowExpanded={props.windowExpanded}
+        />
     </>)
 }
 
@@ -247,11 +256,16 @@ function TaskbarTitle(props: {
     )
 }
 
-function LineBreak(): JSX.Element {
+function LineBreak(props: {
+    windowExpanded: boolean
+}): JSX.Element {
     return (
         <div className={`
-            mx-[5px]
             border-solid border-b-2 border-gray-700 rounded-[10px]
+
+            ${!props.windowExpanded && `
+                mx-[5px]
+            `}
         `}>
         </div>
     )
