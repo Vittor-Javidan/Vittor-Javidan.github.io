@@ -1,4 +1,20 @@
-pages.forEach((page, index) => { 
+const windows = document.querySelectorAll('.SCRIPT_page')
+const dragAreas = document.querySelectorAll('.SCRIPT_draggable')
+
+//Z-Index Handler
+windows.forEach((page) => {
+	page.addEventListener('mousedown', () => {
+		windows.forEach((element) => {
+			element.classList.remove('SCRIPT_bringFoward')
+            element.classList.add('SCRIPT_bringBack')
+		})
+		page.classList.add('SCRIPT_bringFoward')
+        page.classList.remove('SCRIPT_bringBack')
+	})
+})
+
+//Meke window Draggable
+windows.forEach((page, index) => { 
 	makeDraggable({
 		draggableArea: dragAreas[index],
 		target: page,

@@ -8,6 +8,7 @@ export default function Window(props: {
     children: ReactNode
     startVisible: boolean
     CSS_PositionUtilityClass: string
+    ID: string
 }): JSX.Element {
 
     const [visible, setVisible] = useState(props.startVisible)
@@ -22,7 +23,9 @@ export default function Window(props: {
     })
 
     return (
-        <div className={`
+        <div
+            id={props.ID} 
+            className={`
         
             SCRIPT_page
             h-[70vh]

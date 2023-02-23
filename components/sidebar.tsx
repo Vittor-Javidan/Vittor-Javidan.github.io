@@ -76,9 +76,15 @@ function ToggleButton(props: {
 			onClick={props.onClick}
 		>
 			<i className={`
+
 				bx bxs-caret-right-circle 
 				text-[36px] opacity-70
-			`}></i>
+
+				${props.isActive && `
+					rotate-180
+				`}
+			`}>
+			</i>
 		</button>
 	)
 }
@@ -235,6 +241,11 @@ function ListItem(props: {
 						WindowsSetters.minimizedSetters[name](false)
 					}, 600)
 				}
+
+				const target = document.getElementById(`${name.replace(" ", "-",)}`)
+				console.log(name.replace(" ", "-"))
+				console.log(target)
+				target?.focus()
 			}}
 		>
 			<Link 

@@ -22,9 +22,7 @@ export default function Home(): JSX.Element {
             <MyProjectsWindow />
             <MyCertificationsWindow />
             <MySelfTaughtCurriculumWindow />
-            <Script type="text/javascript" defer src="/static/elements.js" />
-            <Script type="text/javascript" defer src="/static/draggableWindows.js" />
-            <Script type="text/javascript" defer src="/static/windowsIndexHandler.js" />
+            <Script type="text/javascript" defer src="/static/windowsScripts.js" />
         </Background>
     </div>)
 }
