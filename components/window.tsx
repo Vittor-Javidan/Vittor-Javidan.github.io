@@ -1,5 +1,5 @@
-import SidebarListItemsSetters from "@/Controllers/sidebarNavItemsSetters"
-import WindowsSetters from "@/Controllers/windowSetters"
+import SidebarAPI from "@/ComponentsAPIs/sidebarAPI"
+import WindowsAPI from "@/ComponentsAPIs/windowAPI"
 import Link from "next/link"
 import { ReactNode, useState } from "react"
 
@@ -14,9 +14,10 @@ export default function Window(props: {
     const [visible, setVisible] = useState(props.startVisible)
     const [minimized, setMinimized] = useState(false)
     const [expanded, setExpanded] = useState(false)
+    const navItemRefID = `#${props.taskbarTitle.replaceAll(" ", "-")}-navItem`
 
-    WindowsSetters.registerSetter({
-        name: props.taskbarTitle,
+    WindowsAPI.registerComponent({
+        ID: props.taskbarTitle,
         setVisible: setVisible,
         setMinimized: setMinimized,
         setExpanded: setExpanded
@@ -24,7 +25,8 @@ export default function Window(props: {
 
     return (
         <div
-            id={props.ID} 
+            id={props.ID}
+            tabIndex={0}
             className={`
         
             SCRIPT_page
@@ -69,24 +71,40 @@ export default function Window(props: {
                     setVisible(false)
                     setMinimized(false)
 
-                    SidebarListItemsSetters.activeSetters[props.taskbarTitle](false)
+                    SidebarAPI.setActive(props.taskbarTitle, false)
+
+                    //TabIndex Accecibility
+                    const target = document.getElementById(navItemRefID)
+                    if(target) {
+                        target.tabIndex = -1
+                        target.focus()
+                        target.tabIndex = 0
+                    }
                 }}
                 minimizeWindow={() => {
                     
                     setVisible(false)
                     setMinimized(true)
 
-                    SidebarListItemsSetters.activeSetters[props.taskbarTitle](false)
+                    SidebarAPI.setActive(props.taskbarTitle, false)
+
+                    //TabIndex Accecibility
+                    const target = document.getElementById(navItemRefID)
+                    if(target) {
+                        target.tabIndex = -1
+                        target.focus()
+                        target.tabIndex = 0
+                    }
                 }}
                 expandWindow={() => {
 
                     setExpanded(prev => !prev)
-
-                    for(const key in WindowsSetters.expandedSetters) {
-                        if(key !== props.taskbarTitle) {
-                            WindowsSetters.expandedSetters[key](false)
+                    
+                    WindowsAPI.forEach(ID => {
+                        if(ID !== props.taskbarTitle) {
+                            WindowsAPI.setExpanded(ID, false)
                         }
-                    }
+                    })
                 }}
             />
             <ContentArea

@@ -17,7 +17,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 
     return (
         <Window
-            ID="#My-Self-Taught-Curriculum"
+            ID="#My-Self-Taught-Curriculum-window"
             taskbarTitle="My Self-Taught Curriculum"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MySelfTaughtCurriculum_Position"

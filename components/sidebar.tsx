@@ -1,5 +1,5 @@
-import SidebarListItemsSetters from "@/Controllers/sidebarNavItemsSetters";
-import WindowsSetters from "@/Controllers/windowSetters";
+import SidebarAPI from "@/ComponentsAPIs/sidebarAPI";
+import WindowsAPI from "@/ComponentsAPIs/windowAPI";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -133,8 +133,8 @@ function MenuLabel(props: {
 }
 
 function NavMenu(props: {
-	sidebarData: sidebarDataType[];
-	isActive: boolean;
+	sidebarData: sidebarDataType[]
+	isActive: boolean
 }): JSX.Element {
 
 	const listItemArray = props.sidebarData.map((data, index) => {
@@ -147,9 +147,10 @@ function NavMenu(props: {
 
 		return (
 			<ListItem 
-				sidebarData={ data }
+				sidebarData={data}
 				sidebarOpen={props.isActive}
 				startSelected={startSelected}
+				ID={`#${data.innerText.replaceAll(" ", "-")}-navItem`}
 				key={index}
 			/>
 		)
@@ -172,16 +173,19 @@ function NavMenu(props: {
 }
 
 function ListItem(props: {
-	sidebarData: sidebarDataType,
+	sidebarData: sidebarDataType
 	sidebarOpen: boolean
 	startSelected: boolean
+	ID: string
 }): JSX.Element {
 
 	const [selected, setSelected] = useState(props.startSelected)
+	const name = props.sidebarData.innerText
+	const windowRefID = `#${name.replaceAll(" ", "-")}-window`
 
-	SidebarListItemsSetters.registerSetter({
-		name: props.sidebarData.innerText,
-		active: setSelected
+	SidebarAPI.registerComponent({
+		name: name,
+		setActive: setSelected
 	})
 
 	return (
@@ -225,30 +229,35 @@ function ListItem(props: {
 			onClick={() => {
 
 				const name = props.sidebarData.innerText
+				
 				setSelected(prev => !prev)
 				
 				if(selected) {
 					
-					WindowsSetters.visibleSetters[name](false)
-					WindowsSetters.minimizedSetters[name](true)
+					WindowsAPI.setVisible(name, false)
+					WindowsAPI.setMinimized(name, true)
 
 				} else {
-
-					WindowsSetters.visibleSetters[name](true)
-					WindowsSetters.minimizedSetters[name](true)
+					
+					WindowsAPI.setVisible(name, true)
+					WindowsAPI.setMinimized(name, true)
 					
 					setTimeout(() => {
-						WindowsSetters.minimizedSetters[name](false)
+						WindowsAPI.setMinimized(name, false)
 					}, 600)
 				}
 
-				const target = document.getElementById(`${name.replace(" ", "-",)}`)
-				console.log(name.replace(" ", "-"))
-				console.log(target)
-				target?.focus()
+				//TabIndex Accecibility
+				const target = document.getElementById(windowRefID)
+				if(target) {
+					target.tabIndex = -1
+					target.focus()
+					target.tabIndex = 0
+				}
 			}}
 		>
 			<Link 
+				id={props.ID}
 				tabIndex={0}
 				className={
 					
@@ -293,7 +302,7 @@ function ListItem(props: {
 }
 
 type sidebarDataType = {
-	href: string;
-	iconClassName: string;
-	innerText: string;
+	href: string
+	iconClassName: string
+	innerText: string
 }

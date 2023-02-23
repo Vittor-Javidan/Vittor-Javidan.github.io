@@ -4,7 +4,7 @@ import Window from "../window";
 export default function AboutMeWindow(): JSX.Element {
     return (
         <Window
-            ID="#About-Me"
+            ID="#About-Me-window"
             taskbarTitle="About Me"
             startVisible={true}
             CSS_PositionUtilityClass="CSS_AboutMe_Position"
