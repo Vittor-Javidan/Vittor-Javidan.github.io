@@ -147,19 +147,19 @@ function Subtopic(props: {
         >
             {open 
                 ? <img 
-                className={`
-                    h-[120px] w-[80px]
-                    cursor-pointer
-                `}
-                src="/folderOpen.svg" 
-                alt="folderIcon" 
+                    className={`
+                        h-[120px] w-[80px]
+                        cursor-pointer
+                    `}
+                    src="/static/svg/folderOpen.svg" 
+                    alt="folderIcon" 
                 />
                 : <img 
                     className={`
                         h-[101px] w-[80px]
                         cursor-pointer
                     `}
-                    src="/folderClosed.svg" 
+                    src="/static/svg/folderClosed.svg" 
                     alt="folderIcon" 
                 />
             }
@@ -258,7 +258,7 @@ function VideoItem(props: {
                         h-[101px] w-[80px]
                         cursor-pointer
                     `}
-                    src="/youtubeFile.svg" 
+                    src="/static/svg/youtubeFile.svg" 
                     alt="youtubeIcon" 
                 />
                 <div
@@ -338,7 +338,7 @@ function ReadingItem(props: {
                         h-[101px] w-[80px]
                         cursor-pointer
                     `}
-                    src="/readingFile.svg" 
+                    src="/static/svg/readingFile.svg" 
                     alt="readingIcon" 
                 />
                 <div

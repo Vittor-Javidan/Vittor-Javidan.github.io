@@ -45,9 +45,9 @@ function Certificate(props: {
     let bgLink
 
     switch (props.institution) {
-        case "freeCodeCamp":    bgLink = "bg-[url('/freecodeCampBG.svg')]" ;break
-        case "HackerRank":      bgLink = "bg-[url('/hackerRankBG.svg')]"   ;break
-        case "UNA University":  bgLink = "bg-[url('/unaBG.svg')]"          ;break
+        case "freeCodeCamp":    bgLink = "bg-[url('/static/svg/freecodeCampBG.svg')]" ;break
+        case "HackerRank":      bgLink = "bg-[url('/static/svg/hackerRankBG.svg')]"   ;break
+        case "UNA University":  bgLink = "bg-[url('/static/svg/unaBG.svg')]"          ;break
         default: bgLink = ""
     }
     
