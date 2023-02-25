@@ -7,17 +7,17 @@ export default function MyCertificationsWindow(): JSX.Element {
     const certificates = certificatesData.map((data, index) => (
         <Certificate 
             title={data.title}
-            intitution={data.intitution}
+            institution={data.intitution}
             date={data.date}
             certificateURL={data.certificateURL}
             hoverMessage={data.hoverMessage}
             key={index}
+            islast={(index + 1) === certificatesData.length}
         />
     ))
 
     return (
         <Window
-            ID="#My-Certifications-window"
             taskbarTitle="My Certifications"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MyCertifications_Position"
@@ -34,22 +34,23 @@ export default function MyCertificationsWindow(): JSX.Element {
 }
 
 function Certificate(props: {
-    title: string,
-    intitution: string,
-    date: string,
-    certificateURL: string,
+    title: string
+    institution: string
+    date: string
+    certificateURL: string
     hoverMessage: string
+    islast: boolean
 }): JSX.Element {
 
     let bgLink
 
-    switch (props.intitution) {
+    switch (props.institution) {
         case "freeCodeCamp":    bgLink = "bg-[url('/freecodeCampBG.svg')]" ;break
-        case "HackerRank":      bgLink = "bg-[url('/hackerRankBG.svg')]"            ;break
-        case "UNA University":  bgLink = "bg-[url('/unaBG.svg')]"                   ;break
+        case "HackerRank":      bgLink = "bg-[url('/hackerRankBG.svg')]"   ;break
+        case "UNA University":  bgLink = "bg-[url('/unaBG.svg')]"          ;break
         default: bgLink = ""
     }
-
+    
     return (
         <div
             className={`
@@ -61,6 +62,7 @@ function Certificate(props: {
             `}
         >
             <Link
+                className={props.islast ? "ACCESSIBILITY_lastWindowElement": ""}
                 href={props.certificateURL}
                 target={props.certificateURL !== "" ? "_blank" : ""}
             >
@@ -92,7 +94,7 @@ function Certificate(props: {
                                     mt-[10px]
                                 `}
                             >
-                                {props.intitution}
+                                {props.institution}
                             </p>
                         <p
                                 className={`

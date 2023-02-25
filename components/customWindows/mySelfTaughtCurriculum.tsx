@@ -10,6 +10,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
             <Topic 
                 topic={data.topic}
                 topicItems={data.itemList}
+                isLast={index + 1 === selfTaughtCurriculumData.length}
                 key={index}
             />
         )
@@ -17,7 +18,6 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 
     return (
         <Window
-            ID="#My-Self-Taught-Curriculum-window"
             taskbarTitle="My Self-Taught Curriculum"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MySelfTaughtCurriculum_Position"
@@ -32,6 +32,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 function Topic(props: {
     topic: string
     topicItems: topicItems
+    isLast: boolean
 }): JSX.Element {
 
     const [open, setOpen] = useState(false)
@@ -47,34 +48,24 @@ function Topic(props: {
                     flex items-baseline
 
                     ${open && `
-                        text-fuchsia-500
+                    text-fuchsia-500
                     `}
                 `}
             >
-                {open 
-                    ? <button 
-                        className={`
-                            w-[30px]
-                            text-[2.6rem] 
-                            hover:text-fuchsia-500
-                        `}
-                        onClick={() => setOpen(false)}
-                        type="button"
-                    >
-                        -
-                    </button>
-                    : <button
-                        className={`
-                            w-[30px]
-                            text-[2.6rem] 
-                            hover:text-fuchsia-500
-                        `}
-                        onClick={() => setOpen(true)}
-                        type="button"
-                    >
-                        +
-                    </button>
-                }
+                <button 
+                    className={`
+                        w-[30px]
+                        text-[2.6rem] 
+
+                        ${(props.isLast && !open) ? "ACCESSIBILITY_lastWindowElement" : ""}
+                        ${open ? "text-fuchsia-500" : ""}
+                        ${!open ? "hover:text-fuchsia-500" : ""}
+                    `}
+                    onClick={() => setOpen(prev => !prev)}
+                    type="button"
+                >
+                    {open ? "-" : "+"}
+                </button>
                 <span>
                     {props.topic}
                 </span>
@@ -87,13 +78,17 @@ function Topic(props: {
                     `}
                 `}
             />
-            {open && <TopicItems topicItems={props.topicItems}/>}
+            {open && <TopicItems 
+                topicItems={props.topicItems}
+                isLastTopic={props.isLast}
+            />}
         </li>
     )
 }
 
 function TopicItems(props: {
     topicItems: topicItems
+    isLastTopic: boolean
 }): JSX.Element {
 
     return (
@@ -108,6 +103,8 @@ function TopicItems(props: {
                     subtopic={items.subtopic}
                     videoList={items.videoList}
                     readingsList={items.readingsList}
+                    isLast={props.topicItems.length === index + 1}
+                    isLastTopic={props.isLastTopic}
                     key={index}
                 />
             ))}
@@ -119,9 +116,12 @@ function Subtopic(props: {
     subtopic: string,
     videoList: videoList,
     readingsList: readingsList
+    isLast: boolean
+    isLastTopic: boolean
 }): JSX.Element {
 
     const [open, setOpen] = useState(false)
+    const onlyVideos = props.readingsList.length <= 0 ? true : false
 
     return (<>
         <div
@@ -133,7 +133,8 @@ function Subtopic(props: {
                 hover:translate-y-[-5px]
                 hover:duration-[75ms]
 
-                ${open && `text-fuchsia-500`}
+                ${props.isLast && props.isLastTopic && !open ? "ACCESSIBILITY_lastWindowElement" : ""}
+                ${open ? "text-fuchsia-500" : ""}
             `}
             onClick={() => setOpen(prev => !prev)}
             tabIndex={0}
@@ -180,11 +181,14 @@ function Subtopic(props: {
             {props.videoList.length > 0 && (
                 <SubTopicVideoItems 
                     videoList={props.videoList}
+                    onlyVideos={onlyVideos}
+                    isLastTopic={props.isLastTopic}
                 />
             )}
             {props.readingsList.length > 0 && (
                 <SubTopicReadingItems
                     readingsList={props.readingsList}
+                    isLastTopic={props.isLastTopic}
                 />
             )}
         </div>}
@@ -193,11 +197,16 @@ function Subtopic(props: {
 
 function SubTopicVideoItems(props: {
     videoList: videoList
+    onlyVideos: boolean
+    isLastTopic: boolean
 }): JSX.Element {
 
     const videoItems = props.videoList.map((videoItem, index) => (
         <VideoItem 
             videoItem={videoItem}
+            onlyVideos={props.onlyVideos}
+            isLast={props.videoList.length === (index + 1)}
+            isLastTopic={props.isLastTopic}
             key={index}
         />
     ))
@@ -215,10 +224,14 @@ function SubTopicVideoItems(props: {
 
 function VideoItem(props: {
     videoItem: videoItem
+    onlyVideos: boolean
+    isLast: boolean
+    isLastTopic: boolean
 }): JSX.Element {
     
     return (
         <Link
+            className={`${(props.onlyVideos && props.isLast && props.isLastTopic) && "ACCESSIBILITY_lastWindowElement"}`}
             href={
                 props.videoItem.urlType === "video" 
                 ? `https://www.youtube.com/watch?v=${props.videoItem.urlParam}`
@@ -271,11 +284,14 @@ function VideoItem(props: {
 
 function SubTopicReadingItems(props: {
     readingsList: readingsList
+    isLastTopic: boolean
 }): JSX.Element {
 
     const readingItems = props.readingsList.map((readingItem, index) => (
         <ReadingItem 
-        readingItem={readingItem}
+            readingItem={readingItem}
+            isLast={props.readingsList.length === (index + 1)}
+            isLastTopic={props.isLastTopic}
             key={index}
         />
     ))
@@ -293,10 +309,13 @@ function SubTopicReadingItems(props: {
 
 function ReadingItem(props: {
     readingItem: readItem
+    isLast: boolean
+    isLastTopic:boolean
 }): JSX.Element {
     
     return (
         <Link
+            className={props.isLast && props.isLastTopic ? "ACCESSIBILITY_lastWindowElement" : ""}
             href={props.readingItem.url}
             target={"_blank"}
             tabIndex={0}

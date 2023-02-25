@@ -4,7 +4,6 @@ import Window from "../window";
 export default function AboutMeWindow(): JSX.Element {
     return (
         <Window
-            ID="#About-Me-window"
             taskbarTitle="About Me"
             startVisible={true}
             CSS_PositionUtilityClass="CSS_AboutMe_Position"
@@ -104,6 +103,7 @@ export default function AboutMeWindow(): JSX.Element {
                             `}
                         >
                             <Link
+                                className="tabIndex-1"
                                 href="https://github.com/Vittor-Javidan"
                                 target="_blank"
                             >
@@ -118,6 +118,7 @@ export default function AboutMeWindow(): JSX.Element {
                             `}
                         >
                             <Link
+                                className="tabIndex-1"
                                 href="https://www.linkedin.com/in/vittor-javidan/"
                                 target="_blank"
                             >
@@ -132,6 +133,10 @@ export default function AboutMeWindow(): JSX.Element {
                             `}
                         >
                             <Link
+                                className={`
+                                    ACCESSIBILITY_lastWindowElement
+                                    tabIndex-1
+                                `}
                                 href="https://www.instagram.com/vittorjavidan/"
                                 target="_blank"
                             >

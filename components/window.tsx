@@ -1,23 +1,30 @@
+import trapFocus from "@/componentsAccessibility/trapFocus"
+import windowChildrenTabIndexHandler from "@/componentsAccessibility/windowChildrenTabIndexHandler"
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI"
 import WindowsAPI from "@/ComponentsAPIs/windowAPI"
 import Link from "next/link"
-import { ReactNode, useState } from "react"
+import { createContext, ReactNode, useContext, useState } from "react"
+
+const VisibleContext = createContext(false)
+const TaskbarTitleContext = createContext("")
 
 export default function Window(props: {
     taskbarTitle: string
     children: ReactNode
     startVisible: boolean
     CSS_PositionUtilityClass: string
-    ID: string
 }): JSX.Element {
 
     const [visible, setVisible] = useState(props.startVisible)
     const [minimized, setMinimized] = useState(false)
     const [expanded, setExpanded] = useState(false)
-    const navItemRefID = `#${props.taskbarTitle.replaceAll(" ", "-")}-navItem`
+
+    const name = props.taskbarTitle
+    const navItemID = `#${name.replaceAll(" ", "-")}-navItem`
+    const ID =`#${name.replaceAll(" ", "-")}-window`
 
     WindowsAPI.registerComponent({
-        ID: props.taskbarTitle,
+        ID: name,
         setVisible: setVisible,
         setMinimized: setMinimized,
         setExpanded: setExpanded
@@ -25,88 +32,96 @@ export default function Window(props: {
 
     return (
         <div
-            id={props.ID}
-            tabIndex={0}
+            id={ID}
+            tabIndex={props.startVisible ? 0 : -1}
             className={`
-        
-            SCRIPT_page
-            h-[70vh]
-            bg-black/75
-            border-solid border-2  border-gray-700
-            overflow-hidden
+                SCRIPT_page
+                h-[70vh]
+                bg-black/75
+                border-solid border-2  border-gray-700
+                overflow-hidden
 
-            ${!expanded && `
+                ${!expanded && `
                 w-[1000px]
-            `}
+                `}
 
-            ${expanded && `
+                ${expanded && `
                 CSS_EnpandedWidth
                 ml-[88px] h-full
-            `}
+                `}
 
-            ${!expanded && `
+                ${!expanded && `
                 absolute ${props.CSS_PositionUtilityClass}
                 rounded-[10px]
-            `}
-            
-            ${minimized && `
+                `}
+                
+                ${minimized && `
                 duration-[600ms]
-            `}
+                `}
 
-            ${visible && `
+                ${visible && `
                 opacity-100
                 scale-100
-            `}
+                `}
 
-            ${!visible && `
+                ${!visible && `
                 opacity-0
                 scale-0
+                `}
             `}
-        `}>
-            <Taskbar 
-                taskbarTitle={props.taskbarTitle}
-                windowExpanded={expanded} 
-                closeWindow={() => {
+            onKeyDown={(event) => trapFocus(ID, event)}
+        >
+            <VisibleContext.Provider value={visible}>
+                <TaskbarTitleContext.Provider value={props.taskbarTitle}>
+                <Taskbar 
+                    windowExpanded={expanded} 
+                    closeWindow={() => {
 
-                    setVisible(false)
-                    setMinimized(false)
+                        setVisible(false)
+                        setMinimized(false)
 
-                    SidebarAPI.setActive(props.taskbarTitle, false)
+                        SidebarAPI.setActive(name, false)
 
-                    //TabIndex Accecibility
-                    const target = document.getElementById(navItemRefID)
-                    if(target) {
-                        target.tabIndex = -1
-                        target.focus()
-                        target.tabIndex = 0
-                    }
-                }}
-                minimizeWindow={() => {
-                    
-                    setVisible(false)
-                    setMinimized(true)
-
-                    SidebarAPI.setActive(props.taskbarTitle, false)
-
-                    //TabIndex Accecibility
-                    const target = document.getElementById(navItemRefID)
-                    if(target) {
-                        target.tabIndex = -1
-                        target.focus()
-                        target.tabIndex = 0
-                    }
-                }}
-                expandWindow={() => {
-
-                    setExpanded(prev => !prev)
-                    
-                    WindowsAPI.forEach(ID => {
-                        if(ID !== props.taskbarTitle) {
-                            WindowsAPI.setExpanded(ID, false)
+                        //TabIndex Accecibility
+                        const target = document.getElementById(navItemID)
+                        if(target) {
+                            target.tabIndex = -1
+                            target.focus()
+                            target.tabIndex = 0
                         }
-                    })
-                }}
-            />
+
+                        windowChildrenTabIndexHandler(ID, -1)
+                    }}
+                    minimizeWindow={() => {
+                        
+                        setVisible(false)
+                        setMinimized(true)
+
+                        SidebarAPI.setActive(props.taskbarTitle, false)
+
+                        //TabIndex Accecibility - back to navItem
+                        const target = document.getElementById(navItemID)
+                        if(target) {
+                            target.tabIndex = -1
+                            target.focus()
+                            target.tabIndex = 0
+                        }
+                        
+                        windowChildrenTabIndexHandler(ID, -1)
+                    }}
+                    expandWindow={() => {
+
+                        setExpanded(prev => !prev)
+                        
+                        WindowsAPI.forEach(ID => {
+                            if(ID !== props.taskbarTitle) {
+                                WindowsAPI.setExpanded(ID, false)
+                            }
+                        })
+                    }}
+                />
+                </TaskbarTitleContext.Provider>
+            </VisibleContext.Provider>
             <ContentArea
                 windowExpanded={expanded}
             >
@@ -117,7 +132,6 @@ export default function Window(props: {
 }
 
 function Taskbar(props: {
-    taskbarTitle: string
     windowExpanded: boolean
     closeWindow: () => void
     minimizeWindow: () => void
@@ -125,11 +139,10 @@ function Taskbar(props: {
 }): JSX.Element {
     return (<>
         <div className={`
-        
             flex
 
             ${props.windowExpanded && `
-                bg-black
+            bg-black
             `}
         `}>
             <TaskbarDots 
@@ -137,9 +150,7 @@ function Taskbar(props: {
                 yellowDotClick={props.minimizeWindow}
                 greenDotClick={props.expandWindow}
             />
-            <TaskbarTitle 
-                taskbarTitle={props.taskbarTitle} 
-            />
+            <TaskbarTitle />
         </div>
         <LineBreak
             windowExpanded={props.windowExpanded}
@@ -173,11 +184,16 @@ function TaskbarDots(props: {
 function RedDot(props: {
     onClick: () => void
 }): JSX.Element {
+
+    const windowVisible = useContext(VisibleContext)
+
     return (
         <Link 
-            tabIndex={0}
+            tabIndex={windowVisible ? 0 : -1}
             href={""}
             className={`
+                ACCESSIBILITY_firstWindowElement
+                tabIndex-1
                 h-[14px] w-[14px] rounded-[50%]
                 border-solid border-[1px] border-red-500
                 bg-red-500
@@ -203,11 +219,15 @@ function RedDot(props: {
 function YellowDot(props: {
     onClick: () => void
 }): JSX.Element {
+
+    const windowVisible = useContext(VisibleContext)
+
     return (
         <Link 
-            tabIndex={0}
+            tabIndex={windowVisible ? 0 : -1}
             href={""}
             className={`
+                tabIndex-1
                 h-[14px] w-[14px] rounded-[50%]
                 border-solid border-[1px] border-yellow-500
                 bg-yellow-500
@@ -233,11 +253,15 @@ function YellowDot(props: {
 function GreenDot(props: {
     onclick: () => void
 }): JSX.Element {
+
+    const windowVisible = useContext(VisibleContext)
+
     return (
         <Link
-            tabIndex={0}
+            tabIndex={windowVisible ? 0 : -1}
             href={""} 
             className={`
+                tabIndex-1
                 h-[14px] w-[14px] rounded-[50%]
                 border-solid border-[1px] border-green-500
                 bg-green-500
@@ -260,9 +284,10 @@ function GreenDot(props: {
     )
 }
 
-function TaskbarTitle(props: {
-    taskbarTitle: string
-}): JSX.Element {
+function TaskbarTitle(): JSX.Element {
+
+    const taskbarTitle = useContext(TaskbarTitleContext)
+
     return (
         <div 
             className={`
@@ -272,7 +297,7 @@ function TaskbarTitle(props: {
                 cursor-pointer
             `}
         >
-            {props.taskbarTitle}
+            {taskbarTitle}
         </div>
     )
 }
@@ -285,7 +310,7 @@ function LineBreak(props: {
             border-solid border-b-2 border-gray-700 rounded-[10px]
 
             ${!props.windowExpanded && `
-                mx-[5px]
+            mx-[5px]
             `}
         `}>
         </div>

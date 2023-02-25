@@ -1,3 +1,5 @@
+import { focusWindowOnClick } from "@/componentsAccessibility/focusWindowOnClick";
+import navItemRedirectToTrapfocus from "@/componentsAccessibility/navItemRedirectToTrapfocus";
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI";
 import WindowsAPI from "@/ComponentsAPIs/windowAPI";
 import Link from "next/link";
@@ -180,8 +182,9 @@ function ListItem(props: {
 }): JSX.Element {
 
 	const [selected, setSelected] = useState(props.startSelected)
+	
 	const name = props.sidebarData.innerText
-	const windowRefID = `#${name.replaceAll(" ", "-")}-window`
+	const windowID = `#${name.replaceAll(" ", "-")}-window`
 
 	SidebarAPI.registerComponent({
 		name: name,
@@ -226,11 +229,9 @@ function ListItem(props: {
 					hover:bg-fuchsia-500
 				`}
 			`}
-			onClick={() => {
+			onClick={(event) => {
 
 				const name = props.sidebarData.innerText
-				
-				setSelected(prev => !prev)
 				
 				if(selected) {
 					
@@ -247,14 +248,10 @@ function ListItem(props: {
 					}, 600)
 				}
 
-				//TabIndex Accecibility
-				const target = document.getElementById(windowRefID)
-				if(target) {
-					target.tabIndex = -1
-					target.focus()
-					target.tabIndex = 0
-				}
+				focusWindowOnClick(windowID, selected, event)
+				setSelected(prev => !prev)
 			}}
+			onKeyDown={() => navItemRedirectToTrapfocus(windowID, selected)}
 		>
 			<Link 
 				id={props.ID}
