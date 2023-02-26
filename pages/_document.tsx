@@ -1,5 +1,5 @@
-import { GoogleFonts } from '@/components/fonts/googleFont'
-import { BoxiconIcons } from '@/components/icons/boxiconIcon'
+import { GoogleFonts } from '@/headComponents/fonts/googleFont'
+import { BoxiconIcons } from '@/headComponents/icons/boxiconIcon'
 import { Head, Html, Main, NextScript } from 'next/document'
 
 export default function Document() {

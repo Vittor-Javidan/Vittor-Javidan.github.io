@@ -1,6 +1,6 @@
 import { focusWindowOnClick } from "@/accessibilityScripts/focusWindowOnClick";
-import SidebarAPI from "@/ComponentsAPIs/sidebarAPI";
-import WindowsAPI from "@/ComponentsAPIs/windowAPI";
+import SidebarAPI from "@/components/Sidebar/sidebarAPI";
+import WindowsAPI from "@/components/Window/windowAPI";
 import Link from "next/link";
 import { useState } from "react";
 

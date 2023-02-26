@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Window from "../Window/Window";
+import Window from "../Window";
 
 export default function AboutMeWindow(): JSX.Element {
     return (

@@ -1,7 +1,7 @@
 import redirectFromWindowToNavItem from "@/accessibilityScripts/redirectFromWindowToNavItem"
 import trapFocus from "@/accessibilityScripts/trapFocus"
 import setWindowChildrenTabIndexNegative from "@/accessibilityScripts/windowChildrenTabIndexHandler"
-import WindowsAPI from "@/ComponentsAPIs/windowAPI"
+import WindowsAPI from "@/components/Window/windowAPI"
 import { createContext, KeyboardEventHandler, ReactNode, useContext, useState } from "react"
 import WindowContentArea from "./WindowContentArea/WindowContentArea"
 import WindowLineBreak from "./WindowLineBreak/WindowLineBreak"
