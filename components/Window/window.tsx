@@ -1,5 +1,5 @@
 import trapFocus from "@/accessibilityScripts/trapFocus"
-import windowChildrenTabIndexHandler from "@/accessibilityScripts/windowChildrenTabIndexHandler"
+import setWindowChildrenTabIndexNegative from "@/accessibilityScripts/windowChildrenTabIndexHandler"
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI"
 import WindowsAPI from "@/ComponentsAPIs/windowAPI"
 import Link from "next/link"
@@ -73,34 +73,34 @@ export default function Window(props: {
                     setVisible(false)
                     setMinimized(false)
 
+                    
+                    //TabIndex Accessibility - redirect to navItem
                     SidebarAPI.setActive(props.windowName, false)
-
-                    //TabIndex Accecibility
-                    const target = document.getElementById(`#${props.windowName.replaceAll(" ", "-")}-navItem`)
-                    if(target) {
-                        target.tabIndex = -1
-                        target.focus()
-                        target.tabIndex = 0
+                    const navItemDOM = document.getElementById(`#${props.windowName.replaceAll(" ", "-")}-navItem`)
+                    if(navItemDOM) {
+                        navItemDOM.tabIndex = -1
+                        navItemDOM.focus()
+                        navItemDOM.tabIndex = 0
                     }
 
-                    windowChildrenTabIndexHandler(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
+                    setWindowChildrenTabIndexNegative(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
                 }}
                 minimizeWindow={() => {
                     
                     setVisible(false)
                     setMinimized(true)
 
+                    
+                    //TabIndex Accessibility - redirect to navItem
                     SidebarAPI.setActive(props.windowName, false)
-
-                    //TabIndex Accecibility - back to navItem
-                    const target = document.getElementById(`#${props.windowName.replaceAll(" ", "-")}-navItem`)
-                    if(target) {
-                        target.tabIndex = -1
-                        target.focus()
-                        target.tabIndex = 0
+                    const navItemDOM = document.getElementById(`#${props.windowName.replaceAll(" ", "-")}-navItem`)
+                    if(navItemDOM) {
+                        navItemDOM.tabIndex = -1
+                        navItemDOM.focus()
+                        navItemDOM.tabIndex = 0
                     }
                     
-                    windowChildrenTabIndexHandler(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
+                    setWindowChildrenTabIndexNegative(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
                 }}
                 expandWindow={() => {
 

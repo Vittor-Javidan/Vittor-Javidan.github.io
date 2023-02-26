@@ -1,5 +1,5 @@
 import { MouseEvent } from "react"
-import windowChildrenTabIndexHandler from "./windowChildrenTabIndexHandler"
+import setWindowChildrenTabIndexNegative from "./windowChildrenTabIndexHandler"
 
 export function focusWindowOnClick(ID: string, selected: boolean, event: MouseEvent<HTMLLIElement, any>): void {
 
@@ -11,7 +11,7 @@ export function focusWindowOnClick(ID: string, selected: boolean, event: MouseEv
         if(!selected) {
             event.preventDefault()
             window.focus()
-            windowChildrenTabIndexHandler(ID, 0)
+            setWindowChildrenTabIndexNegative(ID, 0)
         }
     }
 }
