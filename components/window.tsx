@@ -3,10 +3,7 @@ import windowChildrenTabIndexHandler from "@/componentsAccessibility/windowChild
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI"
 import WindowsAPI from "@/ComponentsAPIs/windowAPI"
 import Link from "next/link"
-import { createContext, ReactNode, useContext, useState } from "react"
-
-const VisibleContext = createContext(false)
-const TaskbarTitleContext = createContext("")
+import { ReactNode, useState } from "react"
 
 export default function Window(props: {
     taskbarTitle: string
@@ -20,8 +17,8 @@ export default function Window(props: {
     const [expanded, setExpanded] = useState(false)
 
     const name = props.taskbarTitle
-    const navItemID = `#${name.replaceAll(" ", "-")}-navItem`
-    const ID =`#${name.replaceAll(" ", "-")}-window`
+    const navItem_DOM_ID = `#${name.replaceAll(" ", "-")}-navItem`
+    const self_DOM_ID =`#${name.replaceAll(" ", "-")}-window`
 
     WindowsAPI.registerComponent({
         ID: name,
@@ -32,7 +29,7 @@ export default function Window(props: {
 
     return (
         <div
-            id={ID}
+            id={self_DOM_ID}
             tabIndex={props.startVisible ? 0 : -1}
             className={`
                 SCRIPT_page
@@ -69,59 +66,57 @@ export default function Window(props: {
                 scale-0
                 `}
             `}
-            onKeyDown={(event) => trapFocus(ID, event)}
+            onKeyDown={(event) => trapFocus(self_DOM_ID, event)}
         >
-            <VisibleContext.Provider value={visible}>
-                <TaskbarTitleContext.Provider value={props.taskbarTitle}>
-                <Taskbar 
-                    windowExpanded={expanded} 
-                    closeWindow={() => {
+            <Taskbar 
+                taskbarTitle={props.taskbarTitle}
+                windowVisible={visible}
+                windowExpanded={expanded} 
+                closeWindow={() => {
 
-                        setVisible(false)
-                        setMinimized(false)
+                    setVisible(false)
+                    setMinimized(false)
 
-                        SidebarAPI.setActive(name, false)
+                    SidebarAPI.setActive(name, false)
 
-                        //TabIndex Accecibility
-                        const target = document.getElementById(navItemID)
-                        if(target) {
-                            target.tabIndex = -1
-                            target.focus()
-                            target.tabIndex = 0
+                    //TabIndex Accecibility
+                    const target = document.getElementById(navItem_DOM_ID)
+                    if(target) {
+                        target.tabIndex = -1
+                        target.focus()
+                        target.tabIndex = 0
+                    }
+
+                    windowChildrenTabIndexHandler(self_DOM_ID, -1)
+                }}
+                minimizeWindow={() => {
+                    
+                    setVisible(false)
+                    setMinimized(true)
+
+                    SidebarAPI.setActive(name, false)
+
+                    //TabIndex Accecibility - back to navItem
+                    const target = document.getElementById(navItem_DOM_ID)
+                    if(target) {
+                        target.tabIndex = -1
+                        target.focus()
+                        target.tabIndex = 0
+                    }
+                    
+                    windowChildrenTabIndexHandler(self_DOM_ID, -1)
+                }}
+                expandWindow={() => {
+
+                    setExpanded(prev => !prev)
+                    
+                    WindowsAPI.forEach(ApiID => {
+                        if(ApiID !== name) {
+                            WindowsAPI.setExpanded(ApiID, false)
                         }
-
-                        windowChildrenTabIndexHandler(ID, -1)
-                    }}
-                    minimizeWindow={() => {
-                        
-                        setVisible(false)
-                        setMinimized(true)
-
-                        SidebarAPI.setActive(props.taskbarTitle, false)
-
-                        //TabIndex Accecibility - back to navItem
-                        const target = document.getElementById(navItemID)
-                        if(target) {
-                            target.tabIndex = -1
-                            target.focus()
-                            target.tabIndex = 0
-                        }
-                        
-                        windowChildrenTabIndexHandler(ID, -1)
-                    }}
-                    expandWindow={() => {
-
-                        setExpanded(prev => !prev)
-                        
-                        WindowsAPI.forEach(ID => {
-                            if(ID !== props.taskbarTitle) {
-                                WindowsAPI.setExpanded(ID, false)
-                            }
-                        })
-                    }}
-                />
-                </TaskbarTitleContext.Provider>
-            </VisibleContext.Provider>
+                    })
+                }}
+            />
             <ContentArea
                 windowExpanded={expanded}
             >
@@ -132,6 +127,8 @@ export default function Window(props: {
 }
 
 function Taskbar(props: {
+    taskbarTitle: string
+    windowVisible: boolean
     windowExpanded: boolean
     closeWindow: () => void
     minimizeWindow: () => void
@@ -146,11 +143,14 @@ function Taskbar(props: {
             `}
         `}>
             <TaskbarDots 
+                windowVisible={props.windowVisible}
                 redDotClick={props.closeWindow} 
                 yellowDotClick={props.minimizeWindow}
                 greenDotClick={props.expandWindow}
             />
-            <TaskbarTitle />
+            <TaskbarTitle 
+                taskbarTitle={props.taskbarTitle}
+            />
         </div>
         <LineBreak
             windowExpanded={props.windowExpanded}
@@ -159,6 +159,7 @@ function Taskbar(props: {
 }
 
 function TaskbarDots(props: {
+    windowVisible: boolean
     redDotClick: () => void
     yellowDotClick: () => void
     greenDotClick: () => void
@@ -169,12 +170,15 @@ function TaskbarDots(props: {
             flex box-content gap-[7px]
         `}>
             <RedDot 
+                windowVisible={props.windowVisible}
                 onClick={props.redDotClick}
             />
             <YellowDot 
+                windowVisible={props.windowVisible}
                 onClick={props.yellowDotClick} 
             />
             <GreenDot 
+                windowVisible={props.windowVisible}
                 onclick={props.greenDotClick}
             />
         </div>
@@ -182,14 +186,13 @@ function TaskbarDots(props: {
 }
 
 function RedDot(props: {
+    windowVisible: boolean
     onClick: () => void
 }): JSX.Element {
 
-    const windowVisible = useContext(VisibleContext)
-
     return (
         <Link 
-            tabIndex={windowVisible ? 0 : -1}
+            tabIndex={props.windowVisible ? 0 : -1}
             href={""}
             className={`
                 ACCESSIBILITY_firstWindowElement
@@ -217,14 +220,13 @@ function RedDot(props: {
 }
 
 function YellowDot(props: {
+    windowVisible: boolean
     onClick: () => void
 }): JSX.Element {
 
-    const windowVisible = useContext(VisibleContext)
-
     return (
         <Link 
-            tabIndex={windowVisible ? 0 : -1}
+            tabIndex={props.windowVisible ? 0 : -1}
             href={""}
             className={`
                 tabIndex-1
@@ -251,14 +253,13 @@ function YellowDot(props: {
 }
 
 function GreenDot(props: {
+    windowVisible: boolean
     onclick: () => void
 }): JSX.Element {
 
-    const windowVisible = useContext(VisibleContext)
-
     return (
         <Link
-            tabIndex={windowVisible ? 0 : -1}
+            tabIndex={props.windowVisible ? 0 : -1}
             href={""} 
             className={`
                 tabIndex-1
@@ -284,9 +285,9 @@ function GreenDot(props: {
     )
 }
 
-function TaskbarTitle(): JSX.Element {
-
-    const taskbarTitle = useContext(TaskbarTitleContext)
+function TaskbarTitle(props: {
+    taskbarTitle: string
+}): JSX.Element {
 
     return (
         <div 
@@ -297,7 +298,7 @@ function TaskbarTitle(): JSX.Element {
                 cursor-pointer
             `}
         >
-            {taskbarTitle}
+            {props.taskbarTitle}
         </div>
     )
 }
