@@ -1,7 +1,7 @@
 import { selfTaughtCurriculumData } from "@/data/selfTaughtCurriculumData";
 import Link from "next/link";
 import { useState } from "react";
-import Window from "../window";
+import Window from "../Window/window";
 
 export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 

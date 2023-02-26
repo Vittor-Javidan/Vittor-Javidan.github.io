@@ -1,4 +1,4 @@
-import Window from "../window";
+import Window from "../Window/window";
 
 export default function MyProjectsWindow(): JSX.Element {
     return (
