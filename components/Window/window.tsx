@@ -25,26 +25,15 @@ export default function Window(props: {
         setExpanded: setExpanded
     })
 
-    function closeWindow(): void { hideWindow("close") }
-    function minimizeWindow(): void { hideWindow("minimize") }
     function hideWindow(mode: "close" | "minimize"): void {
-
+        
         mode === "close"
         ? setMinimized(false)
         : setMinimized(true)
+
         setVisible(false)
         redirectFromWindowToNavItem(props.windowName)
         setWindowChildrenTabIndexNegative(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
-    }
-
-    function expandWindow(): void {
-
-        setExpanded(prev => !prev)            
-        WindowsAPI.forEach(ApiID => {
-            if(ApiID !== props.windowName) {
-                WindowsAPI.setExpanded(ApiID, false)
-            }
-        })
     }
 
     return (
@@ -63,9 +52,23 @@ export default function Window(props: {
                 taskbarTitle={props.windowName}
                 windowVisible={visible}
                 windowExpanded={expanded} 
-                closeWindow={closeWindow}
-                minimizeWindow={minimizeWindow}
-                expandWindow={expandWindow}
+
+                closeWindow={() => {
+                    hideWindow("close")
+                }}
+
+                minimizeWindow={() => {
+                    hideWindow("minimize")
+                }}
+
+                expandWindow={() => {
+                    setExpanded(prev => !prev)            
+                    WindowsAPI.forEach(ApiID => {
+                        if(ApiID !== props.windowName) {
+                            WindowsAPI.setExpanded(ApiID, false)
+                        }
+                    })
+                }}
             />
             <WindowLineBreak
                 windowExpanded={expanded}
