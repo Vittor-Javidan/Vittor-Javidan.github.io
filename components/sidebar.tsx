@@ -1,5 +1,4 @@
 import { focusWindowOnClick } from "@/componentsAccessibility/focusWindowOnClick";
-import navItemRedirectToTrapfocus from "@/componentsAccessibility/navItemRedirectToTrapfocus";
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI";
 import WindowsAPI from "@/ComponentsAPIs/windowAPI";
 import Link from "next/link";
@@ -183,11 +182,10 @@ function ListItem(props: {
 
 	const [selected, setSelected] = useState(props.startSelected)
 	
-	const name = props.sidebarData.innerText
-	const windowID = `#${name.replaceAll(" ", "-")}-window`
+	const listItemName = props.sidebarData.innerText
 
 	SidebarAPI.registerComponent({
-		name: name,
+		name: listItemName,
 		setActive: setSelected
 	})
 
@@ -248,10 +246,9 @@ function ListItem(props: {
 					}, 600)
 				}
 
-				focusWindowOnClick(windowID, selected, event)
+				focusWindowOnClick(`#${listItemName.replaceAll(" ", "-")}-window`, selected, event)
 				setSelected(prev => !prev)
 			}}
-			onKeyDown={() => navItemRedirectToTrapfocus(windowID, selected)}
 		>
 			<Link 
 				id={props.ID}
