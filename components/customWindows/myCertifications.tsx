@@ -18,7 +18,7 @@ export default function MyCertificationsWindow(): JSX.Element {
 
     return (
         <Window
-            taskbarTitle="My Certifications"
+            windowName="My Certifications"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MyCertifications_Position"
         >
