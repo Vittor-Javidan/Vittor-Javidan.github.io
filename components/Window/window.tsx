@@ -109,7 +109,7 @@ function MainContainer(props: {
             tabIndex={windowStartVisible ? 0 : -1}
             className={`
                 SCRIPT_page
-                h-[70vh]
+                h-[70%]
                 bg-black/75
                 border-solid border-2  border-gray-700
                 overflow-hidden

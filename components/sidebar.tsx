@@ -15,7 +15,7 @@ export default function Sidebar(props: {
         <div className={`
 		
 			fixed z-10
-			h-screen 
+			h-full
 			flex flex-col justify-between
 			bg-black/75
 			border-solid border-r-2  border-gray-700
@@ -63,7 +63,7 @@ function ToggleButton(props: {
 				active:duration-[100ms]
 				
 				${props.isActive && `
-					left-[290px] top-[50vh]
+					left-[290px] top-[50%]
 					rounded-toggleOpen rounded-r-full
 					scale-[1.4]
 				`}
