@@ -1,9 +1,12 @@
-import { ReactNode } from "react"
+import { ReactNode, useContext } from "react"
+import { WindowContext } from "../Window"
 
 export default function WindowContentArea(props: {
     children: ReactNode
-    windowExpanded: boolean
 }): JSX.Element {
+
+    const { windowExpanded } = useContext(WindowContext)
+
     return (
         <div className={`
             CSS_scrollbar
@@ -12,12 +15,12 @@ export default function WindowContentArea(props: {
             overflow-x-hidden
             overflow-y-scroll
 
-            ${!props.windowExpanded && `
+            ${!windowExpanded && `
                 m-[10px]
                 text-[1.6rem]
             `}
 
-            ${props.windowExpanded && `
+            ${windowExpanded && `
                 my-[10px] mx-[150px]
                 text-[2.6rem]
             `}

@@ -1,13 +1,16 @@
+import { WindowContext } from "@/components/Window/Window"
 import Link from "next/link"
+import { useContext } from "react"
 
 export default function YellowDot(props: {
-    windowVisible: boolean
     onClick: () => void
 }): JSX.Element {
 
+    const { windowVisible } = useContext(WindowContext)
+
     return (
         <Link 
-            tabIndex={props.windowVisible ? 0 : -1}
+            tabIndex={windowVisible ? 0 : -1}
             href={""}
             className={`
                 tabIndex-1

@@ -1,5 +1,7 @@
+import { ReactNode } from "react"
+
 export default function TaskbarTitle(props: {
-    taskbarTitle: string
+    children: ReactNode
 }): JSX.Element {
 
     return (
@@ -11,7 +13,7 @@ export default function TaskbarTitle(props: {
                 cursor-pointer
             `}
         >
-            {props.taskbarTitle}
+            {props.children}
         </div>
     )
 }
