@@ -1,6 +1,6 @@
 import { certificatesData } from "@/data/certificatesData";
 import Link from "next/link";
-import Window from "../Window/window";
+import Window from "../Window/Window";
 
 export default function MyCertificationsWindow(): JSX.Element {
 
