@@ -94,6 +94,9 @@ export default function Window(props: {
                 minimizeWindow={minimizeWindow}
                 expandWindow={expandWindow}
             />
+            <LineBreak
+                windowExpanded={expanded}
+            />
             <ContentArea
                 windowExpanded={expanded}
             >
@@ -111,7 +114,7 @@ function Taskbar(props: {
     minimizeWindow: () => void
     expandWindow: () => void
 }): JSX.Element {
-    return (<>
+    return (
         <div className={`
             flex
 
@@ -129,10 +132,7 @@ function Taskbar(props: {
                 taskbarTitle={props.taskbarTitle}
             />
         </div>
-        <LineBreak
-            windowExpanded={props.windowExpanded}
-        />
-    </>)
+    )
 }
 
 function TaskbarDots(props: {
