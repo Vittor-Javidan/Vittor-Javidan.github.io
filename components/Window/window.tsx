@@ -1,6 +1,6 @@
+import redirectFromWindowToNavItem from "@/accessibilityScripts/redirectFromWindowToNavItem"
 import trapFocus from "@/accessibilityScripts/trapFocus"
 import setWindowChildrenTabIndexNegative from "@/accessibilityScripts/windowChildrenTabIndexHandler"
-import SidebarAPI from "@/ComponentsAPIs/sidebarAPI"
 import WindowsAPI from "@/ComponentsAPIs/windowAPI"
 import Link from "next/link"
 import { ReactNode, useState } from "react"
@@ -22,6 +22,28 @@ export default function Window(props: {
         setMinimized: setMinimized,
         setExpanded: setExpanded
     })
+
+    function closeWindow(): void { hideWindow("close") }
+    function minimizeWindow(): void { hideWindow("minimize") }
+    function hideWindow(mode: "close" | "minimize"): void {
+
+        mode === "close"
+        ? setMinimized(false)
+        : setMinimized(true)
+        setVisible(false)
+        redirectFromWindowToNavItem(props.windowName)
+        setWindowChildrenTabIndexNegative(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
+    }
+
+    function expandWindow(): void {
+
+        setExpanded(prev => !prev)            
+        WindowsAPI.forEach(ApiID => {
+            if(ApiID !== props.windowName) {
+                WindowsAPI.setExpanded(ApiID, false)
+            }
+        })
+    }
 
     return (
         <div
@@ -68,50 +90,9 @@ export default function Window(props: {
                 taskbarTitle={props.windowName}
                 windowVisible={visible}
                 windowExpanded={expanded} 
-                closeWindow={() => {
-
-                    setVisible(false)
-                    setMinimized(false)
-
-                    
-                    //TabIndex Accessibility - redirect to navItem
-                    SidebarAPI.setActive(props.windowName, false)
-                    const navItemDOM = document.getElementById(`#${props.windowName.replaceAll(" ", "-")}-navItem`)
-                    if(navItemDOM) {
-                        navItemDOM.tabIndex = -1
-                        navItemDOM.focus()
-                        navItemDOM.tabIndex = 0
-                    }
-
-                    setWindowChildrenTabIndexNegative(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
-                }}
-                minimizeWindow={() => {
-                    
-                    setVisible(false)
-                    setMinimized(true)
-
-                    
-                    //TabIndex Accessibility - redirect to navItem
-                    SidebarAPI.setActive(props.windowName, false)
-                    const navItemDOM = document.getElementById(`#${props.windowName.replaceAll(" ", "-")}-navItem`)
-                    if(navItemDOM) {
-                        navItemDOM.tabIndex = -1
-                        navItemDOM.focus()
-                        navItemDOM.tabIndex = 0
-                    }
-                    
-                    setWindowChildrenTabIndexNegative(`#${props.windowName.replaceAll(" ", "-")}-window`, -1)
-                }}
-                expandWindow={() => {
-
-                    setExpanded(prev => !prev)
-                    
-                    WindowsAPI.forEach(ApiID => {
-                        if(ApiID !== props.windowName) {
-                            WindowsAPI.setExpanded(ApiID, false)
-                        }
-                    })
-                }}
+                closeWindow={closeWindow}
+                minimizeWindow={minimizeWindow}
+                expandWindow={expandWindow}
             />
             <ContentArea
                 windowExpanded={expanded}
