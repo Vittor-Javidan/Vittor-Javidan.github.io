@@ -1,4 +1,4 @@
-import { focusWindowOnClick } from "@/componentsAccessibility/focusWindowOnClick";
+import { focusWindowOnClick } from "@/accessibilityScripts/focusWindowOnClick";
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI";
 import WindowsAPI from "@/ComponentsAPIs/windowAPI";
 import Link from "next/link";

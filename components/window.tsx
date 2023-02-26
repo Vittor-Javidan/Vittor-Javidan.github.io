@@ -1,5 +1,5 @@
-import trapFocus from "@/componentsAccessibility/trapFocus"
-import windowChildrenTabIndexHandler from "@/componentsAccessibility/windowChildrenTabIndexHandler"
+import trapFocus from "@/accessibilityScripts/trapFocus"
+import windowChildrenTabIndexHandler from "@/accessibilityScripts/windowChildrenTabIndexHandler"
 import SidebarAPI from "@/ComponentsAPIs/sidebarAPI"
 import WindowsAPI from "@/ComponentsAPIs/windowAPI"
 import Link from "next/link"
