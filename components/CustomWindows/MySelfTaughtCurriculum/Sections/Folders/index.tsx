@@ -1,7 +1,7 @@
-import VideoFilesArea from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections/FolderArea/Folders/VideoFilesArea"
-import VideoFiles from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections/FolderArea/Folders/VideoFilesArea/VideoFiles"
-import WebFilesArea from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections/FolderArea/Folders/WebFilesArea"
-import WebFiles from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections/FolderArea/Folders/WebFilesArea/WebFiles"
+import VideoFiles from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections/Folders/VideoFiles"
+import VideoFilesArea from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections/Folders/VideoFilesArea"
+import WebFiles from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections/Folders/WebFiles"
+import WebFilesArea from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections/Folders/WebFilesArea"
 import Folder from "@/components/Folder"
 
 type foldersType = {

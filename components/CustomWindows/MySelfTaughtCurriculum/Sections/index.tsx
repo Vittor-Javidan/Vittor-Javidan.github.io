@@ -1,5 +1,5 @@
-import FoldersArea from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections/FolderArea"
-import Folders from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections/FolderArea/Folders"
+import FoldersArea from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections/FolderArea"
+import Folders from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections/Folders"
 import Section from "@/components/Section"
 import { selfTaughtCurriculumData } from "@/data/selfTaughtCurriculumData"
 

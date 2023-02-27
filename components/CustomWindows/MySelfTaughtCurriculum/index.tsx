@@ -1,4 +1,4 @@
-import Sections from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea/Sections";
+import Sections from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections";
 import WindowBox from "@/components/WindowBox";
 import SectionsArea from "./SectionArea";
 
