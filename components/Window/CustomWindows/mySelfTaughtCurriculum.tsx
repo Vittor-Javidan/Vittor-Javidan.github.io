@@ -1,3 +1,4 @@
+import Folder from "@/components/Folder/folder";
 import WindowBox from "@/components/Window/windowBox";
 import { selfTaughtCurriculumData } from "@/data/selfTaughtCurriculumData";
 import Link from "next/link";
@@ -7,7 +8,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 
     const topicsArray = selfTaughtCurriculumData.map((data, index) => {
         return (
-            <Topic 
+            <Section 
                 topic={data.topic}
                 topicItems={data.itemList}
                 isLast={index + 1 === selfTaughtCurriculumData.length}
@@ -29,7 +30,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
     )
 }
 
-function Topic(props: {
+function Section(props: {
     topic: string
     topicItems: topicItems
     isLast: boolean
@@ -78,7 +79,7 @@ function Topic(props: {
                     `}
                 `}
             />
-            {open && <TopicItems 
+            {open && <FoldersArea 
                 topicItems={props.topicItems}
                 isLastTopic={props.isLast}
             />}
@@ -86,10 +87,40 @@ function Topic(props: {
     )
 }
 
-function TopicItems(props: {
+function FoldersArea(props: {
     topicItems: topicItems
     isLastTopic: boolean
 }): JSX.Element {
+
+    const foldersArray = props.topicItems.map((items, index) => {
+
+        const extraCSS_OpenFolder = (props.isLastTopic && (props.topicItems.length === index + 1)) ? `
+            ACCESSIBILITY_lastWindowElement
+        ` : ""
+
+        return (
+            <Folder
+                folderName={items.subtopic}
+                extraCSS_Open={extraCSS_OpenFolder}
+                extraCSS_Close={""}
+                key={index}
+            >
+                {items.videoList.length > 0 && (
+                    <VideoFilesArea 
+                        videoList={items.videoList}
+                        onlyVideos={items.readingsList.length <= 0 ? true : false}
+                        isLastTopic={props.isLastTopic}
+                    />
+                )}
+                {items.readingsList.length > 0 && (
+                    <WebFilesArea
+                        readingsList={items.readingsList}
+                        isLastTopic={props.isLastTopic}
+                    />
+                )}
+            </Folder>
+        )
+    })
 
     return (
         <div
@@ -98,111 +129,19 @@ function TopicItems(props: {
                 flex flex-wrap justify-start gap-[20px]
             `}
         >
-            {props.topicItems.map((items, index) => (
-                <Subtopic
-                    subtopic={items.subtopic}
-                    videoList={items.videoList}
-                    readingsList={items.readingsList}
-                    isLast={props.topicItems.length === index + 1}
-                    isLastTopic={props.isLastTopic}
-                    key={index}
-                />
-            ))}
+            {foldersArray}
         </div>
     )
 }
 
-function Subtopic(props: {
-    subtopic: string,
-    videoList: videoList,
-    readingsList: readingsList
-    isLast: boolean
-    isLastTopic: boolean
-}): JSX.Element {
-
-    const [open, setOpen] = useState(false)
-    const onlyVideos = props.readingsList.length <= 0 ? true : false
-
-    return (<>
-        <div
-            className={`
-                h-[130px]
-                flex flex-col justify-between items-center
-                text-[1.2rem]
-
-                hover:translate-y-[-5px]
-                hover:duration-[75ms]
-
-                ${props.isLast && props.isLastTopic && !open ? "ACCESSIBILITY_lastWindowElement" : ""}
-                ${open ? "text-fuchsia-500" : ""}
-            `}
-            onClick={() => setOpen(prev => !prev)}
-            tabIndex={0}
-            onKeyDown={(e) => {
-                console.log(e.key)
-                if(e.key === ' ' || e.key === 'Enter') {
-                    setOpen(prev => !prev)
-                }
-            }}
-        >
-            {open 
-                ? <img 
-                    className={`
-                        h-[120px] w-[80px]
-                        cursor-pointer
-                    `}
-                    src="/static/svg/folderOpen.svg" 
-                    alt="folderIcon" 
-                />
-                : <img 
-                    className={`
-                        h-[101px] w-[80px]
-                        cursor-pointer
-                    `}
-                    src="/static/svg/folderClosed.svg" 
-                    alt="folderIcon" 
-                />
-            }
-            <span
-                className={`
-                    w-[100px] text-center
-                `}
-            >
-                {props.subtopic}
-            </span>
-        </div>
-        {open && <div
-            className={`
-                w-[100%] m-[10px]
-                border-y-[2px] border-double border-gray-700
-            `}
-            
-        >
-            {props.videoList.length > 0 && (
-                <SubTopicVideoItems 
-                    videoList={props.videoList}
-                    onlyVideos={onlyVideos}
-                    isLastTopic={props.isLastTopic}
-                />
-            )}
-            {props.readingsList.length > 0 && (
-                <SubTopicReadingItems
-                    readingsList={props.readingsList}
-                    isLastTopic={props.isLastTopic}
-                />
-            )}
-        </div>}
-    </>)
-}
-
-function SubTopicVideoItems(props: {
+function VideoFilesArea(props: {
     videoList: videoList
     onlyVideos: boolean
     isLastTopic: boolean
 }): JSX.Element {
 
     const videoItems = props.videoList.map((videoItem, index) => (
-        <VideoItem 
+        <VideoFile 
             videoItem={videoItem}
             onlyVideos={props.onlyVideos}
             isLast={props.videoList.length === (index + 1)}
@@ -222,7 +161,7 @@ function SubTopicVideoItems(props: {
     )
 }
 
-function VideoItem(props: {
+function VideoFile(props: {
     videoItem: videoItem
     onlyVideos: boolean
     isLast: boolean
@@ -282,13 +221,13 @@ function VideoItem(props: {
     )
 }
 
-function SubTopicReadingItems(props: {
+function WebFilesArea(props: {
     readingsList: readingsList
     isLastTopic: boolean
 }): JSX.Element {
 
     const readingItems = props.readingsList.map((readingItem, index) => (
-        <ReadingItem 
+        <WebFile 
             readingItem={readingItem}
             isLast={props.readingsList.length === (index + 1)}
             isLastTopic={props.isLastTopic}
@@ -307,7 +246,7 @@ function SubTopicReadingItems(props: {
     )
 }
 
-function ReadingItem(props: {
+function WebFile(props: {
     readingItem: readItem
     isLast: boolean
     isLastTopic:boolean
