@@ -1,19 +1,27 @@
 import Folder from "@/components/Folder/folder";
+import Section from "@/components/Section/section";
 import WindowBox from "@/components/Window/windowBox";
 import { selfTaughtCurriculumData } from "@/data/selfTaughtCurriculumData";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 
-    const topicsArray = selfTaughtCurriculumData.map((data, index) => {
+    const sectionsArray = selfTaughtCurriculumData.map((data, index) => {
+
+        const isLast = index + 1 === selfTaughtCurriculumData.length
+
         return (
             <Section 
-                topic={data.topic}
-                topicItems={data.itemList}
-                isLast={index + 1 === selfTaughtCurriculumData.length}
+                sectionName={data.topic}
+                extraCSS_Open={""}
+                extraCSS_Closed={isLast ? "ACCESSIBILITY_lastWindowElement" : ""}
                 key={index}
-            />
+            >
+                <FoldersArea 
+                    topicItems={data.itemList}
+                    lastSection={isLast}
+                />
+            </Section>
         )
     })
 
@@ -24,98 +32,41 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
             CSS_PositionUtilityClass="CSS_MySelfTaughtCurriculum_Position"
         >
             <ul>
-                {...topicsArray}
+                {sectionsArray}
             </ul>
         </WindowBox>
     )
 }
 
-function Section(props: {
-    topic: string
-    topicItems: topicItems
-    isLast: boolean
-}): JSX.Element {
-
-    const [open, setOpen] = useState(false)
-
-    return (
-        <li
-            className={`
-                text-white font-bold
-            `}
-        >
-            <div
-                className={`
-                    flex items-baseline
-
-                    ${open && `
-                    text-fuchsia-500
-                    `}
-                `}
-            >
-                <button 
-                    className={`
-                        w-[30px]
-                        text-[2.6rem] 
-
-                        ${(props.isLast && !open) ? "ACCESSIBILITY_lastWindowElement" : ""}
-                        ${open ? "text-fuchsia-500" : ""}
-                        ${!open ? "hover:text-fuchsia-500" : ""}
-                    `}
-                    onClick={() => setOpen(prev => !prev)}
-                    type="button"
-                >
-                    {open ? "-" : "+"}
-                </button>
-                <span>
-                    {props.topic}
-                </span>
-            </div>
-            <hr 
-                className={`
-                    ${open && `
-                        mb-[20px]
-                        border-fuchsia-500 
-                    `}
-                `}
-            />
-            {open && <FoldersArea 
-                topicItems={props.topicItems}
-                isLastTopic={props.isLast}
-            />}
-        </li>
-    )
-}
-
 function FoldersArea(props: {
     topicItems: topicItems
-    isLastTopic: boolean
+    lastSection: boolean
 }): JSX.Element {
 
     const foldersArray = props.topicItems.map((items, index) => {
 
-        const extraCSS_OpenFolder = (props.isLastTopic && (props.topicItems.length === index + 1)) ? `
+        const extraCSS_CloseFolder = (props.lastSection && (props.topicItems.length === index + 1)) ? `
             ACCESSIBILITY_lastWindowElement
         ` : ""
 
         return (
             <Folder
                 folderName={items.subtopic}
-                extraCSS_Open={extraCSS_OpenFolder}
-                extraCSS_Close={""}
+                extraCSS_Open={""}
+                extraCSS_Close={extraCSS_CloseFolder}
                 key={index}
             >
                 {items.videoList.length > 0 && (
                     <VideoFilesArea 
                         videoList={items.videoList}
                         onlyVideos={items.readingsList.length <= 0 ? true : false}
-                        isLastTopic={props.isLastTopic}
+                        isLastTopic={props.lastSection}
                     />
                 )}
                 {items.readingsList.length > 0 && (
                     <WebFilesArea
                         readingsList={items.readingsList}
-                        isLastTopic={props.isLastTopic}
+                        isLastTopic={props.lastSection}
                     />
                 )}
             </Folder>
