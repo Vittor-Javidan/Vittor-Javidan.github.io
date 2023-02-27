@@ -40,7 +40,22 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 }
 
 function FoldersArea(props: {
-    topicItems: topicItems
+    topicItems: {
+        subtopic: string,
+        videoList: {
+            title: string,
+            author: string,
+            duration: string,
+            externalPlay: boolean,
+            urlType: "video" | "playlist",
+            urlParam: string
+        }[],
+        readingsList: {
+            title: string,
+            author: string,
+            url: string
+        }[]
+    }[]
     lastSection: boolean
 }): JSX.Element {
 
@@ -87,7 +102,14 @@ function FoldersArea(props: {
 }
 
 function VideoFilesArea(props: {
-    videoList: videoList
+    videoList: {
+        title: string,
+        author: string,
+        duration: string,
+        externalPlay: boolean,
+        urlType: "video" | "playlist",
+        urlParam: string
+    }[]
     onlyVideos: boolean
     isLastSection: boolean
 }): JSX.Element {
@@ -135,7 +157,11 @@ function VideoFilesArea(props: {
 }
 
 function WebFilesArea(props: {
-    readingsList: readingsList
+    readingsList: {
+        title: string,
+        author: string,
+        url: string
+    }[]
     isLastSection: boolean
 }): JSX.Element {
 
@@ -172,28 +198,4 @@ function WebFilesArea(props: {
             {webFilesArray}
         </div>
     )
-}
-
-type topicItems = {
-    subtopic: string,
-    videoList: videoList,
-    readingsList: readingsList
-}[]
-
-type videoList = videoItem[]
-type readingsList = readItem[]
-
-type videoItem = {
-    title: string,
-    author: string,
-    duration: string,
-    externalPlay: boolean,
-    urlType: "video" | "playlist",
-    urlParam: string
-}
-
-type readItem = {
-    title: string,
-    author: string,
-    url: string
 }

@@ -1,5 +1,8 @@
 import { ReactNode, useState } from "react"
 
+/**
+ * @returns `<li></li>` JSX Element 
+ */
 export default function Section(props: {
     sectionName: string
     extraCSS_Open: string
