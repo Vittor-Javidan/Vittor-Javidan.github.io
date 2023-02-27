@@ -58,7 +58,6 @@ export default function Folder(props: {
                 w-[100%] m-[10px]
                 border-y-[2px] border-double border-gray-700
             `}
-            
         >
             {props.children}
         </div>}
