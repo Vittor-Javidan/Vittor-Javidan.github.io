@@ -32,24 +32,19 @@ export default function Folder(props: {
                 }
             }}
         >
-            {open 
-                ? <img 
-                    className={`
-                        h-[120px] w-[80px]
-                        cursor-pointer
+            <img 
+                className={`
+                    cursor-pointer
+
+                    ${open ? `
+                    h-[120px] w-[80px]
+                    ` : `
+                    h-[101px] w-[80px]
                     `}
-                    src="/static/svg/folderOpen.svg" 
-                    alt="folderIcon" 
-                />
-                : <img 
-                    className={`
-                        h-[101px] w-[80px]
-                        cursor-pointer
-                    `}
-                    src="/static/svg/folderClosed.svg" 
-                    alt="folderIcon" 
-                />
-            }
+                `}
+                src={open ? "/static/svg/folderOpen.svg" : "/static/svg/folderClosed.svg"}
+                alt="folderIcon" 
+            />
             <span
                 className={`
                     w-[100px] text-center
