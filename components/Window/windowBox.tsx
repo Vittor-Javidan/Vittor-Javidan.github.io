@@ -1,11 +1,11 @@
 import redirectFromWindowToNavItem from "@/accessibilityScripts/redirectFromWindowToNavItem"
 import trapFocus from "@/accessibilityScripts/trapFocus"
 import setWindowChildrenTabIndexNegative from "@/accessibilityScripts/windowChildrenTabIndexHandler"
-import WindowsAPI from "@/components/Window/windowAPI"
+import WindowsAPI from "@/components/Window/windowBoxAPI"
+import WindowContentArea from "@/components/Window/WindowContentArea/windowContentArea"
+import WindowLineBreak from "@/components/Window/WindowLineBreak/windowLineBreak"
+import WindowTaskbar from "@/components/Window/WindowTaskbar/windowTaskbar"
 import { createContext, KeyboardEventHandler, ReactNode, useContext, useState } from "react"
-import WindowContentArea from "./WindowContentArea/WindowContentArea"
-import WindowLineBreak from "./WindowLineBreak/WindowLineBreak"
-import WindowTaskbar from "./WindowTaskbar/WindowTaskbar"
 
 export const WindowContext = createContext({
     windowPositionCSS: "",
@@ -16,7 +16,7 @@ export const WindowContext = createContext({
     windowExpanded: false
 })
 
-export default function Window(props: {
+export default function WindowBox(props: {
     windowName: string
     children: ReactNode
     startVisible: boolean

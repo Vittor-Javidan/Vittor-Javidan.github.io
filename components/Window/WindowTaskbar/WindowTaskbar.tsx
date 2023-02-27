@@ -1,7 +1,7 @@
+import { WindowContext } from "@/components/Window/windowBox"
+import TaskbarDots from "@/components/Window/WindowTaskbar/Taskbardots/taskbarDots"
+import TaskbarTitle from "@/components/Window/WindowTaskbar/TaskbarTitle/taskbarTitle"
 import { useContext } from "react"
-import { WindowContext } from "../Window"
-import TaskbarDots from "./Taskbardots/TaskbarDots"
-import TaskbarTitle from "./TaskbarTitle/TaskbarTitle"
 
 export default function WindowTaskbar(props: {
     closeWindow: () => void

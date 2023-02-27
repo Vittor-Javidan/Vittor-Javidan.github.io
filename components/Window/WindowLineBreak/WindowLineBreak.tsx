@@ -1,5 +1,5 @@
+import { WindowContext } from "@/components/Window/windowBox"
 import { useContext } from "react"
-import { WindowContext } from "../Window"
 
 export default function WindowLineBreak(): JSX.Element {
 

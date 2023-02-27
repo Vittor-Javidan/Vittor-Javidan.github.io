@@ -1,9 +1,9 @@
+import WindowBox from "@/components/Window/windowBox";
 import Link from "next/link";
-import Window from "../Window";
 
 export default function AboutMeWindow(): JSX.Element {
     return (
-        <Window
+        <WindowBox
             windowName="About Me"
             startVisible={true}
             CSS_PositionUtilityClass="CSS_AboutMe_Position"
@@ -146,6 +146,6 @@ export default function AboutMeWindow(): JSX.Element {
                     </ul>
                 </div>
             </div>
-        </Window>
+        </WindowBox>
     )
 }

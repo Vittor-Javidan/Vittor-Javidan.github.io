@@ -1,4 +1,4 @@
-import { WindowContext } from "@/components/Window/Window"
+import { WindowContext } from "@/components/Window/windowBox"
 import Link from "next/link"
 import { useContext } from "react"
 

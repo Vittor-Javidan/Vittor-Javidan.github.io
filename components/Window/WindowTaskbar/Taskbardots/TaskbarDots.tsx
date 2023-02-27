@@ -1,6 +1,6 @@
-import GreenDot from "./GreenDot/GreenDot"
-import RedDot from "./RedDot/RedDot"
-import YellowDot from "./YellowDot/YellowDot"
+import GreenDot from "@/components/Window/WindowTaskbar/Taskbardots/GreenDot/greenDot"
+import RedDot from "@/components/Window/WindowTaskbar/Taskbardots/RedDot/redDot"
+import YellowDot from "@/components/Window/WindowTaskbar/Taskbardots/YellowDot/yellowDot"
 
 export default function TaskbarDots(props: {
     redDotClick: () => void

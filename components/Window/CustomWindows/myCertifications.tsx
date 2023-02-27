@@ -1,6 +1,6 @@
+import WindowBox from "@/components/Window/windowBox";
 import { certificatesData } from "@/data/certificatesData";
 import Link from "next/link";
-import Window from "../Window";
 
 export default function MyCertificationsWindow(): JSX.Element {
 
@@ -17,7 +17,7 @@ export default function MyCertificationsWindow(): JSX.Element {
     ))
 
     return (
-        <Window
+        <WindowBox
             windowName="My Certifications"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MyCertifications_Position"
@@ -29,7 +29,7 @@ export default function MyCertificationsWindow(): JSX.Element {
             >
                 {...certificates}
             </div>
-        </Window>
+        </WindowBox>
     )
 }
 

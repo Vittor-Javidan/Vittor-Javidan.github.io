@@ -1,5 +1,5 @@
+import { WindowContext } from "@/components/Window/windowBox"
 import { ReactNode, useContext } from "react"
-import { WindowContext } from "../Window"
 
 export default function WindowContentArea(props: {
     children: ReactNode

@@ -1,7 +1,7 @@
+import WindowBox from "@/components/Window/windowBox";
 import { selfTaughtCurriculumData } from "@/data/selfTaughtCurriculumData";
 import Link from "next/link";
 import { useState } from "react";
-import Window from "../Window";
 
 export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 
@@ -17,7 +17,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
     })
 
     return (
-        <Window
+        <WindowBox
             windowName="My Self-Taught Curriculum"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MySelfTaughtCurriculum_Position"
@@ -25,7 +25,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
             <ul>
                 {...topicsArray}
             </ul>
-        </Window>
+        </WindowBox>
     )
 }
 

@@ -1,13 +1,13 @@
-import Window from "../Window";
+import WindowBox from "@/components/Window/windowBox";
 
 export default function MyProjectsWindow(): JSX.Element {
     return (
-        <Window
+        <WindowBox
             windowName="My Projects"
             startVisible={false}
             CSS_PositionUtilityClass="CSS_MyProjects_Position"
         >
             My Projects
-        </Window>
+        </WindowBox>
     )
 }
