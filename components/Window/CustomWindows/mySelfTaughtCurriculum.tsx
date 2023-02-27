@@ -1,9 +1,9 @@
 import VideoFile from "@/components/Files/videoFile";
+import WebFile from "@/components/Files/webFile";
 import Folder from "@/components/Folder/folder";
 import Section from "@/components/Section/section";
 import WindowBox from "@/components/Window/windowBox";
 import { selfTaughtCurriculumData } from "@/data/selfTaughtCurriculumData";
-import Link from "next/link";
 
 export default function MySelfTaughtCurriculumWindow(): JSX.Element {
 
@@ -61,13 +61,13 @@ function FoldersArea(props: {
                     <VideoFilesArea 
                         videoList={items.videoList}
                         onlyVideos={items.readingsList.length <= 0 ? true : false}
-                        isLastTopic={props.lastSection}
+                        isLastSection={props.lastSection}
                     />
                 )}
                 {items.readingsList.length > 0 && (
                     <WebFilesArea
                         readingsList={items.readingsList}
-                        isLastTopic={props.lastSection}
+                        isLastSection={props.lastSection}
                     />
                 )}
             </Folder>
@@ -89,14 +89,14 @@ function FoldersArea(props: {
 function VideoFilesArea(props: {
     videoList: videoList
     onlyVideos: boolean
-    isLastTopic: boolean
+    isLastSection: boolean
 }): JSX.Element {
 
     const videoFilesArray = props.videoList.map((videoItem, index) => {
 
         const isLast = props.videoList.length === index + 1
 
-        const extraCSS = (props.onlyVideos && isLast && props.isLastTopic) 
+        const extraCSS = (props.onlyVideos && isLast && props.isLastSection) 
         ? "ACCESSIBILITY_lastWindowElement"
         : ""
 
@@ -136,17 +136,32 @@ function VideoFilesArea(props: {
 
 function WebFilesArea(props: {
     readingsList: readingsList
-    isLastTopic: boolean
+    isLastSection: boolean
 }): JSX.Element {
 
-    const readingItems = props.readingsList.map((readingItem, index) => (
-        <WebFile 
-            readingItem={readingItem}
-            isLast={props.readingsList.length === (index + 1)}
-            isLastTopic={props.isLastTopic}
-            key={index}
-        />
-    ))
+    const webFilesArray = props.readingsList.map((readingItem, index) => {
+
+        const isLast = props.readingsList.length === (index + 1)
+        
+        const extraCSS = (isLast && props.isLastSection) 
+        ? "ACCESSIBILITY_lastWindowElement" 
+        : ""
+
+        return (
+            <WebFile
+                href={readingItem.url}
+                extraCSS={extraCSS}
+                key={index}
+            >
+                <span>
+                    Title: <span className="font-thin">{readingItem.title}</span>
+                </span>
+                <span>
+                    Author: <span className="font-thin">{readingItem.author}</span>
+                </span>
+            </WebFile>
+        )
+    })
 
     return (
         <div
@@ -154,60 +169,8 @@ function WebFilesArea(props: {
                 flex flex-col my-[40px] gap-[20px]
             `}
         >
-            {readingItems}
+            {webFilesArray}
         </div>
-    )
-}
-
-function WebFile(props: {
-    readingItem: readItem
-    isLast: boolean
-    isLastTopic:boolean
-}): JSX.Element {
-    
-    return (
-        <Link
-            className={props.isLast && props.isLastTopic ? "ACCESSIBILITY_lastWindowElement" : ""}
-            href={props.readingItem.url}
-            target={"_blank"}
-            tabIndex={0}
-        >
-            <div
-                className={`
-                    h-[120px] ml-[25px] px-[20px]
-                    flex items-center
-                    text-[1.6rem]
-                    border-[2px] border-transparent rounded-[10px]
-
-                    hover:text-fuchsia-500
-                    hover:border-[2px]
-                    hover:border-solid
-                    hover:border-fuchsia-500
-                `}
-            >
-                <img 
-                    className={`
-                        h-[101px] w-[80px]
-                        cursor-pointer
-                    `}
-                    src="/static/svg/readingFile.svg" 
-                    alt="readingIcon" 
-                />
-                <div
-                    className={`
-                        w-[100%] pl-[40px]
-                        flex flex-col justify-start gap-[4px]
-                    `}
-                >
-                    <span>
-                        Title: <span className="font-thin">{props.readingItem.title}</span>
-                    </span>
-                    <span>
-                        Author: <span className="font-thin">{props.readingItem.author}</span>
-                    </span>
-                </div>
-            </div>
-        </Link>
     )
 }
 
