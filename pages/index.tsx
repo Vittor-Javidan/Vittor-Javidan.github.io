@@ -1,9 +1,9 @@
 import Background from "@/components/Background";
+import AboutMeWindow from "@/components/CustomWindows/AboutMe/aboutMe";
+import MyCertificationsWindow from "@/components/CustomWindows/MyCertifications/myCertifications";
 import MyProjectsWindow from "@/components/CustomWindows/MyProjects/myProjects";
 import MySelfTaughtCurriculumWindow from "@/components/CustomWindows/MySelfTaughtCurriculum";
 import Sidebar from "@/components/Sidebar";
-import AboutMeWindow from "@/components/WindowBox/CustomWindows/aboutMe";
-import MyCertificationsWindow from "@/components/WindowBox/CustomWindows/myCertifications";
 import { mainMenuSidebarData } from "@/data/sideBarData";
 import Head from "next/head";
 import Script from "next/script";
