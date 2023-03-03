@@ -10,10 +10,16 @@ export const projectsData: {
         projectType: "ISOLATED FEATURES",
         itemList: [
             {
+                projectName: "Draggable Element",
+                tecnologies: "Javascript, HTML, CSS",
+                url: "https://vittor-javidan.github.io/DraggableWithoutNPM",
+            },
+            {
                 projectName: "Partial Draggable Element",
+                tecnologies: "Javascript, HTML, CSS",
                 url: "https://vittor-javidan.github.io/PartialDraggableElement/",
-                tecnologies: "Javascript, HTML, CSS"
-            }
+            },
+            
         ]
     },
     {

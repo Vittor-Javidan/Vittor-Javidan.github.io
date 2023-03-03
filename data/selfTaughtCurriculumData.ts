@@ -23,70 +23,102 @@ export const selfTaughtCurriculumData: {
             {
                 subtopic: "JavaScript",
                 videoList: [
-                {
-                    title: "JavaScript tutorial for complete beginners 🌐",
-                    author: "Bro Code",
-                    duration: "60 videos",
-                    externalPlay: true,
-                    urlType: "playlist",
-                    urlParam: "PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1"
-                },
-                {
-                    title: "Javascript Crash Course",
-                    author: "Bro Code",
-                    duration: "4:30:19 Hours",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "t9dEgHpCNJE"
-                },
-                {
-                    title: "I Bet You Can’t Even Name 10",
-                    author: "Web Dev Simplified",
-                    duration: "20:32 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "UUoZ_U2_4tA"
-                },
-                {
-                    title: "How to use Dynamic Imports for Modules - JavaScript Tutorial",
-                    author: "dcode",
-                    duration: "9:36 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "5s5fVghc4S8"
-                },
-                {
-                    title: "5 MUST KNOW JavaScript Object Functions",
-                    author: "dcode",
-                    duration: "10:41 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "NrPwbrAnxNk"
-                },
-                {
-                    title: "Why I Don't Use Semicolons In JavaScript",
-                    author: "Web Dev Simplified",
-                    duration: "6:03 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "cB0STl_A4l4"
-                },
-                {
-                    title: "You're using Javascript Promises The wrong way",
-                    author: "CoderOne",
-                    duration: "9:56 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "i1ktjumqT64"
-                },
-                {
-                    title: "How to use JSDoc - Basics & Introduction",
-                    author: "dcode",
-                    duration: "13:04 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "Nqv6UkTROak"
-                }
+                    {
+                        title: "JavaScript tutorial for complete beginners 🌐",
+                        author: "Bro Code",
+                        duration: "60 videos",
+                        externalPlay: true,
+                        urlType: "playlist",
+                        urlParam: "PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1"
+                    },
+                    {
+                        title: "Javascript Crash Course",
+                        author: "Bro Code",
+                        duration: "4:30:19 Hours",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "t9dEgHpCNJE"
+                    },
+                    {
+                        title: "I Bet You Can’t Even Name 10",
+                        author: "Web Dev Simplified",
+                        duration: "20:32 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "UUoZ_U2_4tA"
+                    },
+                    {
+                        title: "How to use Dynamic Imports for Modules - JavaScript Tutorial",
+                        author: "dcode",
+                        duration: "9:36 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "5s5fVghc4S8"
+                    },
+                    {
+                        title: "5 MUST KNOW JavaScript Object Functions",
+                        author: "dcode",
+                        duration: "10:41 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "NrPwbrAnxNk"
+                    },
+                    {
+                        title: "Why I Don't Use Semicolons In JavaScript",
+                        author: "Web Dev Simplified",
+                        duration: "6:03 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "cB0STl_A4l4"
+                    },
+                    {
+                        title: "You're using Javascript Promises The wrong way",
+                        author: "CoderOne",
+                        duration: "9:56 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "i1ktjumqT64"
+                    },
+                    {
+                        title: "How to use JSDoc - Basics & Introduction",
+                        author: "dcode",
+                        duration: "13:04 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "Nqv6UkTROak"
+                    },
+                    {
+                        title: "Map vs Object in JavaScript",
+                        author: "Leigh Halliday",
+                        duration: "14:32 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "Z_2rpuPQmC0"
+                    },
+                    {
+                        title: "Maps vs. Objects in JavaScript (performance)",
+                        author: "Reactive Dude",
+                        duration: "2:26 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "MH22Tuf65DI"
+                    },
+                    {
+                        title: "Focus Trapping — Web Interaction for Everyone",
+                        author: "Kyle Schaeffer",
+                        duration: "10:16 Minutes",
+                        externalPlay: false,
+                        urlType: "video",
+                        urlParam: "7-LAc4oLJDI"
+                    },
+                    {
+                        title: "Trapping Focus Within An Element Using Tab-Key Navigation In JavaScript",
+                        author: "Ben Nadel",
+                        duration: "7:06 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "VfKbvzGqEDU"
+                    }
                 ],
                 readingsList: [],
             },
@@ -183,100 +215,132 @@ export const selfTaughtCurriculumData: {
                   urlType: "video",
                   urlParam: "kiUGf_Z08RQ"
                 }
-              ],
-              readingsList: []
-            },
-            {
-                subtopic: "SQL",
-                videoList: [
-                  {
-                    title: "SQL Básico ao Avançado 2019",
-                    author: "Dev Aprender",
-                    duration: "32 videos",
-                    externalPlay: true,
-                    urlType: "playlist",
-                    urlParam: "PLnNURxKyyLIInBfeGiJ8L314AD015mHkv"
-                  },
-                  {
-                    title: "SQL Tutorial | Full Course",
-                    author: " Data with Baraa",
-                    duration: "28 videos",
-                    externalPlay: true,
-                    urlType: "playlist",
-                    urlParam: "PLNcg_FV9n7qZDdRInCl7wfOO8yZqYX5hO"
-                  }
                 ],
                 readingsList: []
             },
             {
-              subtopic: "HTML and CSS",
-              videoList: [
-                {
-                  title: "CSS Tutorials for Beginners",
-                  author: "Dave Gray",
-                  duration: "13 videos",
-                  externalPlay: true,
-                  urlType: "playlist",
-                  urlParam: "PL0Zuz27SZ-6Mx9fd9elt80G1bPcySmWit"
-                },
-                {
-                  title: "HTML & CSS Full Course 🌎【FREE】",
-                  author: "Bro Code",
-                  duration: "4:55:12 Hours",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "cyuzt1Dp8X8"
-                },
-                {
-                  title: "Learn HTML in 1 hour",
-                  author: "Bro Code",
-                  duration: "1 Hour",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "HD13eq_Pmp8"
-                },
-                {
-                  title: "Learn CSS 1 hour",
-                  author: "Bro Code",
-                  duration: "1 Hour",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "wRNinF7YQqQ"
-                },
-                {
-                  title: "Learn Every CSS Selector In 20 Minutes",
-                  author: "Web Dev Simplified",
-                  duration: "19:37 Minutes",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "l1mER1bV0N0"
-                },
-                {
-                  title: "Why You Should Use REM Instead of Pixels",
-                  author: "frontendfyi",
-                  duration: "8:25 Minutes",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "pKX7YnkyR8g"
-                },
-                {
-                  title: "Embed external website page and display only particular portion of it in a webpage",
-                  author: "E 4 E-Learning",
-                  duration: "6:31 Minutes",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "zceu0DmuZ7w"
-                },
-                {
-                  title: "Create custom scrollbars using CSS",
-                  author: "Kevin Powell",
-                  duration: "13:57 Minutes",
-                  externalPlay: true,
-                  urlType: "video",
-                  urlParam: "lvKK2fs6h4I"
-                }
-              ],
-              readingsList: []
+                subtopic: "SQL",
+                videoList: [
+                    {
+                        title: "SQL Básico ao Avançado 2019",
+                        author: "Dev Aprender",
+                        duration: "32 videos",
+                        externalPlay: true,
+                        urlType: "playlist",
+                        urlParam: "PLnNURxKyyLIInBfeGiJ8L314AD015mHkv"
+                    },
+                    {
+                        title: "SQL Tutorial | Full Course",
+                        author: " Data with Baraa",
+                        duration: "28 videos",
+                        externalPlay: true,
+                        urlType: "playlist",
+                        urlParam: "PLNcg_FV9n7qZDdRInCl7wfOO8yZqYX5hO"
+                    },
+                    {
+                        title: "How One Line of Code Cost a Company $1,000,000",
+                        author: "Coding with Lewis",
+                        duration: "12:43 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "kmj48wCfHew"
+                    }
+                ],
+                readingsList: []
+            },
+            {
+                subtopic: "HTML and CSS",
+                videoList: [
+                    {
+                        title: "CSS Tutorials for Beginners",
+                        author: "Dave Gray",
+                        duration: "13 videos",
+                        externalPlay: true,
+                        urlType: "playlist",
+                        urlParam: "PL0Zuz27SZ-6Mx9fd9elt80G1bPcySmWit"
+                    },
+                    {
+                        title: "HTML & CSS Full Course 🌎【FREE】",
+                        author: "Bro Code",
+                        duration: "4:55:12 Hours",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "cyuzt1Dp8X8"
+                    },
+                    {
+                        title: "Learn HTML in 1 hour",
+                        author: "Bro Code",
+                        duration: "1 Hour",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "HD13eq_Pmp8"
+                    },
+                    {
+                        title: "Learn CSS 1 hour",
+                        author: "Bro Code",
+                        duration: "1 Hour",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "wRNinF7YQqQ"
+                    },
+                    {
+                        title: "Learn Every CSS Selector In 20 Minutes",
+                        author: "Web Dev Simplified",
+                        duration: "19:37 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "l1mER1bV0N0"
+                    },
+                    {
+                        title: "Why You Should Use REM Instead of Pixels",
+                        author: "frontendfyi",
+                        duration: "8:25 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "pKX7YnkyR8g"
+                    },
+                    {
+                        title: "Embed external website page and display only particular portion of it in a webpage",
+                        author: "E 4 E-Learning",
+                        duration: "6:31 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "zceu0DmuZ7w"
+                    },
+                    {
+                        title: "Create custom scrollbars using CSS",
+                        author: "Kevin Powell",
+                        duration: "13:57 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "lvKK2fs6h4I"
+                    },
+                    {
+                        title: "The problems with viewport units",
+                        author: "Kevin Powell",
+                        duration: "13:22 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "veEqYQlfNx8"
+                    },
+                    {
+                        title: "Using Tabindex",
+                        author: "Udacity",
+                        duration: "1:57 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "rvG7L-gsSuo"
+                    },
+                    {
+                        title: "Avoid an Artificial Tabindex",
+                        author: "CANAXESS Teaches",
+                        duration: "7:48 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "ZJLtxtJQ5sY"
+                    },
+                ],
+                readingsList: []
             },
             {
                 subtopic: "Git",
@@ -343,7 +407,7 @@ export const selfTaughtCurriculumData: {
         ]
     },
     {
-        topic: "FRAMEWORKS",
+        topic: "FRAMEWORKS AND SERVICES",
         itemList: [
             {
                 subtopic: "Node Js",
@@ -400,37 +464,61 @@ export const selfTaughtCurriculumData: {
             {
                 subtopic: "React",
                 videoList: [
-                {
-                    title: "React Course - Beginner's Tutorial for React JavaScript Library [2022]",
-                    author: "freeCodeCamp.org",
-                    duration: "11:55:27 Hours",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "bMknfKXIFA8"
+                    {
+                        title: "React Course - Beginner's Tutorial for React JavaScript Library [2022]",
+                        author: "freeCodeCamp.org",
+                        duration: "11:55:27 Hours",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "bMknfKXIFA8"
                     },
                     {
-                    title: "Advanced React Patterns, Performance, Environment and Testing | New Course Launch",
-                    author: "codedamn",
-                    duration: "58:03 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "MfIoAG3e7p4"
+                        title: "Advanced React Patterns, Performance, Environment and Testing | New Course Launch",
+                        author: "codedamn",
+                        duration: "58:03 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "MfIoAG3e7p4"
                     },
                     {
-                    title: "Junior Vs Senior Code - How To Write Better Code As A Web Developer - React",
-                    author: "Web Dev Simplified",
-                    duration: "21:47 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "0yzoAbrjV6k"
+                        title: "Junior Vs Senior Code - How To Write Better Code As A Web Developer - React",
+                        author: "Web Dev Simplified",
+                        duration: "21:47 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "0yzoAbrjV6k"
                     },
                     {
-                    title: "Speed Up Your React Apps With Code Splitting",
-                    author: "Web Dev Simplified",
-                    duration: "16:49 Minutes",
-                    externalPlay: true,
-                    urlType: "video",
-                    urlParam: "JU6sl_yyZqs"
+                        title: "Speed Up Your React Apps With Code Splitting",
+                        author: "Web Dev Simplified",
+                        duration: "16:49 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "JU6sl_yyZqs"
+                    },
+                    {
+                        title: "New React useEffectEvent Hook Crash Course",
+                        author: "Web Dev Simplified",
+                        duration: "8:35 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "NZJUEzn10FI"
+                    },
+                    {
+                        title: "Learn JavaScript Generators In 12 Minutes",
+                        author: "Web Dev Simplified",
+                        duration: "12:10 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "IJ6EgdiI_wU"
+                    },
+                    {
+                        title: "This New React Hook Breaks All The Rules And I Love It",
+                        author: "Web Dev Simplified",
+                        duration: "7:55 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "zdNF9FJWJ8o"
                     }
                 ],
                 readingsList: []
@@ -477,6 +565,20 @@ export const selfTaughtCurriculumData: {
                         externalPlay: true,
                         urlType: "video",
                         urlParam: "i28btjntmNE"
+                    }
+                ],
+                readingsList: []
+            },
+            {
+                subtopic: "Figma",
+                videoList: [
+                    {
+                        title: "Figma Basics: How To INTERSECT SHAPES (Tutorial)",
+                        author: "Mavi Design",
+                        duration: "1:42 Minutes",
+                        externalPlay:  true,
+                        urlType: "video",
+                        urlParam: "uZHuTbF55cY"
                     }
                 ],
                 readingsList: []
@@ -572,7 +674,7 @@ export const selfTaughtCurriculumData: {
                 readingsList: []
             },
             {
-                subtopic: "CODE CONCEPTS",
+                subtopic: "Data Structures",
                 videoList: [
                     {
                         title: "Learn Data Structures and Algorithms for free 📈",
@@ -725,6 +827,20 @@ export const selfTaughtCurriculumData: {
                 ]
             },
             {
+                subtopic: "Architecture Patterns",
+                videoList: [
+                    {
+                        title: "What Is A Backend For A Frontend (BFF) Architecture Pattern",
+                        author: "Going Headless with John",
+                        duration: "6:41 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "SSo-z16wEnc"
+                    }
+                ],
+                readingsList: []
+            },
+            {
                 subtopic: "Functional Programming",
                 videoList: [
                     {
@@ -734,6 +850,20 @@ export const selfTaughtCurriculumData: {
                         externalPlay: true,
                         urlType: "video",
                         urlParam: "srQt1NAHYC0"
+                    }
+                ],
+                readingsList: []
+            },
+            {
+                subtopic: "magic-regexp NPM Package",
+                videoList: [
+                    {
+                        title: "The Better Way to Write Regex",
+                        author: "LearnVue",
+                        duration: "1:56 Minutes",
+                        externalPlay: true,
+                        urlType: "video",
+                        urlParam: "X_k198mrGL8"
                     }
                 ],
                 readingsList: []
