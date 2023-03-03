@@ -1,0 +1,7 @@
+.CSS_TextShadow {
+    text-shadow: 2px 2px 10px black;
+}
+
+div:hover > a  > div >  .CSS_HoverMessage {
+    opacity: 1;
+}
