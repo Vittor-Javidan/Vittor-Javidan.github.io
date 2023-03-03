@@ -20,6 +20,7 @@ export default function MyCertificationsWindow(): JSX.Element {
         <WindowBox
             windowName="My Certifications"
             startVisible={false}
+            startExpanded={false}
             CSS_PositionUtilityClass="CSS_MyCertifications_Position"
         >
 		    <div

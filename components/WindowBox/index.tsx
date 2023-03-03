@@ -20,12 +20,13 @@ export default function WindowBox(props: {
     windowName: string
     children: ReactNode
     startVisible: boolean
+    startExpanded: boolean
     CSS_PositionUtilityClass: string
 }): JSX.Element {
 
     const [visible, setVisible] = useState(props.startVisible)
     const [minimized, setMinimized] = useState(false)
-    const [expanded, setExpanded] = useState(false)
+    const [expanded, setExpanded] = useState(props.startExpanded)
 
     const windowProps = {
         windowPositionCSS: props.CSS_PositionUtilityClass,

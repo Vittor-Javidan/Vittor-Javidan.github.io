@@ -6,6 +6,7 @@ export default function AboutMeWindow(): JSX.Element {
         <WindowBox
             windowName="About Me"
             startVisible={true}
+            startExpanded={false}
             CSS_PositionUtilityClass="CSS_AboutMe_Position"
         >
             <div

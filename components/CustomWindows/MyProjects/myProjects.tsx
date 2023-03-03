@@ -1,3 +1,5 @@
+import SectionsArea from "@/components/CustomWindows/MyProjects/SectionArea";
+import Sections from "@/components/CustomWindows/MyProjects/Sections";
 import WindowBox from "@/components/WindowBox";
 
 export default function MyProjectsWindow(): JSX.Element {
@@ -5,9 +7,12 @@ export default function MyProjectsWindow(): JSX.Element {
         <WindowBox
             windowName="My Projects"
             startVisible={false}
+            startExpanded={false}
             CSS_PositionUtilityClass="CSS_MyProjects_Position"
         >
-            My Projects
+            <SectionsArea>
+                <Sections />
+            </SectionsArea>
         </WindowBox>
     )
 }

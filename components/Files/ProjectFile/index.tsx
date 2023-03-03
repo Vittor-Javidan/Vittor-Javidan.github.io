@@ -1,22 +1,34 @@
 import Link from "next/link"
 import { ReactNode } from "react"
 
-export default function WebFile(props: {
+export default function ProjectFile(props: {
     children: ReactNode
-    href: string
+    projectType: string
+    urlParam: string
     extraCSS: string
 }): JSX.Element {
+
+    const url = `https://vittor-javidan.github.io/${props.urlParam}`
+    
+    let svgDirectory
+
+    switch (props.projectType) {
+        
+        case "ISOLATED FEATURES":   svgDirectory = "/static/svg/webFile.svg"        ;break
+        case "MOBILE APPS":         svgDirectory = "/static/svg/playStoreFile.svg"  ;break
+        default: svgDirectory = ""                                                  ;break
+    }
     
     return (
         <Link
             className={props.extraCSS}
-            href={props.href}
+            href={props.urlParam}
             target={"_blank"}
             tabIndex={0}
         >
             <div
                 className={`
-                    h-[120px] ml-[25px] px-[20px]
+                    h-[120px] mx-[25px] px-[20px]
                     flex items-center
                     text-[1.6rem]
                     border-[2px] border-transparent rounded-[10px]
@@ -32,8 +44,8 @@ export default function WebFile(props: {
                         h-[101px] w-[80px]
                         cursor-pointer
                     `}
-                    src="/static/svg/webFile.svg" 
-                    alt="readingIcon" 
+                    src={svgDirectory}
+                    alt="youtubeIcon" 
                 />
                 <div
                     className={`
