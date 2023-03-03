@@ -1,6 +1,7 @@
 import ProjectFile from "@/components/Files/ProjectFile"
 
 export default function ProjectFiles(props: {
+    isLastSection: boolean
     projectType: string
     itemList: {
         projectName: string
@@ -10,11 +11,14 @@ export default function ProjectFiles(props: {
 }): JSX.Element {
     return (<>
         {props.itemList.map((item, index) => {
+
+            const isLast = props.itemList.length === index + 1
+
             return (
                 <ProjectFile
                     projectType={props.projectType}
                     urlParam={item.url}
-                    extraCSS=""
+                    extraCSS={props.isLastSection && isLast ? "ACCESSIBILITY_lastWindowElement" : ""}
                     key={index}
                 >
                     <span>{item.projectName}</span>

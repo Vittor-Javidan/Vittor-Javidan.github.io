@@ -17,6 +17,7 @@ export default function Sections() {
                     key={index}
                 >
                     <ProjectFiles
+                        isLastSection={isLast}
                         projectType={data.projectType} 
                         itemList={data.itemList}
                     />
