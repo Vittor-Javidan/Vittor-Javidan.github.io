@@ -1,6 +1,6 @@
+import SectionsArea from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea";
 import Sections from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections";
 import WindowBox from "@/components/WindowBox";
-import SectionsArea from "./SectionArea";
 
 export default function MySelfTaughtCurriculumWindow(): JSX.Element {
     

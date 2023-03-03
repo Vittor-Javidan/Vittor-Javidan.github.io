@@ -1,6 +1,6 @@
+import ProjectFiles from "@/components/CustomWindows/MyProjects/Sections/ProjectFiles"
 import Section from "@/components/Section"
 import { projectsData } from "@/data/projectsData"
-import ProjectFiles from "./ProjectFiles"
 
 export default function Sections() {
 
