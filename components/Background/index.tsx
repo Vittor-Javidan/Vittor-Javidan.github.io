@@ -1,12 +1,11 @@
 import { ReactNode } from "react";
+import styles from './index.module.css';
 
 export default function Background(props: {children: ReactNode}): JSX.Element {
     return <div className={`
-        relative z-0  
-        h-screen w-screen
-        bg-fixed bg-cover bg-center
-        bg-[url('https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/background.jpg')] 
-        overflow-hidden 
+        relative z-0
+        h-full w-full
+        ${styles.background}
     `}>
         {props.children}
     </div>

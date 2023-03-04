@@ -7,9 +7,12 @@ import Sidebar from "@/components/Sidebar";
 import { mainMenuSidebarData } from "@/data/sideBarData";
 import Head from "next/head";
 import Script from "next/script";
+import styles from './index.module.css';
 
 export default function Home(): JSX.Element {
-    return (<div>
+    return (<div
+        className={styles.home}
+    >
         <Head>
             <title>Vittor Javidan Webpage</title>
         </Head>
