@@ -1,0 +1,10 @@
+.HoverMessage {
+    margin-bottom: 10px;
+    color: #c026d3;
+    opacity: 0;
+    transition-duration: 150ms;
+}
+
+a:hover .HoverMessage {
+    opacity: 1;
+}
