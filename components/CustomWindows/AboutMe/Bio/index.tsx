@@ -1,35 +1,23 @@
+import styles from './styles.module.css';
+
 export default function Bio(): JSX.Element {
     return (
-        <div className={`
-                flex flex-col items-start content-between
-                text-white
-            `}
+        <div className={styles.Div}
         >
             <h1
-                className={`
-                    text-[5rem]
-                    w-auto m-auto mb-[20px]
-                `}
+                className={styles.H1}
             >
                 About me
             </h1>
             <p
-                className={`
-                    mb-[20px]
-                    first-letter:text-[2.5rem] 
-                    first-letter:font-bold
-                `}
+                className={styles.P}
             >
                 Hello, my name is Vittor Javidan. The bird in the
                 picture is Teca, my beloved and now deceased
                 cockatiel. May she rest peacefully with God.
             </p>
             <p
-                className={`
-                    mb-[20px]
-                    first-letter:text-[2.5rem] 
-                    first-letter:font-bold
-                `}
+                className={styles.P}
             >
                 As a programmer, I am currently focused on
                 technologies related to JavaScript. However, I have
@@ -42,11 +30,7 @@ export default function Bio(): JSX.Element {
                 technologies
             </p>
             <p
-                className={`
-                    mb-[20px]
-                    first-letter:text-[2.5rem] 
-                    first-letter:font-bold
-                `}
+                className={styles.P}
             >
                 Welcome to my website! It is a place where I share
                 my projects with others. I invite you to take a look

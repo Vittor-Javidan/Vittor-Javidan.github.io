@@ -1,0 +1,19 @@
+.Div {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.Ul {
+    display: flex;
+    gap: 10px;
+
+    font-size: 6rem;
+    color: #FFF;
+}
+
+.Li:hover {
+    scale: 1.4;
+    transform: translateY(-10px);
+    transition-duration: 200ms;
+}

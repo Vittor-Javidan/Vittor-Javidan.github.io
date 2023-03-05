@@ -1,26 +1,16 @@
 import Link from "next/link";
+import styles from './styles.module.css';
 
 export default function SocialMedia(): JSX.Element {
     return (
         <div
-            className={`
-                flex justify-end
-                w-[100%]
-            `}
+            className={styles.Div}
         >
             <ul
-                className={`
-                    flex gap-[10px]
-                    text-white
-                    text-[6rem]
-                `}
+                className={styles.Ul}
             >
                 <li
-                    className={`
-                        hover:scale-[1.4]
-                        hover:translate-y-[-10px]
-                        hover:duration-[200ms]
-                    `}
+                    className={styles.Li}
                 >
                     <Link
                         className="tabIndex-1"
@@ -31,11 +21,7 @@ export default function SocialMedia(): JSX.Element {
                     </Link>
                 </li>
                 <li
-                    className={`
-                        hover:scale-[1.4]
-                        hover:translate-y-[-10px]
-                        hover:duration-[200ms]
-                    `}
+                    className={styles.Li}
                 >
                     <Link
                         className="tabIndex-1"
@@ -46,11 +32,7 @@ export default function SocialMedia(): JSX.Element {
                     </Link>
                 </li>
                 <li
-                    className={`
-                        hover:scale-[1.4]
-                        hover:translate-y-[-10px]
-                        hover:duration-[200ms]
-                    `}
+                    className={styles.Li}
                 >
                     <Link
                         className={`

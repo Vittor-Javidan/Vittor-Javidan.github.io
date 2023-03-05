@@ -2,6 +2,7 @@ import Bio from "@/components/CustomWindows/AboutMe/Bio";
 import ProfilePicture from "@/components/CustomWindows/AboutMe/ProfilePicture";
 import SocialMedia from "@/components/CustomWindows/AboutMe/SocialMedia";
 import WindowBox from "@/components/WindowBox";
+import styles from './styles.module.css';
 
 export default function AboutMeWindow(): JSX.Element {
     return (
@@ -9,23 +10,15 @@ export default function AboutMeWindow(): JSX.Element {
             windowName="About Me"
             startVisible={true}
             startExpanded={false}
-            CSS_PositionUtilityClass="CSS_AboutMe_Position"
+            CSS_PositionUtilityClass={styles.Window_StartPosition}
         >
             <div
-                className={`
-                    flex flex-col items-center justify-between h-full
-                `}
+                className={styles.MainContent}
             >
-                <div
-                    className={`
-                        flex flex-col items-center content-between 
-                    `}
-                >
-                    <ProfilePicture />
-                    <Bio />
-                </div>
-                <SocialMedia />
+                <ProfilePicture />
+                <Bio />
             </div>
+            <SocialMedia />
         </WindowBox>
     )
 }
