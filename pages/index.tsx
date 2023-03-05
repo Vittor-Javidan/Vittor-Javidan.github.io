@@ -1,7 +1,7 @@
 import Background from "@/components/Background";
 import AboutMeWindow from "@/components/CustomWindows/AboutMe";
 import MyCertificationsWindow from "@/components/CustomWindows/MyCertifications";
-import MyProjectsWindow from "@/components/CustomWindows/MyProjects/myProjects";
+import MyProjectsWindow from "@/components/CustomWindows/MyProjects";
 import MySelfTaughtCurriculumWindow from "@/components/CustomWindows/MySelfTaughtCurriculum";
 import Sidebar from "@/components/Sidebar";
 import { mainMenuSidebarData } from "@/data/sideBarData";

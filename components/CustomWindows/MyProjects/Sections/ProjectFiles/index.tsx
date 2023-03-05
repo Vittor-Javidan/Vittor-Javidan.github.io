@@ -1,4 +1,5 @@
-import ProjectFile from "@/components/Files/ProjectFile"
+import ProjectFile from "@/components/Files/ProjectFile";
+import styles from './styles.module.css';
 
 export default function ProjectFiles(props: {
     isLastSection: boolean
@@ -22,7 +23,11 @@ export default function ProjectFiles(props: {
                     key={index}
                 >
                     <span>{item.projectName}</span>
-                    <span>Tecnologies: <span className="font-thin">{item.tecnologies}</span></span>
+                    <span>Tecnologies:
+                        <span className={styles.TecnologiesSpan}>
+                            {item.tecnologies}
+                        </span>
+                    </span>
                 </ProjectFile>
             )
         })}
