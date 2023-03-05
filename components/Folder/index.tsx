@@ -1,10 +1,11 @@
-import { ReactNode, useState } from "react"
+import { ReactNode, useState } from "react";
+import styles from './styles.module.css';
 
 export default function Folder(props: {
     children: ReactNode
     folderName: string
-    extraCSS_Open: string
-    extraCSS_Close: string
+    openFolder_extraCSS: string
+    closedFolder_extraCSS: string
 }): JSX.Element {
 
     const [open, setOpen] = useState(false)
@@ -12,17 +13,10 @@ export default function Folder(props: {
     return (<>
         <div
             className={`
-                h-[130px]
-                flex flex-col justify-between items-center
-                text-[1.2rem]
-
-                hover:translate-y-[-5px]
-                hover:duration-[75ms]
-
-                ${open ? "text-fuchsia-500" : ""}
-
-                ${open && props.extraCSS_Open}
-                ${!open && props.extraCSS_Close}
+                ${styles.MainDiv}
+                ${open && styles.OpenFolder}
+                ${open && props.openFolder_extraCSS}
+                ${!open && props.closedFolder_extraCSS}
             `}
             onClick={() => setOpen(prev => !prev)}
             tabIndex={0}
@@ -34,30 +28,23 @@ export default function Folder(props: {
         >
             <img 
                 className={`
-                    cursor-pointer
-
-                    ${open ? `
-                    h-[120px] w-[80px]
-                    ` : `
-                    h-[101px] w-[80px]
-                    `}
+                    ${styles.Img}
+                    ${open 
+                        ? styles.Img_OpenFolder 
+                        : styles.Img_ClosedFolder
+                    }
                 `}
                 src={open ? "/static/svg/folderOpen.svg" : "/static/svg/folderClosed.svg"}
                 alt="folderIcon" 
             />
             <span
-                className={`
-                    w-[100px] text-center
-                `}
+                className={styles.Span}
             >
                 {props.folderName}
             </span>
         </div>
         {open && <div
-            className={`
-                w-[100%] m-[10px]
-                border-y-[2px] border-double border-gray-700
-            `}
+            className={styles.ChildrenDiv}
         >
             {props.children}
         </div>}

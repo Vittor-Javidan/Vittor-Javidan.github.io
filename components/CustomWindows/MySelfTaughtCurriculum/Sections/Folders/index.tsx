@@ -36,8 +36,8 @@ export default function Folders(props: foldersType) {
             return (
                 <Folder
                     folderName={items.subtopic}
-                    extraCSS_Open={""}
-                    extraCSS_Close={extraCSS_CloseFolder}
+                    openFolder_extraCSS={""}
+                    closedFolder_extraCSS={extraCSS_CloseFolder}
                     key={index}
                 >
                     {items.videoList.length > 0 && (
