@@ -1,5 +1,6 @@
-import Link from "next/link"
-import { ReactNode } from "react"
+import Link from "next/link";
+import { ReactNode } from "react";
+import styles from './styles.module.css';
 
 export default function WebFile(props: {
     children: ReactNode
@@ -15,31 +16,15 @@ export default function WebFile(props: {
             tabIndex={0}
         >
             <div
-                className={`
-                    h-[120px] ml-[25px] px-[20px]
-                    flex items-center
-                    text-[1.6rem]
-                    border-[2px] border-transparent rounded-[10px]
-
-                    hover:text-fuchsia-500
-                    hover:border-[2px]
-                    hover:border-solid
-                    hover:border-fuchsia-500
-                `}
+                className={styles.MainDiv}
             >
                 <img 
-                    className={`
-                        h-[101px] w-[80px]
-                        cursor-pointer
-                    `}
+                    className={styles.Img}
                     src="/static/svg/webFile.svg" 
                     alt="readingIcon" 
                 />
                 <div
-                    className={`
-                        w-[100%] pl-[40px]
-                        flex flex-col justify-start gap-[4px]
-                    `}
+                    className={styles.InfoArea}
                 >
                     {props.children}
                 </div>

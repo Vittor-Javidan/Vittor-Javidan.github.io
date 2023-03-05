@@ -18,7 +18,7 @@ export default function ProjectFiles(props: {
             return (
                 <ProjectFile
                     projectType={props.projectType}
-                    urlParam={item.url}
+                    ProjectUrl={item.url}
                     extraCSS={props.isLastSection && isLast ? "ACCESSIBILITY_lastWindowElement" : ""}
                     key={index}
                 >
