@@ -1,5 +1,6 @@
 import Certifications from "@/components/CustomWindows/MyCertifications/Certifications";
 import WindowBox from "@/components/WindowBox";
+import styles from './styles.module.css';
 
 export default function MyCertificationsWindow(): JSX.Element {
     return (
@@ -10,9 +11,7 @@ export default function MyCertificationsWindow(): JSX.Element {
             CSS_PositionUtilityClass="CSS_MyCertifications_Position"
         >
 		    <div
-                className={`
-                    flex flex-wrap justify-around gap-[20px]
-                `}
+                className={styles.mainDiv}
             >
                 <Certifications />
             </div>
