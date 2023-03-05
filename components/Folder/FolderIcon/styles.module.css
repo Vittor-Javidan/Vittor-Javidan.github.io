@@ -1,0 +1,13 @@
+.Img {
+    cursor: pointer;
+}
+
+.Img_OpenFolder {
+    height: 120px;
+    width: 80px;
+}
+
+.Img_ClosedFolder {
+    height: 101px;
+    width: 80px;
+}

@@ -1,3 +1,6 @@
+import FolderContent from "@/components/Folder/FolderContent";
+import FolderIcon from "@/components/Folder/FolderIcon";
+import FolderName from "@/components/Folder/FolderName";
 import { ReactNode, useState } from "react";
 import styles from './styles.module.css';
 
@@ -26,27 +29,17 @@ export default function Folder(props: {
                 }
             }}
         >
-            <img 
-                className={`
-                    ${styles.Img}
-                    ${open 
-                        ? styles.Img_OpenFolder 
-                        : styles.Img_ClosedFolder
-                    }
-                `}
-                src={open ? "/static/svg/folderOpen.svg" : "/static/svg/folderClosed.svg"}
-                alt="folderIcon" 
+            <FolderIcon
+                openFolder={open}
             />
-            <span
-                className={styles.Span}
-            >
-                {props.folderName}
-            </span>
+            <FolderName
+                folderName={props.folderName}
+            />
         </div>
-        {open && <div
-            className={styles.ChildrenDiv}
-        >
-            {props.children}
-        </div>}
+        {open && (
+            <FolderContent>
+                {props.children}
+            </FolderContent>
+        )}
     </>)
 }

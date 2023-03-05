@@ -17,30 +17,3 @@
 .OpenFolder {
     color: #d946ef;
 }
-
-.Img {
-    cursor: pointer;
-}
-
-.Img_OpenFolder {
-    height: 120px;
-    width: 80px;
-}
-
-.Img_ClosedFolder {
-    height: 101px;
-    width: 80px;
-}
-
-.Span {
-    width: 100px;
-    text-align: center;
-}
-
-.ChildrenDiv {
-    width: 100%;
-    height: 100%;
-
-    border-top: 2px double #374151;
-    border-bottom: 2px double #374151;
-}
