@@ -24,26 +24,6 @@
     width: calc(100% - 88px);
 }
 
-.CSS_AboutMe_Position {
-    top: calc(15%);
-    left: calc(50% - 500px);
-}
-
-.CSS_MyProjects_Position {
-    top: 12px;
-    left: 100px;
-}
-
-.CSS_MyCertifications_Position {
-    top: 52px;
-    left: 100px;
-}
-
-.CSS_MySelfTaughtCurriculum_Position {
-    top: 92px;
-    left: 100px;
-}
-
 a:hover > .CSS_dotHover {
     opacity: 1;
 }

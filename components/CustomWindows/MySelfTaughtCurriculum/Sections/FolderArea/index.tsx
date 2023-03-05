@@ -1,4 +1,5 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
+import styles from './styles.module.css';
 
 export default function FoldersArea(props: {
     children: ReactNode
@@ -6,10 +7,7 @@ export default function FoldersArea(props: {
 
     return (
         <div
-            className={`
-                mt-[10px] mb-[30px]
-                flex flex-wrap justify-start gap-[20px]
-            `}
+            className={styles.mainDiv}
         >
             {props.children}
         </div>

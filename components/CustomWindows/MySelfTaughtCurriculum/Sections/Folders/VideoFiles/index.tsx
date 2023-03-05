@@ -1,4 +1,5 @@
-import VideoFile from "@/components/Files/VideoFile"
+import VideoFile from "@/components/Files/VideoFile";
+import styles from './styles.module.css';
 
 export default function VideoFiles(props: {
     videoList: {
@@ -33,13 +34,22 @@ export default function VideoFiles(props: {
                     key={index}
                 >
                     <span>
-                        Title: <span className="font-thin">{videoItem.title}</span>
+                        Title: 
+                            <span className={styles.Span}>
+                                {videoItem.title}
+                            </span>
                     </span>
                     <span>
-                        Author: <span className="font-thin">{videoItem.author}</span>
+                        Author: 
+                            <span className={styles.Span}>
+                                {videoItem.author}
+                            </span>
                     </span>
                     <span>
-                        Duration: <span className="font-thin">{videoItem.duration}</span>
+                        Duration: 
+                            <span className={styles.Span}>
+                                {videoItem.duration}
+                            </span>
                     </span>
                 </VideoFile>
             )

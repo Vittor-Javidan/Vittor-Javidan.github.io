@@ -1,4 +1,5 @@
-import WebFile from "@/components/Files/WebFile"
+import WebFile from "@/components/Files/WebFile";
+import styles from './styles.module.css';
 
 export default function WebFiles(props: {
     readingsList: {
@@ -25,10 +26,16 @@ export default function WebFiles(props: {
                     key={index}
                 >
                     <span>
-                        Title: <span className="font-thin">{readingItem.title}</span>
+                        Title: 
+                            <span className={styles.Span}>
+                                {readingItem.title}
+                            </span>
                     </span>
                     <span>
-                        Author: <span className="font-thin">{readingItem.author}</span>
+                        Author: 
+                            <span className={styles.Span}>
+                                {readingItem.author}
+                            </span>
                     </span>
                 </WebFile>
             )

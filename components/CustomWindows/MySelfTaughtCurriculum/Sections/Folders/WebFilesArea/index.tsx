@@ -1,4 +1,5 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
+import styles from './styles.module.css';
 
 export default function WebFilesArea(props: {
     children: ReactNode
@@ -6,9 +7,7 @@ export default function WebFilesArea(props: {
 
     return (
         <div
-            className={`
-                flex flex-col my-[40px] gap-[20px]
-            `}
+            className={styles.Div}
         >
             {props.children}
         </div>

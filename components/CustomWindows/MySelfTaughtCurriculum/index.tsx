@@ -1,6 +1,7 @@
 import SectionsArea from "@/components/CustomWindows/MySelfTaughtCurriculum/SectionArea";
 import Sections from "@/components/CustomWindows/MySelfTaughtCurriculum/Sections";
 import WindowBox from "@/components/WindowBox";
+import styles from './styles.module.css';
 
 export default function MySelfTaughtCurriculumWindow(): JSX.Element {
     
@@ -9,7 +10,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
             windowName="My Self-Taught Curriculum"
             startVisible={false}
             startExpanded={false}
-            CSS_PositionUtilityClass="CSS_MySelfTaughtCurriculum_Position"
+            CSS_PositionUtilityClass={styles.Window_StartPosition}
         >
             <SectionsArea>
                 <Sections />

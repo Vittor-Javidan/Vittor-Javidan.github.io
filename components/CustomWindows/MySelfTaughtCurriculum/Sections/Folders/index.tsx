@@ -29,9 +29,9 @@ export default function Folders(props: foldersType) {
     return <>
         {props.topicItems.map((items, index) => {
 
-            const extraCSS_CloseFolder = (props.lastSection && (props.topicItems.length === index + 1)) ? `
-                ACCESSIBILITY_lastWindowElement
-            ` : ""
+            const extraCSS_CloseFolder = (props.lastSection && (props.topicItems.length === index + 1)) 
+            ? `ACCESSIBILITY_lastWindowElement` 
+            : ""
 
             return (
                 <Folder
