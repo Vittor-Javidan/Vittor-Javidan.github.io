@@ -1,4 +1,4 @@
-import SidebarAPI from "@/components/Sidebar/componentAPI"
+import SidebarAPI from "@/components/Sidebar/API"
 
 export default function redirectFromWindowToNavItem(windowName: string): void {
 

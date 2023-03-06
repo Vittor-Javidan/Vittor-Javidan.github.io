@@ -1,8 +1,9 @@
 import { focusWindowOnClick } from "@/accessibilityScripts/focusWindowOnClick"
-import SidebarAPI from "@/components/Sidebar/componentAPI"
+import SidebarAPI from "@/components/Sidebar/API"
 import WindowsAPI from "@/components/WindowBox/componentAPI"
 import Link from "next/link"
 import { useState } from "react"
+import styles from './styles.module.css'
 
 export default function ListItem(props: {
 	sidebarData: {
@@ -16,7 +17,6 @@ export default function ListItem(props: {
 }): JSX.Element {
 
 	const [selected, setSelected] = useState(props.startSelected)
-	
 	const listItemName = props.sidebarData.innerText
 
 	SidebarAPI.registerComponent({
@@ -27,40 +27,14 @@ export default function ListItem(props: {
 	return (
 		<li 
 			className={`
-			
-				h-[60px]
-				rounded-[10px]
-				cursor-pointer
 				transform-gpu
-				active:bg-fuchsia-600
-
-				${!selected && (`
-					hover:bg-gray-700
-				`)}
-
-				${selected && `
-					border-[2px] border-gray-700 border-opacity-30
-					bg-fuchsia-600
-					duration-[400ms] ease-linear
-					hover:bg-fuchsia-700
-					hover:shadow-custom
-					hover:z-10
-					hover:translate-x-[10px]
-					hover:duration-[150ms]
-					active:bg-gray-700
-				`}
-
-				${selected && !props.sidebarOpen && `
-					w-[85px]
-					hover:shadow-custom
-				`}
-
-				${selected && props.sidebarOpen && `
-					w-[300px]
-					hover:w-[400px]
-					hover:rounded-navItemSidebarOpen
-					hover:bg-fuchsia-500
-				`}
+				${styles.li}
+				${selected 
+					? styles.li_Selected 
+					: styles.li_NotSelected
+				}
+				${selected && props.sidebarOpen && styles.li_Selected_SidebarOpen}
+				${selected && !props.sidebarOpen && styles.li_Selected_SidebarClosed}
 			`}
 			onClick={(event) => {
 
@@ -88,39 +62,20 @@ export default function ListItem(props: {
 			<Link 
 				id={props.ID}
 				tabIndex={0}
-				className={
-					
-					`h-[56px] py-[16px] 
-					flex justify-start
-					text-white
-
-					focus:rounded-[10px]
-					focus:outline-fuchsia-600`
-				} 
+				className={styles.link} 
 				href={`${props.sidebarData.href}`}
 			>
 				<i className={`
-					text-[2.6rem] ml-[14px]
+					${styles.i}
 					${props.sidebarData.iconClassName}`} 
 				></i>
 				<span
 					className={`
-					
-						text-[1.6rem] 
-						pointer-events-none
-						
-						${props.sidebarOpen && `
-							w-auto pl-[14px] 
-							scale-1 opacity-1
-							duration-[400ms]
-							delay-[400ms]
-						`}
-
-						${!props.sidebarOpen && `
-							w-[0px] 
-							scale-0
-							opacity-0
-						`}
+						${styles.span}
+						${props.sidebarOpen 
+							? styles.span_SidebarOpen
+							: styles.span_SidebarClosed
+						}
 					`}
 				>
 					{props.sidebarData.innerText}

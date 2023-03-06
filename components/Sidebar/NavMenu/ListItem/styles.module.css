@@ -1,0 +1,101 @@
+.li {
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.li:active {
+    background-color: #c026d3;
+}
+
+.li_Selected {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(55 65 81 / 0.3);
+
+    background-color: #c026d3;
+
+    transition-duration: 400ms;
+    transition-timing-function: linear;
+}
+
+.li_Selected:hover {
+    z-index: 10;
+    
+    background-color: #a21caf;
+    
+    box-shadow: 7px 7px 30px 10px #000;
+
+    transform: translateX(10px);
+    transition-duration: 150ms;
+}
+
+.li_Selected:active {
+    background-color: #374151;
+}
+
+.li_NotSelected:hover {
+    background-color: #374151;
+}
+
+.li_Selected_SidebarOpen {
+    width: 300px;
+}
+
+.li_Selected_SidebarOpen:hover {
+    width: 400px;
+
+    border-radius: 10px 40px 40px 10px;
+
+    background-color: #a21caf;
+}
+
+.li_Selected_SidebarClosed {
+    width: 85px;
+}
+
+.li_Selected_SidebarClosed:hover {
+    box-shadow: 7px 7px 30px 10px #000;
+}
+
+.link {
+    display: flex;
+    justify-content: flex-start;
+
+    height: 56px;
+    padding: 16px 0;
+
+    color: #fff
+}
+
+.link:focus {
+    border-radius: 10px;
+    outline-color: #c026d3;
+}
+
+.i {
+    font-size: 2.6rem;
+    margin-left: 14px;
+}
+
+.span {
+    font-size: 1.6rem;
+}
+
+.span_SidebarOpen {
+    width: auto;
+    padding-left: 14px;
+
+    scale: 1;
+    opacity: 1;
+
+    transition-duration: 400ms;
+    transition-delay: 400ms;
+}
+
+.span_SidebarClosed {
+    width: 0;
+
+    scale: 0;
+    opacity: 0;
+}

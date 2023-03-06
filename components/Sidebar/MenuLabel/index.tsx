@@ -1,5 +1,6 @@
 import { SidebarContext } from "@/components/Sidebar"
 import { useContext } from "react"
+import styles from './styles.module.css'
 
 export default function MenuLabel(): JSX.Element {
 
@@ -9,37 +10,29 @@ export default function MenuLabel(): JSX.Element {
 	} = useContext(SidebarContext)
 
 	return (
-		<div className={`
-			w-auto py-[15px]
-			flex flex-col items-center text-center 
-		`}>
+		<div className={styles.div}>
 			<img
 				className={`
-
-					duration-[400ms] ease-linear
 					transform-gpu
-
-					${sidebarOpen && `h-[200px]`}
-					${!sidebarOpen && `h-[56px]`}
+					${styles.img}
+					${sidebarOpen 
+						? styles.img_Open 
+						: styles.img_Closed
+					}
 				`} 
 				src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/Lone_Wisp_Logo_1024.png" 
 				alt="logo image" 
 			/>
-			<h1 className={`
-
-				mt-[12px]
-				text-[3.6rem] font-Roboto font-bold
-				text-white	
-				
-				${sidebarOpen && `
-					mt-[35px]
-					delay-[400ms]
-					scale-1 opacity-1
-					duration-[400ms] ease-linear
-				`}		
-				
-				${!sidebarOpen && `opacity-0`}	
-			`}>
+			<h1 
+				className={`
+					transform-gpu
+					${styles.h1}
+					${sidebarOpen
+						? styles.h1_Open
+						: styles.h1_Closed
+					}
+				`}
+			>
 				{sidebarMenuTitle}
 			</h1>
 		</div>

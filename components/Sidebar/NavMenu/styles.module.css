@@ -1,0 +1,14 @@
+.nav {
+    position: relative;
+
+    margin-top: 20px;
+    padding: 15px 0;
+
+    box-sizing: content-box;
+}
+
+.ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}

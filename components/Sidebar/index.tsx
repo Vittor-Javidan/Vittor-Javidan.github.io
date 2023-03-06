@@ -1,7 +1,8 @@
 import MenuLabel from "@/components/Sidebar/MenuLabel";
 import NavMenu from "@/components/Sidebar/NavMenu";
 import ToggleButton from "@/components/Sidebar/ToggleButton";
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, useState } from "react";
+import styles from './styles.module.css';
 
 export const SidebarContext = createContext({
 	sidebarOpen: false,
@@ -25,10 +26,10 @@ export default function Sidebar(props: {
 	}[]
 }): JSX.Element {
 
-	const [isOpen, setIsOpen] = useState(false)
+	const [open, setOpen] = useState(false)
 
 	const sidebarProps = {
-		sidebarOpen: isOpen,
+		sidebarOpen: open,
 		sidebarMenuTitle: props.menuTitle
 	}
 
@@ -39,39 +40,22 @@ export default function Sidebar(props: {
     return (
 		<SidebarContext.Provider value={sidebarProps}>
 		<SidebarDataContext.Provider value={sidebarData}>
-			<MainDiv>
+			<div className={`
+				transform-gpu
+				${styles.div}
+				${open
+					? styles.open
+					: styles.closed
+				}
+			`}>
 				<ToggleButton 
-					onClick={() => setIsOpen(prev => !prev)}  
+					onClick={() => setOpen(prev => !prev)}  
 				/>
 				<MenuLabel />
 				<NavMenu />
-			</MainDiv>
+			</div>
 		</SidebarDataContext.Provider>
 		</SidebarContext.Provider>
 	)
 }
 
-function MainDiv(props: {
-	children: ReactNode
-}): JSX.Element {
-
-	const { sidebarOpen } = useContext(SidebarContext)
-
-	return (
-		<div className={`
-		
-			fixed z-10
-			h-full
-			flex flex-col justify-between
-			bg-black/75
-			border-solid border-r-2  border-gray-700
-			shadow-lg backdrop-blur-sm
-			duration-[400ms] ease-linear
-			
-			${sidebarOpen && `w-[300px]`}
-			${!sidebarOpen && `w-[90px]`}
-		`}>
-			{props.children}
-		</div>
-	)
-}

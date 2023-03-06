@@ -1,0 +1,47 @@
+.div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    width: auto;
+    padding: 15px 0;
+
+    font-variant: small-caps;
+}
+
+.img {
+    transition-duration: 400ms;
+    transition-timing-function: linear;
+}
+
+.img_Open {
+    height: 200px;
+}
+
+.img_Closed {
+    height: 56px;
+}
+
+.h1 {
+    font-size: 3.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #FFF;
+}
+
+.h1_Open {
+    margin-top: 35px;
+
+    opacity: 1;
+
+    transition-duration: 400ms;
+    transition-delay: 400ms;
+    transition-timing-function: linear;
+}
+
+.h1_Closed {
+    margin-top: 12px;
+
+    opacity: 0;
+}

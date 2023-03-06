@@ -1,6 +1,7 @@
 import { SidebarContext, SidebarDataContext } from "@/components/Sidebar"
 import ListItem from "@/components/Sidebar/NavMenu/ListItem"
 import { useContext } from "react"
+import styles from './styles.module.css'
 
 export default function NavMenu(): JSX.Element {
 
@@ -8,15 +9,8 @@ export default function NavMenu(): JSX.Element {
 	const { sidebarData } = useContext(SidebarDataContext)
 	
 	return (
-		<nav className={`
-			relative
-			py-[15px] mt-[20px] 
-			box-content
-		`}>
-			<ul className={`
-				flex flex-col
-				mx-[15px]
-			`}>
+		<nav className={styles.nav}>
+			<ul className={styles.ul}>
 				{sidebarData.map((data, index) => {
 
                     let startSelected
