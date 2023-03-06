@@ -1,0 +1,8 @@
+.div {
+    display:  flex;
+    align-items: baseline;
+}
+
+.openSection {
+    color: #d946ef;
+}

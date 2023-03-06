@@ -1,65 +1,44 @@
+import HorizontalLine from "@/components/Section/HorizontalLine"
+import OpenSectionButton from "@/components/Section/OpenSectionButton"
+import SectionContent from "@/components/Section/SectionContent"
+import SectionLabel from "@/components/Section/SectionLabel"
+import SectionTitle from "@/components/Section/SectionTitle"
 import { ReactNode, useState } from "react"
+import styles from './styles.module.css'
 
-/**
- * @returns `<li></li>` JSX Element 
- */
 export default function Section(props: {
     sectionName: string
-    extraCSS_Open: string
-    extraCSS_Closed: string
+    openSection_ExtraCSS: string
+    closedSection_ExtraCSS: string
     children: ReactNode
 }): JSX.Element {
 
     const [open, setOpen] = useState(false)
 
     return (
-        <li
-            className={`
-                text-white font-bold
-            `}
+        <div
+            className={styles.div}
         >
-            <div
-                className={`
-                    flex items-baseline
-
-                    ${open && `
-                    text-fuchsia-500
-                    `}
-                `}
+            <SectionLabel
+                open={open}
             >
-                <button 
-                    className={`
-                        w-[30px]
-                        text-[2.6rem] 
-
-                        ${open ? "text-fuchsia-500" : ""}
-                        ${!open ? "hover:text-fuchsia-500" : ""}
-
-                        ${open && props.extraCSS_Open}
-                        ${!open && props.extraCSS_Closed}
-                    `}
+                <OpenSectionButton
+                    sectionOpen={open}
+                    extraCSS={open ? props.openSection_ExtraCSS : props.closedSection_ExtraCSS}
                     onClick={() => setOpen(prev => !prev)}
-                    type="button"
-                >
-                    {open ? "-" : "+"}
-                </button>
-                <span>
-                    {props.sectionName}
-                </span>
-            </div>
-            <hr 
-                className={`
-                    ${open && `
-                        mb-[20px]
-                        border-fuchsia-500 
-                    `}
-                `}
+                />
+                <SectionTitle
+                    sectionTitle={props.sectionName}
+                />
+            </SectionLabel>
+            <HorizontalLine
+                sectionOpen={open}
             />
             {open && (
-                <div>
+                <SectionContent>
                     {props.children}
-                </div>
+                </SectionContent>
             )}
-        </li>
+        </div>
     )
 }

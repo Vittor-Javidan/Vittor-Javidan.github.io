@@ -4,8 +4,8 @@ export default function SectionsArea(props: {
     children: ReactNode
 }) {
     return (
-        <ul>
+        <div>
             {props.children}
-        </ul>
+        </div>
     )
 }

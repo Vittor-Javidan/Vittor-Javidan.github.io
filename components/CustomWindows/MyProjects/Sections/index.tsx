@@ -12,8 +12,8 @@ export default function Sections() {
             return (
                 <Section 
                     sectionName={data.projectType}
-                    extraCSS_Open={""}
-                    extraCSS_Closed={isLast ? "ACCESSIBILITY_lastWindowElement" : ""}
+                    openSection_ExtraCSS={""}
+                    closedSection_ExtraCSS={isLast ? "ACCESSIBILITY_lastWindowElement" : ""}
                     key={index}
                 >
                     <ProjectFiles
