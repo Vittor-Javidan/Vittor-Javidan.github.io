@@ -1,0 +1,36 @@
+.div {
+    background-color: rgb(0 0 0 / 0.75);
+
+    border: 2px solid #374151;
+
+    overflow: hidden;
+}
+
+.div_NotExpanded {
+    position: absolute;
+    
+    width: 1000px;
+    height: 70%;
+
+    border-radius: 10px;
+}
+
+.div_Expanded {
+    width: calc(100% - 88px);
+    margin-left: 88px;
+    height: 100%;
+}
+
+.div_Minimized {
+    transition-duration: 600ms;
+}
+
+.div_Visible {
+    scale: 1;
+    opacity: 1;
+}
+
+.div_Invisible {
+    scale: 0;
+    opacity: 0;
+}

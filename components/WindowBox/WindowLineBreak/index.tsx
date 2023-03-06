@@ -1,5 +1,6 @@
 import { WindowContext } from "@/components/WindowBox"
 import { useContext } from "react"
+import styles from './styles.module.css'
 
 export default function WindowLineBreak(): JSX.Element {
 
@@ -7,11 +8,8 @@ export default function WindowLineBreak(): JSX.Element {
 
     return (
         <div className={`
-            border-solid border-b-2 border-gray-700 rounded-[10px]
-
-            ${!windowExpanded && `
-            mx-[5px]
-            `}
+            ${styles.div}
+            ${!windowExpanded && styles.div_WindowNotExpanded}
         `}></div>
     )
 }

@@ -1,18 +1,16 @@
 import redirectFromWindowToNavItem from "@/accessibilityScripts/redirectFromWindowToNavItem"
 import trapFocus from "@/accessibilityScripts/trapFocus"
 import setWindowChildrenTabIndexNegative from "@/accessibilityScripts/windowChildrenTabIndexHandler"
-import WindowsAPI from "@/components/WindowBox/componentAPI"
+import WindowsAPI from "@/components/WindowBox/API"
 import WindowContentArea from "@/components/WindowBox/WindowContentArea"
 import WindowLineBreak from "@/components/WindowBox/WindowLineBreak"
 import WindowTaskbar from "@/components/WindowBox/WindowTaskbar"
-import { createContext, KeyboardEventHandler, ReactNode, useContext, useState } from "react"
+import { createContext, ReactNode, useState } from "react"
+import styles from './styles.module.css'
 
 export const WindowContext = createContext({
-    windowPositionCSS: "",
     windowName: "",
-    windowStartVisible: false,
     windowVisible: false,
-    windowMinimized: false,
     windowExpanded: false
 })
 
@@ -29,11 +27,8 @@ export default function WindowBox(props: {
     const [expanded, setExpanded] = useState(props.startExpanded)
 
     const windowProps = {
-        windowPositionCSS: props.CSS_PositionUtilityClass,
         windowName: props.windowName,
-        windowStartVisible: props.startVisible,
         windowVisible: visible,
-        windowMinimized: minimized,
         windowExpanded: expanded
     }
 
@@ -57,8 +52,24 @@ export default function WindowBox(props: {
 
     return (
         <WindowContext.Provider value={windowProps}>
-            <MainContainer
-                trapFocus={(event) => {
+            <div
+                id={`#${props.windowName.replaceAll(" ", "-")}-window`}
+                tabIndex={props.startVisible ? 0 : -1}
+                className={`
+                    SCRIPT_page
+                    transform-gpu
+                    ${styles.div}
+                    ${minimized && styles.div_Minimized}
+                    ${expanded
+                        ? styles.div_Expanded
+                        : `${styles.div_NotExpanded} ${props.CSS_PositionUtilityClass}`
+                    }
+                    ${visible 
+                        ? styles.div_Visible
+                        : styles.div_Invisible
+                    }
+                `}
+                onKeyDown={(event) => {
                     trapFocus(`#${props.windowName.replaceAll(" ", "-")}-window`, event)
                 }}
             >
@@ -85,67 +96,7 @@ export default function WindowBox(props: {
                 <WindowContentArea>
                     {props.children}
                 </WindowContentArea>
-            </MainContainer>
+            </div>
         </WindowContext.Provider>
-    )
-}
-
-function MainContainer(props: {
-    children: ReactNode
-    trapFocus: KeyboardEventHandler<HTMLDivElement>
-}) {
-
-    const {
-        windowPositionCSS,
-        windowName,
-        windowStartVisible,
-        windowVisible,
-        windowMinimized,
-        windowExpanded,
-    } = useContext(WindowContext)
-
-    return (
-        <div
-            id={`#${windowName.replaceAll(" ", "-")}-window`}
-            tabIndex={windowStartVisible ? 0 : -1}
-            className={`
-                SCRIPT_page
-                bg-black/75
-                border-solid border-2  border-gray-700
-                overflow-hidden
-
-                ${!windowExpanded && `
-                w-[1000px]
-                h-[70%]
-                `}
-
-                ${windowExpanded && `
-                CSS_EnpandedWidth
-                ml-[88px] h-full
-                `}
-
-                ${!windowExpanded && `
-                absolute ${windowPositionCSS}
-                rounded-[10px]
-                `}
-                
-                ${windowMinimized && `
-                duration-[600ms]
-                `}
-
-                ${windowVisible && `
-                opacity-100
-                scale-100
-                `}
-
-                ${!windowVisible && `
-                opacity-0
-                scale-0
-                `}
-            `}
-            onKeyDown={props.trapFocus}
-        >
-            {props.children}
-        </div>
     )
 }

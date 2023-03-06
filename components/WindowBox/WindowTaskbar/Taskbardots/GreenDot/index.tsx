@@ -1,6 +1,7 @@
 import { WindowContext } from "@/components/WindowBox"
 import Link from "next/link"
 import { useContext } from "react"
+import styles from './styles.module.css'
 
 export default function GreenDot(props: {
     onclick: () => void
@@ -14,23 +15,14 @@ export default function GreenDot(props: {
             href={""} 
             className={`
                 tabIndex-1
-                h-[14px] w-[14px] rounded-[50%]
-                border-solid border-[1px] border-green-500
-                bg-green-500
-                cursor-pointer
-                active:bg-green-600
+                ${styles.link}
             `}
             onClick={props.onclick}
         >
             <img 
                 src="https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/maximize_1.png" 
                 alt="maximize"
-                className={`
-                    CSS_dotHover
-                    w-[14px] h-[12px]
-                    box-content
-                    opacity-0
-                `} 
+                className={styles.img} 
             />
         </Link>
     )

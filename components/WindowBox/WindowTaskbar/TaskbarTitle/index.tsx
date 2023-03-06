@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import styles from './styles.module.css'
 
 export default function TaskbarTitle(props: {
     children: ReactNode
@@ -8,9 +9,7 @@ export default function TaskbarTitle(props: {
         <div 
             className={`
                 SCRIPT_draggable
-                w-[100%] h-auto m-auto pl-[20px] 
-                text-[18px] text-white
-                cursor-pointer
+                ${styles.div}
             `}
         >
             {props.children}

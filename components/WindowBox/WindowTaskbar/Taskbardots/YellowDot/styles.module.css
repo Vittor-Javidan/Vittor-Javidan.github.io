@@ -1,0 +1,29 @@
+.link {
+    height: 14px;
+    width: 14px;
+
+    border: 1px solid #eab308;
+    border-radius: 50%;
+
+    background-color: #eab308;
+
+    cursor: pointer;
+}
+
+.link:active {
+    background-color: #ca8a04;
+}
+
+.img {
+    width: 8px;
+    height: 8px;
+    padding: 2px;
+
+    box-sizing: content-box;
+
+    opacity: 0;
+}
+
+a:hover > .img {
+    opacity: 1;
+}

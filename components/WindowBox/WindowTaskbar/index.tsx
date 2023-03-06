@@ -2,6 +2,7 @@ import { WindowContext } from "@/components/WindowBox"
 import TaskbarDots from "@/components/WindowBox/WindowTaskbar/Taskbardots"
 import TaskbarTitle from "@/components/WindowBox/WindowTaskbar/TaskbarTitle"
 import { useContext } from "react"
+import styles from './styles.module.css'
 
 export default function WindowTaskbar(props: {
     closeWindow: () => void
@@ -16,11 +17,8 @@ export default function WindowTaskbar(props: {
 
     return (
         <div className={`
-            flex
-
-            ${windowExpanded && `
-            bg-black
-            `}
+            ${styles.div}
+            ${windowExpanded && styles.div_WindowExpanded}
         `}>
             <TaskbarDots 
                 redDotClick={props.closeWindow} 

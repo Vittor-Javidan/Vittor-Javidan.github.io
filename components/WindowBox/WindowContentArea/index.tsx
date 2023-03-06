@@ -1,5 +1,6 @@
 import { WindowContext } from "@/components/WindowBox"
 import { ReactNode, useContext } from "react"
+import styles from './styles.module.css'
 
 export default function WindowContentArea(props: {
     children: ReactNode
@@ -9,21 +10,11 @@ export default function WindowContentArea(props: {
 
     return (
         <div className={`
-            CSS_scrollbar
-            CSS_windowContentHeight
-            w-auto px-[25px] pt-[25px] pb-[10px] 
-            overflow-x-hidden
-            overflow-y-scroll
-
-            ${!windowExpanded && `
-                m-[10px]
-                text-[1.6rem]
-            `}
-
-            ${windowExpanded && `
-                my-[10px] mx-[150px]
-                text-[2.6rem]
-            `}
+            ${styles.div}
+            ${windowExpanded
+                ? styles.div_WindowExpanded
+                : styles.div_WindowNotExpanded
+            }
         `}>
             {props.children}
         </div>
