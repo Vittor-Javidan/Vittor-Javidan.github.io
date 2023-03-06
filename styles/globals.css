@@ -2,5 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "window.css";
-@import "myCertifications.css";
+.SCRIPT_bringFoward {
+    z-index: 3;
+}
+
+.SCRIPT_bringBack {
+    z-index: 2;
+}
