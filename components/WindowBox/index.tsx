@@ -61,8 +61,14 @@ export default function WindowBox(props: {
                     ${styles.div}
                     ${minimized && styles.div_Minimized}
                     ${expanded
-                        ? styles.div_Expanded
-                        : `${styles.div_NotExpanded} ${props.CSS_PositionUtilityClass}`
+                        ? `
+                            fullscreen 
+                            ${styles.div_Expanded}
+                        `
+                        : `
+                            ${styles.div_NotExpanded} 
+                            ${props.CSS_PositionUtilityClass}
+                        `
                     }
                     ${visible 
                         ? styles.div_Visible
@@ -84,12 +90,7 @@ export default function WindowBox(props: {
                     }}
 
                     expandWindow={() => {
-                        setExpanded(prev => !prev)            
-                        WindowsAPI.forEach(ApiID => {
-                            if(ApiID !== props.windowName) {
-                                WindowsAPI.setExpanded(ApiID, false)
-                            }
-                        })
+                        setExpanded(prev => !prev)
                     }}
                 />
                 <WindowLineBreak />

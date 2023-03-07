@@ -1,11 +1,38 @@
-.div {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    padding-left: 20px;
+@media (max-width: 600px) {
 
-    font-size: 18px;
-    color: #FFF;
+    .div {
+        height: auto;
+        margin: auto;
+        padding: 5px;
+    
+        font-size: 24px;
+        color: #FFF;
+    }
+}
 
-    cursor: pointer;
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .div {
+        height: auto;
+        margin: auto;
+        padding: 5px;
+    
+        font-size: 24px;
+        color: #FFF;
+    }
+}
+
+@media (min-width: 1101px) {
+
+    .div {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding-left: 20px;
+    
+        font-size: 18px;
+        color: #FFF;
+    
+        cursor: pointer;
+    }
 }

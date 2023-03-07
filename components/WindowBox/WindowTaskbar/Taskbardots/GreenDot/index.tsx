@@ -15,6 +15,7 @@ export default function GreenDot(props: {
             href={""} 
             className={`
                 tabIndex-1
+                greenDot
                 ${styles.link}
             `}
             onClick={props.onclick}

@@ -1,7 +1,32 @@
-.div {
-    display: flex;
+@media (max-width: 600px) {
+
+    .div {
+        display: flex;
+    }
+    
+    .div_WindowExpanded {
+        background-color: #000;
+    }
 }
 
-.div_WindowExpanded {
-    background-color: #000;
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .div {
+        display: flex;
+    }
+    
+    .div_WindowExpanded {
+        background-color: #000;
+    }
+}
+
+@media (min-width: 1101px) {
+
+    .div {
+        display: flex;
+    }
+    
+    .div_WindowExpanded {
+        background-color: #000;
+    }
 }

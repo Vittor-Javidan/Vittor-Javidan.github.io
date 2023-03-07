@@ -9,7 +9,7 @@ export default function MySelfTaughtCurriculumWindow(): JSX.Element {
         <WindowBox
             windowName="My Self-Taught Curriculum"
             startVisible={false}
-            startExpanded={false}
+            startExpanded={true}
             CSS_PositionUtilityClass={styles.Window_StartPosition}
         >
             <SectionsArea>

@@ -9,7 +9,7 @@ export default function AboutMeWindow(): JSX.Element {
         <WindowBox
             windowName="About Me"
             startVisible={true}
-            startExpanded={false}
+            startExpanded={true}
             CSS_PositionUtilityClass={styles.Window_StartPosition}
         >
             <div

@@ -1,8 +1,35 @@
-.div {
-    border-top: 2px solid #374151;
-    border-radius: 10px;
+@media (max-width: 600px) {
+
+    .div {
+        border-top: 2px solid #374151;
+        border-radius: 10px;
+    }
+    
+    .div_WindowNotExpanded {
+        margin: 0 5px;
+    }
 }
 
-.div_WindowNotExpanded {
-    margin: 0 5px;
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .div {
+        border-top: 2px solid #374151;
+        border-radius: 10px;
+    }
+    
+    .div_WindowNotExpanded {
+        margin: 0 5px;
+    }
+}
+
+@media (min-width: 1101px) {
+
+    .div {
+        border-top: 2px solid #374151;
+        border-radius: 10px;
+    }
+    
+    .div_WindowNotExpanded {
+        margin: 0 5px;
+    }
 }

@@ -1,10 +1,11 @@
-const windows = document.querySelectorAll('.SCRIPT_page')
+const windowsBoxes = document.querySelectorAll('.SCRIPT_page')
 const dragAreas = document.querySelectorAll('.SCRIPT_draggable')
+const greenDots = document.querySelectorAll('.greenDot')
 
 //Z-Index Handler
-windows.forEach((page) => {
+windowsBoxes.forEach((page) => {
 	page.addEventListener('mousedown', () => {
-		windows.forEach((element) => {
+		windowsBoxes.forEach((element) => {
 			element.classList.remove('SCRIPT_bringFoward')
             element.classList.add('SCRIPT_bringBack')
 		})
@@ -13,13 +14,18 @@ windows.forEach((page) => {
 	})
 })
 
-//Meke window Draggable
-windows.forEach((page, index) => { 
+windowsBoxes.forEach((page, index) => { 
+	
+	//Make window Draggable
 	makeDraggable({
 		draggableArea: dragAreas[index],
 		target: page,
 	})
+
+	//Make green dots reset position
+	addResetPosition(page, greenDots[index])
 })
+
 
 /**
  * @param {{draggableArea: HTML_Element, target: HTML_Element}} object
@@ -75,4 +81,29 @@ function makeDraggable({ draggableArea, target }) {
 		currentX = e.clientX
 		currentY = e.clientY
 	}
+}
+
+/**
+ * @param {HTMLElement} element 
+ * @param {HTMLElement} button 
+ */
+function addResetPosition(element, button) {
+
+	const fullscreenX = 88
+	const fullscreenY = 0
+
+	const defaultX = 88 + 100
+	const defaulty = 0 + 100
+
+	button.addEventListener('click', () => {
+
+		if(!element.classList.contains('fullscreen')) {
+			element.style.top = `${fullscreenY}px`
+			element.style.left = `${fullscreenX}px`
+		} else {
+			element.style.top = `${defaulty}px`
+			element.style.left = `${defaultX}px`
+		}
+
+	})
 }

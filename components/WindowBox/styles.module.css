@@ -1,36 +1,102 @@
-.div {
-    background-color: rgb(0 0 0 / 0.75);
+@media (max-width: 600px) {
 
-    border: 2px solid #374151;
+    .div {
+        position: absolute;
+        top: 0;
+        left: 0;
 
-    overflow: hidden;
-}
-
-.div_NotExpanded {
-    position: absolute;
+        width: 100%;
+        height: calc(100% - 58px);
+        
+        background-color: rgb(0 0 0 / 0.75);
     
-    width: 1000px;
-    height: 70%;
+        overflow: hidden;
+    }
 
-    border-radius: 10px;
+    .div_Minimized {
+        transition-duration: 600ms;
+    }
+    
+    .div_Visible {
+        scale: 1;
+        opacity: 1;
+    }
+    
+    .div_Invisible {
+        scale: 0;
+        opacity: 0;
+    }
 }
 
-.div_Expanded {
-    width: calc(100% - 88px);
-    margin-left: 88px;
-    height: 100%;
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .div {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: calc(100% - 58px);
+        
+        background-color: rgb(0 0 0 / 0.75);
+    
+        overflow: hidden;
+    }
+
+    .div_Minimized {
+        transition-duration: 600ms;
+    }
+    
+    .div_Visible {
+        scale: 1;
+        opacity: 1;
+    }
+    
+    .div_Invisible {
+        scale: 0;
+        opacity: 0;
+    }
 }
 
-.div_Minimized {
-    transition-duration: 600ms;
+@media (min-width: 1101px) {
+    .div {
+        position: absolute;
+        
+        background-color: rgb(0 0 0 / 0.75);
+    
+        border: 2px solid #374151;
+    
+        overflow: hidden;
+    }
+    
+    .div_NotExpanded {
+        
+        width: 1000px;
+        height: 900px;
+    
+        border-radius: 10px;
+    }
+    
+    .div_Expanded {
+        top: 0px;
+        left: 88px;
+
+        width: calc(100% - 88px);
+        height: 100%;
+    }
+    
+    .div_Minimized {
+        transition-duration: 600ms;
+    }
+    
+    .div_Visible {
+        scale: 1;
+        opacity: 1;
+    }
+    
+    .div_Invisible {
+        scale: 0;
+        opacity: 0;
+    }
 }
 
-.div_Visible {
-    scale: 1;
-    opacity: 1;
-}
-
-.div_Invisible {
-    scale: 0;
-    opacity: 0;
-}
