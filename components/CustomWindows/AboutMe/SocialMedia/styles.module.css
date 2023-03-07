@@ -1,19 +1,59 @@
-.Div {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+@media (max-width: 600px) {
+
+    .Div {
+        display: flex;
+        width: 100%;
+    }
+    
+    .Ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+    
+        font-size: 6rem;
+        color: #FFF;
+    }
 }
 
-.Ul {
-    display: flex;
-    gap: 10px;
+@media (min-width: 601px) and (max-width: 1100px) {
 
-    font-size: 6rem;
-    color: #FFF;
+    .Div {
+        display: flex;
+        width: 100%;
+    }
+    
+    .Ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+    
+        font-size: 6rem;
+        color: #FFF;
+    }
 }
 
-.Li:hover {
-    scale: 1.4;
-    transform: translateY(-10px);
-    transition-duration: 200ms;
+@media (min-width: 1101px) {
+
+
+    .Div {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    
+    .Ul {
+        display: flex;
+        gap: 10px;
+    
+        font-size: 6rem;
+        color: #FFF;
+    }
+    
+    .Li:hover {
+        scale: 1.4;
+        transform: translateY(-10px);
+        transition-duration: 200ms;
+    }
 }

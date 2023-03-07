@@ -1,7 +1,32 @@
-.Img {
-    width: 300px;
-    height: 300px;
-    
-    border-radius: 50%;
-    border: 2px solid #374151;
+@media (max-width: 600px) {
+
+    .Img {
+        width: 250px;
+        height: 250px;
+        
+        border-radius: 50%;
+        border: 2px solid #374151;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .Img {
+        width: 250px;
+        height: 250px;
+        
+        border-radius: 50%;
+        border: 2px solid #374151;
+    }
+}
+
+@media (min-width: 1101px) {
+
+    .Img {
+        width: 300px;
+        height: 300px;
+        
+        border-radius: 50%;
+        border: 2px solid #374151;
+    }
 }
