@@ -47,6 +47,12 @@ export default function ListItem(props: {
 
 				} else {
 					
+					SidebarAPI.forEach(id => {
+						SidebarAPI.setActive(id, false)
+					})
+					WindowsAPI.forEach(id => {
+						WindowsAPI.setVisible(id, false)
+					})
 					WindowsAPI.setVisible(name, true)
 					WindowsAPI.setMinimized(name, true)
 					
