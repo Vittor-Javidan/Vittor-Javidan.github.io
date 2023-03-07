@@ -14,11 +14,11 @@
     }
 
     ul .li:nth-child(2) {
-        margin-right: 50px;
+        padding-right: 30px;
     }
     
     ul .li:nth-child(3) {
-        margin-left: 50px;
+        padding-left: 30px;
     }
 
     .span {
@@ -51,11 +51,11 @@
     }
 
     ul .li:nth-child(2) {
-        margin-right: 50px;
+        padding-right: 30px;
     }
     
     ul .li:nth-child(3) {
-        margin-left: 50px;
+        padding-left: 30px;
     }
 
     .span {
