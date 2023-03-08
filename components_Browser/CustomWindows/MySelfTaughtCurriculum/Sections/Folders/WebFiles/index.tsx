@@ -25,18 +25,18 @@ export default function WebFiles(props: {
                     extraCSS={extraCSS}
                     key={index}
                 >
-                    <span>
-                        Title: 
-                            <span className={styles.Span}>
-                                {readingItem.title}
-                            </span>
-                    </span>
-                    <span>
-                        Author: 
-                            <span className={styles.Span}>
-                                {readingItem.author}
-                            </span>
-                    </span>
+                    <p>
+                        <span className={styles.span}>
+                            Title: 
+                        </span>
+                        {readingItem.title}
+                    </p>
+                    <p>
+                        <span className={styles.span}>
+                            Author: 
+                        </span>
+                        {readingItem.author}
+                    </p>
                 </WebFile>
             )
         })}

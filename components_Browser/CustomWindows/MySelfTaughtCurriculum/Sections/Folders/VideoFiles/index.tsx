@@ -33,9 +33,7 @@ export default function VideoFiles(props: {
                     extraCSS={extraCSS}
                     key={index}
                 >
-                    <p
-                        className={styles.p}
-                    >
+                    <p>
                         <span
                             className={styles.span}
                         >
@@ -43,9 +41,7 @@ export default function VideoFiles(props: {
                         </span>
                         {videoItem.title}
                     </p>
-                    <p
-                        className={styles.p}
-                    >
+                    <p>
                         <span
                             className={styles.span}
                         >
@@ -53,9 +49,7 @@ export default function VideoFiles(props: {
                         </span>
                         {videoItem.author}
                     </p>
-                    <p
-                        className={styles.p}
-                    >
+                    <p>
                         <span
                             className={styles.span}
                         >

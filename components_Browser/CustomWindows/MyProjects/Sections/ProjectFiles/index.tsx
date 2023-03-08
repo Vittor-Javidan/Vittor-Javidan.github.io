@@ -22,12 +22,18 @@ export default function ProjectFiles(props: {
                     extraCSS={props.isLastSection && isLast ? "ACCESSIBILITY_lastWindowElement" : ""}
                     key={index}
                 >
-                    <span>{item.projectName}</span>
-                    <span>Tecnologies:
-                        <span className={styles.TecnologiesSpan}>
-                            {item.tecnologies}
+                    <p>
+                        <span className={styles.span}>
+                            Name :
                         </span>
-                    </span>
+                        {item.projectName}
+                    </p>
+                    <p>
+                        <span className={styles.span}>
+                            Tecnologies :
+                        </span>
+                        {item.tecnologies}
+                    </p>
                 </ProjectFile>
             )
         })}
