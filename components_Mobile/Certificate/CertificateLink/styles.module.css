@@ -1,0 +1,19 @@
+/*PHONE*/
+@media (max-width: 600px) {
+
+    .HoverMessage {
+        margin-bottom: 10px;
+        color: #c026d3;
+        transition-duration: 150ms;
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+
+    .HoverMessage {
+        margin-bottom: 10px;
+        color: #c026d3;
+        transition-duration: 150ms;
+    }
+}

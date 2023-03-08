@@ -1,0 +1,51 @@
+/*PHONE*/
+@media (max-width: 600px) {
+    
+    .div {
+        position: absolute;
+        z-index: 11;
+        top: -30px;
+        right: calc(50% - 30px);
+    
+        width: 60px;
+        height: 60px;
+    }
+    
+    .img {
+    
+        padding: 5px;
+        justify-self: center;
+        align-self: center;
+    
+        border: 2px solid #374151;
+        border-radius: 50%;
+    
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+
+
+    .div {
+        position: absolute;
+        z-index: 11;
+        top: -35px;
+        right: calc(50% - 35px);
+
+        width: 70px;
+        height: 70px;
+    }
+
+    .img {
+        padding: 5px;
+        justify-self: center;
+        align-self: center;
+
+        border: 2px solid #374151;
+        border-radius: 50%;
+
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+}

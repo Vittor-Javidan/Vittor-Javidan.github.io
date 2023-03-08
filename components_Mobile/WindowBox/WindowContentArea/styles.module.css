@@ -1,0 +1,47 @@
+/*PHONE*/
+@media (max-width: 600px) {
+    
+    .div {
+        height: 100%;
+        width: auto;
+        padding: 25px 25px 50px 25px;
+        
+        font-size: 1.6rem;
+        
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    
+    .div::-webkit-scrollbar {
+        width: 5px;
+        height: 95%;
+    }
+    
+    .div::-webkit-scrollbar-thumb {
+        background-color: rgb(100, 100, 100);
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
+    .div {
+        height: 100%;
+        width: auto;
+        padding: 25px 25px 50px 25px;
+        
+        font-size: 1.6rem;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    
+    .div::-webkit-scrollbar {
+        width: 5px;
+        height: 95%;
+    }
+    
+    .div::-webkit-scrollbar-thumb {
+        background-color: rgb(100, 100, 100);
+    }
+}

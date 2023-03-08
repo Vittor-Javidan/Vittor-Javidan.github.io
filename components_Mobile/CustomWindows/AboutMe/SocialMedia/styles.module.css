@@ -1,0 +1,37 @@
+/*PHONE*/
+@media (max-width: 600px) {
+    
+    .Div {
+        display: flex;
+        width: 100%;
+    }
+    
+    .Ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+    
+        font-size: 6rem;
+        color: #FFF;
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
+    .Div {
+        display: flex;
+        width: 100%;
+    }
+    
+    .Ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+    
+        font-size: 6rem;
+        color: #FFF;
+    }
+}
