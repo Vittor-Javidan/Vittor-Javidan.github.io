@@ -1,13 +1,53 @@
-.button {
-    width: 30px;
+/*PHONE*/
+@media (max-width: 600px) {
+    
+    .button {
+        width: 30px;
 
-    font-size: 2.6rem;
+        font-size: 2.6rem;
+    }
+
+    .sectionOpen {
+        color: #d946ef;
+    }
+
+    .sectionClosed:hover {
+        color: #d946ef;
+    }
 }
 
-.sectionOpen {
-    color: #d946ef;
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
+    .button {
+        width: 30px;
+
+        font-size: 2.6rem;
+    }
+
+    .sectionOpen {
+        color: #d946ef;
+    }
+
+    .sectionClosed:hover {
+        color: #d946ef;
+    }
 }
 
-.sectionClosed:hover {
-    color: #d946ef;
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .button {
+        width: 30px;
+
+        font-size: 2.6rem;
+    }
+
+    .sectionOpen {
+        color: #d946ef;
+    }
+
+    .sectionClosed:hover {
+        color: #d946ef;
+    }
 }

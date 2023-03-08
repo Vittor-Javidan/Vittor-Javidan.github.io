@@ -33,24 +33,36 @@ export default function VideoFiles(props: {
                     extraCSS={extraCSS}
                     key={index}
                 >
-                    <span>
-                        Title: 
-                            <span className={styles.Span}>
-                                {videoItem.title}
-                            </span>
-                    </span>
-                    <span>
-                        Author: 
-                            <span className={styles.Span}>
-                                {videoItem.author}
-                            </span>
-                    </span>
-                    <span>
-                        Duration: 
-                            <span className={styles.Span}>
-                                {videoItem.duration}
-                            </span>
-                    </span>
+                    <p
+                        className={styles.p}
+                    >
+                        <span
+                            className={styles.span}
+                        >
+                            Title :
+                        </span>
+                        {videoItem.title}
+                    </p>
+                    <p
+                        className={styles.p}
+                    >
+                        <span
+                            className={styles.span}
+                        >
+                            Author :
+                        </span>
+                        {videoItem.author}
+                    </p>
+                    <p
+                        className={styles.p}
+                    >
+                        <span
+                            className={styles.span}
+                        >
+                            Duration :
+                        </span>
+                        {videoItem.duration}
+                    </p>
                 </VideoFile>
             )
         })}

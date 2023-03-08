@@ -1,4 +1,26 @@
-.Span {
-    margin-left: 10px;
-    font-weight: 100;
+/*PHONE*/
+@media (max-width: 600px) {
+
+    .Span {
+        margin-left: 10px;
+        font-weight: 100;
+    }    
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+
+    .Span {
+        margin-left: 10px;
+        font-weight: 100;
+    }
+}
+
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .Span {
+        margin-left: 10px;
+        font-weight: 100;
+    }
 }

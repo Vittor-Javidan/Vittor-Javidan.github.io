@@ -1,19 +1,61 @@
-.MainDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+/*PHONE*/
+@media (max-width: 600px) {
     
-    height: 130px;
-
-    font-size: 1.2rem;
+    .MainDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        height: 130px;
+    
+        font-size: 1.2rem;
+    }
+    
+    .OpenFolder {
+        color: #d946ef;
+    }
 }
 
-.MainDiv:hover {
-    transform: translateY(-5px);
-    transition-duration: 75ms;
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
+    .MainDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        height: 130px;
+    
+        font-size: 1.2rem;
+    }
+    
+    .OpenFolder {
+        color: #d946ef;
+    }
 }
 
-.OpenFolder {
-    color: #d946ef;
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .MainDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        height: 130px;
+    
+        font-size: 1.2rem;
+    }
+    
+    .MainDiv:hover {
+        transform: translateY(-5px);
+        transition-duration: 75ms;
+    }
+    
+    .OpenFolder {
+        color: #d946ef;
+    }
 }

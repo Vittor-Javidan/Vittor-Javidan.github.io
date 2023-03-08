@@ -1,29 +1,101 @@
-.link {
-    height: 14px;
-    width: 14px;
+/*PHONE*/
+@media (max-width: 600px) {
 
-    border: 1px solid #ef4444;
-    border-radius: 50%;
+    .link {
+        height: 14px;
+        width: 14px;
 
-    background-color: #ef4444;
+        border: 1px solid #ef4444;
+        border-radius: 50%;
 
-    cursor: pointer;
+        background-color: #ef4444;
+
+        cursor: pointer;
+    }
+
+    .link:active {
+        background-color: #dc2626;
+    }
+
+    .img {
+        width: 8px;
+        height: 8px;
+        padding: 2px;
+
+        box-sizing: content-box;
+
+        opacity: 0;
+    }
+
+    .img:hover {
+        opacity: 1;
+    }
 }
 
-.link:active {
-    background-color: #dc2626;
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+
+    .link {
+        height: 14px;
+        width: 14px;
+
+        border: 1px solid #ef4444;
+        border-radius: 50%;
+
+        background-color: #ef4444;
+
+        cursor: pointer;
+    }
+
+    .link:active {
+        background-color: #dc2626;
+    }
+
+    .img {
+        width: 8px;
+        height: 8px;
+        padding: 2px;
+
+        box-sizing: content-box;
+
+        opacity: 0;
+    }
+
+    .img:hover {
+        opacity: 1;
+    }
 }
 
-.img {
-    width: 8px;
-    height: 8px;
-    padding: 2px;
+/*BROWSER*/
+@media (min-width: 1401px) {
 
-    box-sizing: content-box;
+    .link {
+        height: 14px;
+        width: 14px;
 
-    opacity: 0;
-}
+        border: 1px solid #ef4444;
+        border-radius: 50%;
 
-.img:hover {
-    opacity: 1;
+        background-color: #ef4444;
+
+        cursor: pointer;
+    }
+
+    .link:active {
+        background-color: #dc2626;
+    }
+
+    .img {
+        width: 8px;
+        height: 8px;
+        padding: 2px;
+
+        box-sizing: content-box;
+
+        opacity: 0;
+    }
+
+    .img:hover {
+        opacity: 1;
+    }
 }

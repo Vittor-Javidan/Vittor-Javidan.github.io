@@ -1,9 +1,10 @@
+/*PHONE*/
 @media (max-width: 600px) {
-
+    
     .div_WindowExpanded {
         font-size: 1.6rem;
     }
-
+    
     .div {
         height: 100%;
         width: auto;
@@ -23,12 +24,13 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 1100px) {
-
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
     .div_WindowExpanded {
         font-size: 1.6rem;
     }
-
+    
     .div {
         height: 100%;
         width: auto;
@@ -48,8 +50,9 @@
     }
 }
 
-@media (min-width: 1101px) {
-
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
     .div {
         height: 100%;
         width: auto;

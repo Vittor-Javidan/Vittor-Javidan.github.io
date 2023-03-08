@@ -1,4 +1,26 @@
-.Window_StartPosition {
-    top: 12px;
-    left: 100px;
+/*PHONE*/
+@media (max-width: 600px) {
+
+    .Window_StartPosition {
+        top: 12px;
+        left: 100px;
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
+    .Window_StartPosition {
+        top: 12px;
+        left: 100px;
+    }
+}
+
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .Window_StartPosition {
+        top: 12px;
+        left: 100px;
+    }
 }

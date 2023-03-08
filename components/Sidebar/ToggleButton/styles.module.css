@@ -1,17 +1,22 @@
+/*PHONE*/
 @media (max-width: 600px) {
+    
     .button {
         display: none;
     }
 }
 
-@media (min-width: 601px) and (max-width: 1100px) {
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
     .button {
         display: none;
     }
 }
 
-@media (min-width: 1101px) {
-
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
     .button {
         position: absolute;
         z-index: 10;

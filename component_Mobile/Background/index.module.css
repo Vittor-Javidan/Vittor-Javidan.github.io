@@ -26,10 +26,6 @@
 @media (min-width: 1401px) {
 
     .background {
-        background-image: url('https://raw.githubusercontent.com/Vittor-Javidan/Assets/main/background.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
+        display: none;
     }
 }

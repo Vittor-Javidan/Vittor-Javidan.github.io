@@ -1,36 +1,122 @@
-.MainDiv {
-    display: flex;
-    align-items: center;
-    
-    height: 120px;
-    margin: 0 25px;
-    padding: 0 20px;
+/*PHONE*/
+@media (max-width: 600px) {
 
-    border: 2px solid transparent;
-    border-radius: 10px;
+    .MainDiv {
+        display: flex;
+        align-items: center;
+        
+        height: 120px;
+        margin: 0 25px;
+        padding: 0 20px;
 
-    font-size: 1.6rem;
+        border: 2px solid transparent;
+        border-radius: 10px;
+
+        font-size: 1.6rem;
+    }
+
+    .MainDiv:hover {
+        color: #d946ef;
+
+        border: 2px solid #d946ef;
+    }
+
+    .Img {
+        height: 101px;
+        width: 80px;
+
+        cursor: pointer;
+    }
+
+    .InfoArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4px;
+
+        width: 100%;
+        padding-left: 40px;
+    }
 }
 
-.MainDiv:hover {
-    color: #d946ef;
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
 
-    border: 2px solid #d946ef;
+    .MainDiv {
+        display: flex;
+        align-items: center;
+        
+        height: 120px;
+        margin: 0 25px;
+        padding: 0 20px;
+
+        border: 2px solid transparent;
+        border-radius: 10px;
+
+        font-size: 1.6rem;
+    }
+
+    .MainDiv:hover {
+        color: #d946ef;
+
+        border: 2px solid #d946ef;
+    }
+
+    .Img {
+        height: 101px;
+        width: 80px;
+
+        cursor: pointer;
+    }
+
+    .InfoArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4px;
+
+        width: 100%;
+        padding-left: 40px;
+    }
 }
 
-.Img {
-    height: 101px;
-    width: 80px;
+/*BROWSER*/
+@media (min-width: 1401px) {
 
-    cursor: pointer;
-}
+    .MainDiv {
+        display: flex;
+        align-items: center;
+        
+        height: 120px;
+        margin: 0 25px;
+        padding: 0 20px;
 
-.InfoArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 4px;
+        border: 2px solid transparent;
+        border-radius: 10px;
 
-    width: 100%;
-    padding-left: 40px;
+        font-size: 1.6rem;
+    }
+
+    .MainDiv:hover {
+        color: #d946ef;
+
+        border: 2px solid #d946ef;
+    }
+
+    .Img {
+        height: 101px;
+        width: 80px;
+
+        cursor: pointer;
+    }
+
+    .InfoArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4px;
+
+        width: 100%;
+        padding-left: 40px;
+    }
 }
