@@ -1,0 +1,15 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .Window_StartPosition {
+        top: 52px;
+        left: 100px;
+    }
+    
+    .mainDiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,49 @@
+/*PHONE*/
+@media (max-width: 600px) {
+    
+    .CertificateContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+        height: 225px;
+        width: 375px;
+    
+        border-radius: 10px;
+        border: 2px solid #374151;
+        
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+        color: #d1d5db;
+        text-shadow: 2px 2px 10px black;
+    
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+
+    .CertificateContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+        height: 225px;
+        width: 375px;
+    
+        border-radius: 10px;
+        border: 2px solid #374151;
+        
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+        color: #d1d5db;
+        text-shadow: 2px 2px 10px black;
+    
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}

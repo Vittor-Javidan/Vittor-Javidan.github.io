@@ -1,0 +1,13 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .mainDiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+    
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+}
