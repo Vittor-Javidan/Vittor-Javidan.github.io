@@ -14,6 +14,9 @@
     
         background-color: rgba(0, 0, 0, 0.75);
     
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+
         transition-duration: 400ms;
         transition-timing-function: linear;
     }
