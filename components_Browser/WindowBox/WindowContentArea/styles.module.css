@@ -1,0 +1,32 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .div {
+        height: 100%;
+        width: auto;
+        padding: 25px 25px 10px 25px;
+    
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    
+    .div::-webkit-scrollbar {
+        width: 5px;
+        height: 95%;
+    }
+    
+    .div::-webkit-scrollbar-thumb {
+        background-color: rgb(100, 100, 100);
+        border-radius: 5px;
+    }
+    
+    .div_WindowExpanded {
+        margin: 10px 150px;
+        font-size: 2.6rem;
+    }
+    
+    .div_WindowNotExpanded {
+        margin: 10px;
+        font-size: 1.6rem;
+    }
+}

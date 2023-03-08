@@ -1,0 +1,12 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .div {
+        display: flex;
+        gap: 7px;
+        
+        margin: 13px 16px 11px 16px;
+        
+        box-sizing: content-box;
+    }
+}

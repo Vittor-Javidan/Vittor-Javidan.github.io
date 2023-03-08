@@ -1,0 +1,14 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .nav {    
+        margin-top: 20px;
+            
+        box-sizing: content-box;
+    }
+    
+    .ul {
+        display: flex;
+        flex-direction: column;
+    }
+}

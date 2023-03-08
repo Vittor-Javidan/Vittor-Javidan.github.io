@@ -1,0 +1,10 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .Div {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 0;
+        gap: 20px;
+    }
+}

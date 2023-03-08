@@ -1,0 +1,12 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .div {
+        border-top: 2px solid #374151;
+        border-radius: 10px;
+    }
+    
+    .div_WindowNotExpanded {
+        margin: 0 5px;
+    }
+}

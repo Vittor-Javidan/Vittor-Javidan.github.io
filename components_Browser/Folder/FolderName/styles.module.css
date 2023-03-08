@@ -1,0 +1,10 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .Span {
+        width: 100px;
+        text-align: center;
+        font-weight: 700;
+        font-variant: small-caps;
+    }
+}

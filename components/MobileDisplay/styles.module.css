@@ -1,0 +1,30 @@
+
+/*PHONE*/
+@media (max-width: 600px) {
+    
+    .div {
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+    }
+}
+
+/*TABLET*/
+@media (min-width: 601px) and (max-width: 1400px) {
+    
+    .div {
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+    }
+}
+
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .div {
+        display: none;
+    }
+}

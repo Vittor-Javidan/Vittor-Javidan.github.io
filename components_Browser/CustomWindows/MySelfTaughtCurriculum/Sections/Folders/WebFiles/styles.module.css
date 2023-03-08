@@ -1,0 +1,10 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .span {
+        margin-right: 1rem;
+        font-variant: small-caps;
+        font-weight: 700;
+        font-style: italic;
+    }
+}

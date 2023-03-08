@@ -1,0 +1,14 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .div {
+        display:  flex;
+        align-items: baseline;
+
+        font-weight: 700;
+    }
+
+    .openSection {
+        color: #d946ef;
+    }
+}

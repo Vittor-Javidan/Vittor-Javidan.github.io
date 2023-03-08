@@ -1,0 +1,15 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .div {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding-left: 20px;
+    
+        font-size: 18px;
+        color: #FFF;
+    
+        cursor: pointer;
+    }
+}

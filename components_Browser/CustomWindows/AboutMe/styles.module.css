@@ -1,0 +1,15 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .Window_StartPosition {
+        top: calc(15%);
+        left: calc(50% - 500px);
+    }
+    
+    .MainContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-between;
+    }    
+}
