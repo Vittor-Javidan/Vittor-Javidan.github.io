@@ -18,12 +18,18 @@ export default function ProjectFiles(props: {
                     ProjectUrl={item.url}
                     key={index}
                 >
-                    <span>{item.projectName}</span>
-                    <span>Tecnologies:
-                        <span className={styles.TecnologiesSpan}>
-                            {item.tecnologies}
+                    <p className={styles.p}>
+                        <span className={styles.span}>
+                            Name :
                         </span>
-                    </span>
+                        {item.projectName}
+                    </p>
+                    <p className={styles.p}>
+                        <span className={styles.span}>
+                            Tecnologies :
+                        </span>
+                        {item.tecnologies}
+                    </p>
                 </ProjectFile>
             )
         })}

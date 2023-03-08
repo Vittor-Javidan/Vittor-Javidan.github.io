@@ -15,18 +15,18 @@ export default function WebFiles(props: {
                 href={readingItem.url}
                 key={index}
             >
-                <span>
-                    Title: 
-                        <span className={styles.Span}>
-                            {readingItem.title}
-                        </span>
-                </span>
-                <span>
-                    Author: 
-                        <span className={styles.Span}>
-                            {readingItem.author}
-                        </span>
-                </span>
+                <p className={styles.p}>
+                    <span className={styles.span}>
+                        Title: 
+                    </span>
+                    {readingItem.title}
+                </p>
+                <p className={styles.p}>
+                    <span className={styles.span}>
+                        Author: 
+                    </span>
+                    {readingItem.author}
+                </p>
             </WebFile>
         ))}
     </>)
