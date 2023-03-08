@@ -1,0 +1,17 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .button {
+        width: 30px;
+
+        font-size: 2.6rem;
+    }
+
+    .sectionOpen {
+        color: #d946ef;
+    }
+
+    .sectionClosed:hover {
+        color: #d946ef;
+    }
+}

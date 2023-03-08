@@ -1,0 +1,9 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .CertificateTitle {
+        margin-top: 10px;
+        height: 90px;
+        font-size: 3rem;
+    }
+}

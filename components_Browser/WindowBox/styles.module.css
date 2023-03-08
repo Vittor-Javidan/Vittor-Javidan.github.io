@@ -1,0 +1,45 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .div {
+        
+        display: flex;
+        flex-direction: column;
+        
+        background-color: rgb(0 0 0 / 0.75);
+        
+        border: 2px solid #374151;
+    }
+    
+    .div_NotExpanded {
+
+        position: absolute;
+        
+        width: 1000px;
+        height: 900px;
+    
+        border-radius: 10px;
+    }
+    
+    .div_Expanded {
+        top: 0px;
+        margin-left: 88px;
+    
+        width: calc(100% - 88px);
+        height: 100%;
+    }
+    
+    .div_Minimized {
+        transition-duration: 600ms;
+    }
+    
+    .div_Visible {
+        scale: 1;
+        opacity: 1;
+    }
+    
+    .div_Invisible {
+        scale: 0;
+        opacity: 0;
+    }
+}

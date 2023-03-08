@@ -1,14 +1,12 @@
-import { ReactNode } from "react";
 import styles from './styles.module.css';
 
-export default function MobileDisplay(props: {
-    children: ReactNode
-}) {
+export default function MobileDisplay() {
     return (
         <div
+            id={"Mobile-Display"}
             className={styles.div}
         >
-            {props.children}
+
         </div>
     )
 }

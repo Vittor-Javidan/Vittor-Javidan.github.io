@@ -1,0 +1,11 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .Img {
+        width: 300px;
+        height: 300px;
+        
+        border-radius: 50%;
+        border: 2px solid #374151;
+    }
+}

@@ -1,0 +1,26 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .Div {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        color: #FFF;
+    }
+    
+    .H1 {
+        font-size: 5rem;
+        width: auto;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    
+    .P {
+        margin-bottom: 20px;
+    }
+    
+    .P::first-letter {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+}

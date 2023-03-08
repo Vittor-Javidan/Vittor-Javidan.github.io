@@ -1,0 +1,40 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+
+    .MainDiv {
+        display: flex;
+        align-items: center;
+        
+        height: 120px;
+        margin: 0 25px;
+        padding: 0 20px;
+
+        border: 2px solid transparent;
+        border-radius: 10px;
+
+        font-size: 1.6rem;
+    }
+
+    .MainDiv:hover {
+        color: #d946ef;
+
+        border: 2px solid #d946ef;
+    }
+
+    .Img {
+        height: 101px;
+        width: 80px;
+
+        cursor: pointer;
+    }
+
+    .InfoArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4px;
+
+        width: 100%;
+        padding-left: 40px;
+    }
+}

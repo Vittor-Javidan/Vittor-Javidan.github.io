@@ -21,9 +21,6 @@ windowsBoxes.forEach((page, index) => {
 		draggableArea: dragAreas[index],
 		target: page,
 	})
-
-	//Make green dots reset position
-	addResetPosition(page, greenDots[index])
 })
 
 
@@ -81,29 +78,4 @@ function makeDraggable({ draggableArea, target }) {
 		currentX = e.clientX
 		currentY = e.clientY
 	}
-}
-
-/**
- * @param {HTMLElement} element 
- * @param {HTMLElement} button 
- */
-function addResetPosition(element, button) {
-
-	const fullscreenX = 88
-	const fullscreenY = 0
-
-	const defaultX = 88 + 100
-	const defaulty = 0 + 100
-
-	button.addEventListener('click', () => {
-
-		if(!element.classList.contains('fullscreen')) {
-			element.style.top = `${fullscreenY}px`
-			element.style.left = `${fullscreenX}px`
-		} else {
-			element.style.top = `${defaulty}px`
-			element.style.left = `${defaultX}px`
-		}
-
-	})
 }

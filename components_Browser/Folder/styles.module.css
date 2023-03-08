@@ -1,0 +1,23 @@
+/*BROWSER*/
+@media (min-width: 1401px) {
+    
+    .MainDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        height: 130px;
+    
+        font-size: 1.2rem;
+    }
+    
+    .MainDiv:hover {
+        transform: translateY(-5px);
+        transition-duration: 75ms;
+    }
+    
+    .OpenFolder {
+        color: #d946ef;
+    }
+}
