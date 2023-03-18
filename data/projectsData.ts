@@ -7,7 +7,27 @@ export const projectsData: {
     }[]
 }[] = [
     {
-        projectType: "ISOLATED FEATURES",
+        projectType: "Mobile Apps",
+        itemList: [
+            {
+                projectName: "Wall Paint Calculator",
+                tecnologies: "Javascript, React Native",
+                url: "https://play.google.com/store/apps/details?id=com.lonewispapps.wallpaintcalculatormobile"
+            }
+        ]
+    },
+    {
+        projectType: "Websites",
+        itemList: [
+            {
+                projectName: "clone of: devall.com.br",
+                tecnologies: "TypeScript, NextJS",
+                url: "https://vittor-javidan.github.io/Dev_All/"
+            }
+        ]
+    },
+    {
+        projectType: "Isolated Features",
         itemList: [
             {
                 projectName: "Draggable Element",
@@ -22,14 +42,4 @@ export const projectsData: {
             
         ]
     },
-    {
-        projectType: "MOBILE APPS",
-        itemList: [
-            {
-                projectName: "Wall Paint Calculator",
-                tecnologies: "Javascript, React Native",
-                url: "https://play.google.com/store/apps/details?id=com.lonewispapps.wallpaintcalculatormobile"
-            }
-        ]
-    }
 ]

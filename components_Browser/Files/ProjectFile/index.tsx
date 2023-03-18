@@ -13,8 +13,9 @@ export default function ProjectFile(props: {
 
     switch (props.projectType) {
         
-        case "ISOLATED FEATURES":   svgDirectory = "/static/svg/webFile.svg"        ;break
-        case "MOBILE APPS":         svgDirectory = "/static/svg/playStoreFile.svg"  ;break
+        case "Isolated Features":   svgDirectory = "/static/svg/webFile.svg"        ;break
+        case "Mobile Apps":         svgDirectory = "/static/svg/playStoreFile.svg"  ;break
+        case "Websites":            svgDirectory = "/static/svg/webFile.svg"        ;break
         default: svgDirectory = ""                                                  ;break
     }
     
