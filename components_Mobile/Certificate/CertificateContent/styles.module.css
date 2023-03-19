@@ -9,6 +9,7 @@
         height: 225px;
         width: 375px;
     
+        border-radius: 5px;
         border: 2px solid #374151;
         
         font-size: 2rem;
@@ -33,6 +34,7 @@
         height: 225px;
         width: 375px;
     
+        border-radius: 5px;
         border: 2px solid #374151;
         
         font-size: 2rem;
