@@ -27,7 +27,7 @@ export const projectsData: {
         ]
     },
     {
-        projectType: "Isolated Features",
+        projectType: "Proof of Concept (POCs)",
         itemList: [
             {
                 projectName: "Draggable Element",
@@ -39,7 +39,11 @@ export const projectsData: {
                 tecnologies: "Javascript, HTML, CSS",
                 url: "https://vittor-javidan.github.io/PartialDraggableElement/",
             },
-            
+            {
+                projectName: "Modals With Dialog HTML tag and only one ref",
+                tecnologies: "React",
+                url: "https://vittor-javidan.github.io/POC_Modal_Dialog_Children_OneRef_Typescript/",
+            },
         ]
     },
 ]
