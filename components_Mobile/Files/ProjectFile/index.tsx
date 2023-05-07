@@ -12,10 +12,10 @@ export default function ProjectFile(props: {
 
     switch (props.projectType) {
         
-        case "Isolated Features":   svgDirectory = "/static/svg/webFile.svg"        ;break
-        case "Mobile Apps":         svgDirectory = "/static/svg/playStoreFile.svg"  ;break
-        case "Websites":            svgDirectory = "/static/svg/webFile.svg"        ;break
-        default: svgDirectory = ""                                                  ;break
+        case "Mobile Apps":               svgDirectory = "/static/svg/playStoreFile.svg"  ;break
+        case "Websites":                  svgDirectory = "/static/svg/webFile.svg"        ;break
+        case "Proof of Concept (POCs)":   svgDirectory = "/static/svg/webFile.svg"        ;break
+        default:                          svgDirectory = ""                               ;break
     }
     
     return (
