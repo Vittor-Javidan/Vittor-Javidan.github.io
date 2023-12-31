@@ -15,7 +15,7 @@ export const projectsData: {
                 url: "https://play.google.com/store/apps/details?id=com.lonewispapps.earthlog"
             },
             {
-                projectName: "Wall Paint Calculator",
+                projectName: "Wall Paint Calculator (Unpublished, sdk update needed)",
                 tecnologies: "Javascript, React Native",
                 url: "https://play.google.com/store/apps/details?id=com.lonewispapps.wallpaintcalculatormobile"
             }
