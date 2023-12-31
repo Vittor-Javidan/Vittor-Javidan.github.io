@@ -10,6 +10,11 @@ export const projectsData: {
         projectType: "Mobile Apps",
         itemList: [
             {
+                projectName: "Earth Log",
+                tecnologies: "Typescript, React Native, Expo",
+                url: "https://play.google.com/store/apps/details?id=com.lonewispapps.earthlog"
+            },
+            {
                 projectName: "Wall Paint Calculator",
                 tecnologies: "Javascript, React Native",
                 url: "https://play.google.com/store/apps/details?id=com.lonewispapps.wallpaintcalculatormobile"
